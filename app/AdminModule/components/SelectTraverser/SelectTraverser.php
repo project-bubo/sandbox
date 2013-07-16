@@ -2,9 +2,9 @@
 
 namespace AdminModule\Components;
 
-use Netstars;
+use Bubo;
 
-class SelectTraverser extends Netstars\Traversing\Traverser {   
+class SelectTraverser extends Bubo\Traversing\Traverser {   
     
     const LAST_MARK             = '`--';
     const NON_LAST_MARK         = '|--';

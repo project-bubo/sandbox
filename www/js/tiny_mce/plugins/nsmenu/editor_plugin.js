@@ -2,7 +2,7 @@
 
 (function() {
         
-	tinymce.create('tinymce.plugins.NetstarsMenuPlugin', {
+	tinymce.create('tinymce.plugins.BuboMenuPlugin', {
 		init : function(ed, url) {
                 },
                         
@@ -61,7 +61,7 @@
 
 		getInfo : function() {
 			return {
-				longname : 'Netstars Menu plugin',
+				longname : 'Bubo Menu plugin',
 				author : 'NETSTARS s.r.o',
 				authorurl : 'http://www.netstars.cz',
 				infourl : '',
@@ -71,5 +71,5 @@
 	});
 
 	// Register plugin
-	tinymce.PluginManager.add('nsmenu', tinymce.plugins.NetstarsMenuPlugin);
+	tinymce.PluginManager.add('nsmenu', tinymce.plugins.BuboMenuPlugin);
 })();

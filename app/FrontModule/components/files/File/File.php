@@ -2,9 +2,9 @@
 
 namespace FrontModule\Components\Files;
 
-use Netstars;
+use Bubo;
 
-class File extends Netstars\Components\RegisteredControl {   
+class File extends Bubo\Components\RegisteredControl {   
 
     public function render($fileId = NULL, $getAs = NULL) {
         //$this->setTemplateFile();

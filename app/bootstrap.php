@@ -236,7 +236,7 @@ if(class_exists("Dibi", true)) {
  * Extension method for FormContainer
  */
 function FormContainer_addMediaFile(/*\Nette\Application\UI\Form*/ $_this, $name, $label = NULL) {
-  return $_this[$name] = new \Netstars\MediaFileInput($label);
+  return $_this[$name] = new \Bubo\MediaFileInput($label);
 //    echo "mediaFile je připojeny";
 //    die();
 }

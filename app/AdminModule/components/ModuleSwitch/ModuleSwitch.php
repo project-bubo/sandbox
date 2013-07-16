@@ -2,9 +2,9 @@
 
 namespace AdminModule\Components;
 
-use Netstars;
+use Bubo;
 
-class ModuleSwitch extends \Netstars\Components\RegisteredControl {   
+class ModuleSwitch extends \Bubo\Components\RegisteredControl {   
     
     public function createComponentModuleSwitchForm($name) {
         return new ModuleSwitch\Components\ModuleSwitchForm($this, $name);

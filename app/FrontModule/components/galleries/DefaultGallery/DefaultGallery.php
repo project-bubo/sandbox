@@ -2,9 +2,9 @@
 
 namespace FrontModule\Components\Galleries;
 
-use Netstars;
+use Bubo;
 
-class DefaultGallery extends Netstars\Components\RegisteredControl {   
+class DefaultGallery extends Bubo\Components\RegisteredControl {   
     
     private $galleryId = NULL;
     
