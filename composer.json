@@ -13,6 +13,6 @@
                 "nette/nette": "2.0.6"
 	},
 	"autoload": {
-		"classmap": ["src/"]
+		"classmap": ["src/Bubo/"]
 	}
 }
