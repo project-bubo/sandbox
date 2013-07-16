@@ -1,0 +1,64 @@
+{block content}
+
+<script type="text/javascript">
+    $(function() {
+        
+        $( ".vd-content" ).on( "sortupdate", function( event, ui ) {
+            $('.save-sortorder-button').show();
+        } );
+
+        $('.save-sortorder-button').live('click', function(e) {
+            e.preventDefault();
+            $.getJSON("{!$sortImagesLink}", { 'data': $(".vd-content").sortable('serialize') });
+        });
+
+        $('.vd-content').mCustomScrollbar({
+            set_width: 750,
+            set_height:470,
+            mouseWheelPixels: 154,
+            scrollInertia: 170,
+            advanced: {
+                updateOnContentResize: true
+            },
+            callbacks: {
+                onTotalScroll: function() {
+                    $.get({$loadLink}, { 'media-content-offset': mediaJsConfig['offset'] }, function(payload) {
+                        $.nette.success(payload);
+                    })
+                }
+            }
+        });
+        
+    });
+</script>
+
+<div class="vd-main clearfix">
+        <div class="vd-content gridLayout fleft">
+            
+            {if $folderContent}
+                {foreach $folderContent as $contentSectionName => $contentSections}
+                    {foreach $contentSections as $contentItem}
+                        {control contentItem-$contentItem[type]_$contentItem[id]}
+                        {? if ($iterator->counter >= 24) break; }
+                    {/foreach}
+                {/foreach}
+            {/if}
+	    
+        </div>
+    
+</div>
+
+
+
+    <div class="vd-popupContainer">
+        <div class="vd-popupOverlay"></div>
+        <div class="vd-popupWrapper">
+            
+            
+            {snippet #popUp}
+                {control popUp}
+            {/snippet}
+            
+        </div>
+    </div>
+

@@ -1,0 +1,12 @@
+
+{block content}
+
+    {if $folderContent}
+        {foreach $folderContent as $contentSectionName => $contentSections}
+            {foreach $contentSections as $contentItem}
+                {? if ($iterator->counter <= $offset) continue; }
+                {control contentItem-$contentItem[type]_$contentItem[id]}
+                {? if ($iterator->counter >= ($offset + $limit)) break; }
+            {/foreach}
+        {/foreach}
+    {/if}

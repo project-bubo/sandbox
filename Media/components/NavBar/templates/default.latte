@@ -1,0 +1,9 @@
+
+{block content}
+<div class="fleft">
+    {$start}{$separator}
+    {foreach $breadcrumbs as $breadcrumb}
+        {control navBarItem-$breadcrumb[type]_$breadcrumb[id]:asBreadcrumb $iterator->isLast()}
+        {sep}{$separator}{/sep}
+    {/foreach}    
+</div>

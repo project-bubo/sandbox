@@ -1,0 +1,20 @@
+
+{block content}
+    <div {if $isInPasteBin}style="opacity:0.5"{/if} id="gallery-{$folderItem[id]}" class="vd-item vd-galleryItem" data-mediatype="1" data-name="{$folderItem[name]}" data-size="0" data-timestamp="{$folderItem[created]->getTimestamp()}">
+        <div class="vd-itemImageContainer">
+            <img src="{$iconSrc}" alt="icon" />
+        </div>
+        <div class="vd-itemName">{$folderItem[name]}</div>
+        <div class="vd-itemSize">-</div>
+        <div class="vd-itemDate">{$folderItem[created]->format('j.n.Y')}</div>
+        
+        {if !$isInPasteBin}
+        <a class="vd-detailLink ajax" n:href="enterGallery galleryId => $folderItem[id]"></a>
+
+        <a href="#" class="itemContextMenuButton"><i class="icon-cog"></i></a>
+        <div class="vd-contextMenu">
+            {$menu}
+        </div>
+        {/if}
+        
+    </div>

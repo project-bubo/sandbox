@@ -1,0 +1,11 @@
+
+{block content}
+
+{_}Select language:{/_} 
+    <a n:foreach="$langs as $langCode => $lang" class="langLink" href="{plink this lang => $langCode}" title="{_}__NativeLanguage{/_}"><img src="{$basePath}/images/flags/{$langCode}.png" alt="{_}__NativeLanguage{/_}"></a> 
+{*
+        <a class="langLink" href="#" title="česká verze"><img src="images/flag_cs.png" alt="česká verze"></a> 
+        <a class="langLink" href="#" title="deutsche Version"><img src="images/flag_de.png" alt="deutsche Version"></a> 
+        <a class="langLink" href="#" title="Version française"><img src="images/flag_fr.png" alt="Version française"></a> 
+        <a class="langLink" href="#" title="Русская версия"><img src="images/flag_ru.png" alt="Русская версия"></a>
+*}
