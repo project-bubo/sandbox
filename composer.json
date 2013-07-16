@@ -14,5 +14,5 @@
 	},
 	"autoload": {
 		"classmap": ["src/"]
-	},
+	}
 }
