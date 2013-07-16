@@ -1,0 +1,20 @@
+{block content}
+    <div class="vd-itemDetail clearfix">
+        <h2>{$folderItem[name]}</h2>
+        {form mediaImageSettingForm}
+        <div class="vd-imageActions">
+            <div class="vd-itemPreview jCrop">
+                <img rel="{$dimensions}" src="{$iconSrc}" alt="" />
+            </div>
+
+            <!--<div class="vd-validationMessage">
+                <span>Test msg</span>
+            </div>-->
+        </div>
+
+        
+        {*<div class="vd-itemPreviewButtons fleft">
+            <img class="test" src="{$originalImage}" alt="" />
+        </div>*}
+        {/form}
+    </div>

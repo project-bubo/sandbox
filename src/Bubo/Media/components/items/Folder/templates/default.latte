@@ -1,0 +1,18 @@
+
+{block content}
+    <div class="vd-item" data-mediatype="0" data-name="{$folderItem[name]}" data-size="0" data-timestamp="{$folderItem[created]->getTimestamp()}">
+        <div class="vd-itemImageContainer">
+            <img src="{$iconSrc}" alt="icon" />
+        </div>
+        <div class="vd-itemName">{$folderItem[name]}</div>
+        <div class="vd-itemSize">-</div>
+        <div class="vd-itemDate">{$folderItem[created]->format('j.n.Y')}</div>
+        
+        <a class="vd-detailLink ajax" n:href="enterFolder folderId => $folderItem[id]"></a>
+
+        <a href="#" class="itemContextMenuButton"><i class="icon-cog"></i></a>
+        <div class="vd-contextMenu">
+            {$menu}
+        </div>
+        
+    </div>

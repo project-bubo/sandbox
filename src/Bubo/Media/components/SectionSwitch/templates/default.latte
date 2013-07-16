@@ -1,0 +1,9 @@
+
+{block content}
+    <ul class="vd-switch">
+        <li n:foreach="$sections as $secitonName => $section" n:class="$secitonName == $currentSection ? current">
+            <a class="ajax" n:href="switchSection! section => $secitonName">
+                <i class="{$section[class]}"></i>{$section[label]}
+            </a>
+        </li>
+    </ul>
