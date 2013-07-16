@@ -1,0 +1,58 @@
+{layout '@layout.latte'}
+
+
+{block #tree}
+<a class="ajax" n:href="move! fid=>0">{_"Soubory"}</a>:/{if $tree}{foreach $tree as $item}<a n:href="move!, 'fid'=>$item['folder_id']" class="ajax">{$item[name]}</a>/{/foreach}{/if}{$fileInfo->name}                
+{/block}
+
+
+{block #content}
+                <script>
+                    $(function(){
+                        VirtualDrive.getSelection();
+                    });
+                </script>
+                            <div class="fileDetail">
+                                <form id="insert_image" onsubmit="VirtualDrive.insert();return false;">
+                                <table class="drive">
+
+                                </table>
+                                    <table border="0">
+                                    <tr><th>{_"Cesta k souboru"}</th><td> <input type="text" name="src" value="{$basePath}{$presenter->context->virtualDrive->getFullPath()}{!$fileInfo->filename}"/></td></tr>
+                                    <tr><th>{_"Text odkazu"}</th><td> <input type="text" name="link_title" id="link_title" value="" /></td></tr>
+                                    <tr><th>{_"CSS třída odkazu"}</th><td> <input type="text" name="cssclass" value="" /></td></tr>
+                                    
+                                    
+                                    {if $fileInfo->image}
+                                        <input type="hidden" id="frm_img" name="image" value="1" />
+                                        {if is_array($galleryConfig['thumbnails']) && count($galleryConfig['thumbnails']) > 0}
+                                        <tr class="th"><th>{_"Náhledy"}</th><td> 
+                                                {foreach $galleryConfig['thumbnails'] as $tnName=>$thumb}
+                                                    <input type="radio" name="thumb" id="frm-thumb-{$tnName}" value=""><label for="frm-thumb-{$tnName}">{$tnName} ({$thumb['width']}x{$thumb['height']})</label>
+                                                {/foreach}
+                                        </td></tr>
+                                        {/if}
+                                        <tr class="th"><th>{_"Šířka"}</th><td> <input type="text" name="width" value="150" class="text"/></td></tr>
+                                        <tr class="th"><th>{_"Výška"}</th><td> <input type="text" name="height" value="150" class="text" /></td></tr>
+                                        <tr><td colspan="2">
+                                                <input type="submit" id="insert" class="insert th" name="insert" value="{_'Vložit náhled'}" />
+                                                <input type="submit" id="insert_link" class="insert"  name="insert" value="{_'Vložit odkaz'}" style="display:none" />
+                                        </td></tr>
+                                    {else}
+                                        <tr><td colspan="2"><input type="submit" id="insert" class="insert"  name="insert" value="{_'Vložit odkaz'}" /></td></tr>
+                                        <input type="hidden" name="image" value="0" />
+                                    {/if}
+                                    </table>
+                                </form>
+                                <form id="insert_div" onsubmit="VirtualDrive.insertDiv();return false;">
+                                    <input type="hidden" name="id" value="{$fileInfo['file_id']}" />
+                                    <input type="hidden" name="icon" value="{if $fileInfo->image}image{else}{substr($fileInfo->name,-(strlen($fileInfo->name)-strrpos($fileInfo->name,'.')-1))}{/if}"/>
+                                    <input type="hidden" name="name" value="{$fileInfo['name']}"/>
+                                    <input class="fleft" type="submit" class="insert" name="add" value="{_'Připojit ke stránce'}" />
+                                </form>
+                                {*<form action="{link deleteFile! 'fileId'=>$fileInfo['file_id']}" class="ajax">
+                                    <input class="fleft" type="submit" id="cancel"  name="delete" value="{_'Smazat soubor!'}" />
+                                </form>*}
+                            </div>
+
+    {/block}

@@ -1,0 +1,24 @@
+
+{block content}
+    
+    {if $breadBrumbs}
+
+    <div class="breadcrumb clearfix">
+        <a class="home" href="{plink Default:default lang => $currentPage->getUrlLang(), url => NULL}"></a>
+        <span class="arr"></span>
+        {foreach $breadBrumbs as $page}
+        
+            {if $page->_tree_node_id !== $currentPage->_tree_node_id}
+                <a href="{$page->_front_url}">{$page->_title}</a>
+            {else}
+                <span>{$page->_title}</span>
+            {/if}
+        
+            {sep}<span class="arr"></span>{/sep}
+        
+        {/foreach}
+        
+    </div>
+
+
+    {/if}

@@ -1,0 +1,6 @@
+<div id="{$menuId}" class="vmenu" style="display:{$display};left:{$left}px;top:{$top}px;z-index:1001;">
+ 	   
+    <div class="first_li"><a n:href="edit! id=>$id" class="ajax">{_"Edit gallery"}</a></div>
+    <div class="first_li"><a n:href="confirmer:confirmDelete! id=>$id" class="ajax">{_"Delete gallery"}</a></div>
+</div>
+{control confirmer}

@@ -1,0 +1,283 @@
+{block title} <h1><img src="{$basePath}/images/icons/scrap-add-icon.png" />{_"Vytvořit útržek"}</h1> {/block}
+
+
+
+{block content}
+
+
+    <style>
+        span.writeThrough {
+            font-size: 9px;
+            color: blue;
+            cursor: pointer;
+        }
+    </style>
+
+    <script>
+        $(function() {
+            
+            function writeThrough($value, $propertyName, $langs, $type, $el) {
+                    
+                    // writeThrough
+                    for (var i=0; i<$langs.length; i++) {
+                        if ($type == 'text') {
+                            $('input[name="'+$langs[i]+'['+$propertyName+']"]').val($value);
+                        } else if ($type == 'textarea') {
+                            $('textarea[name="'+$langs[i]+'['+$propertyName+']"]').val($value);
+                        }
+                    }
+
+                    // highlight
+                    var $id = $el.attr('id');
+                    $('label[for="'+$id+'"]').attr('style', 'font-weight:bold');
+                    
+                
+            }
+            
+            $('span.writeThrough').live('click', function() {
+                
+                                var $currentLang = $(this).attr('data-code');
+                                var $propertyName = $(this).attr('data-propertyName');                
+                                var $sourceInputName = $currentLang+'['+$propertyName+']';                                
+                                
+                                // text and submits
+                                var $type = $('input[name="'+$sourceInputName+'"]').attr('type');
+                                
+                                // chceck texareas
+                                if ($type == undefined) {
+                                    $textarea = $('textarea[name="'+$sourceInputName+'"]');
+                                    if ($textarea != undefined) {
+                                        $type = 'textarea';
+                                    }
+                                }
+                                
+                                
+                                var $value;                                
+                                
+                                var $el;
+                                
+                                if ($type == 'text') {
+                                    $el = $('input[name="'+$sourceInputName+'"]');
+                                } else if ($type == 'textarea') {
+                                    $el = $('textarea[name="'+$sourceInputName+'"]');
+                                }
+                                
+                                $value = $el.val();
+                                //alert($type, $propertyName);
+                                
+                                
+                                {var $var = '["'.implode('","',array_keys($activatedLanguages)).'"]'}
+                                var $langs = {!$var};
+                                writeThrough($value, $propertyName, $langs, $type, $el);
+                                
+//                                //$selectors = new Array;
+//                                for (var i=0; i<$langs.length; i++) {
+//                                    //$selectors[i]= "input[name="+ $langs[i]+"]";
+//                                    $('input[name="'+$langs[i]+'['+$(this).attr('data-propertyName')+']"]').val($value);
+//                                }
+                                
+            })
+            
+            
+            
+        })
+    </script>
+
+    <div class="tom_cleaner"></div>
+    
+    
+    
+    
+    {* {widget pageForm} *}
+    
+    
+    
+    {form pageForm}
+    
+        
+        {input what_to_publish}
+        {input send}
+        {input cancel}
+    
+        {input parent}
+    
+    <br />
+    <br />
+    
+    
+    {label layout /}
+    {input layout}
+    
+    <br />
+    
+    <script type="text/javascript">
+        
+        $(function() {
+            $( "#tabs" ).tabs({ selected: {$presetTab} });
+        })
+        
+    </script>
+    
+        
+        {if count($activatedLanguages) > 1}
+        <div id="tabs">
+            <ul>
+            {foreach $activatedLanguages as $code => $language}
+                <li><a href="#tabs-{$code}"><img src="{$basePath}/images/flags/{$code}.png">&nbsp;{$language}</a>{input lang_versions-$code}</li>
+            {/foreach}
+            </ul>
+        {/if}
+        
+            {foreach $activatedLanguages as $code => $language}
+            
+                <div id="tabs-{$code}">
+            
+
+                    <div style="display:none;">{input $code.'-parent_url'}</div>
+                    
+                    {*snippet urlEditor-$code}
+                        {control urlEditor_$code}
+                    {/snippet*}
+                    
+                    <table>
+                        
+                        
+                        <tr>
+                            <td>
+                                {label $code.'-name' /}
+                            </td>
+                            <td>
+                                {input $code.'-name'}
+                            </td>
+
+                        </tr>
+                        
+
+                        {*
+                        <tr>
+                            <td>
+                                {label $code.'-start_public' /}
+                            </td>
+                            <td>
+                                {input $code.'-start_public'}
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td>
+                                {label $code.'-stop_public' /}
+                            </td>
+                            <td>
+                                {input $code.'-stop_public'}
+                            </td>
+                        </tr>
+                        *}
+                        {foreach $form->properties as $propertyName => $property}
+                           
+                            <tr>
+                                <td>
+                                    {label $code.'-'.$propertyName /}
+                                    {if isset($property['type']) && in_array(strtolower($property['type']), array('text', 'textarea'))}
+                                    <span class="writeThrough" data-code="{$code}" data-propertyName="{$propertyName}">(copy)</span>
+                                    {/if}
+                                </td>
+                                <td>
+                                    {input $code.'-'.$propertyName}
+                                </td>
+
+                            </tr>
+                           
+                        {/foreach}
+                        
+
+                    </table>
+                    
+                    
+                    <div class="accordion">
+                        <h3><a href="#">SEO</a></h3>
+                        <div>
+                            <table>
+                                <tr>
+                                    <td>
+                                        {label $code.'-title' /}
+                                    </td>
+                                    <td>
+                                        {input $code.'-title'}
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        {label $code.'-page_title' /}
+                                    </td>
+                                    <td>
+                                        {input $code.'-page_title'}
+                                    </td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>
+                                        {label $code.'-link_title' /}
+                                    </td>
+                                    <td>
+                                        {input $code.'-link_title'}
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        {label $code.'-menu_title' /}
+                                    </td>
+                                    <td>
+                                        {input $code.'-menu_title'}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        {label $code.'-meta_keys' /}
+                                    </td>
+                                    <td>
+                                        {input $code.'-meta_keys'}
+                                    </td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>
+                                        {label $code.'-meta_description' /}
+                                    </td>
+                                    <td>
+                                        {input $code.'-meta_description'}
+                                    </td>
+                                </tr>
+                                
+                            </table>
+                        </div>
+                       
+                    </div>
+                    
+                    
+                </div>
+            {/foreach}
+        
+            
+            
+        {if count($activatedLanguages) > 1}
+            
+        </div>
+    
+        {/if}
+        
+        
+    {/form}
+
+{/block}
+
+{block down}
+<div id="layout_workspace">
+        <div>
+            {for $i=1;$i<7;$i++}
+                <a href="#" onclick="return setPageSelectValue({$i})"><img src="{$basePath}/images/layouts/layout_style_{$i}.png" alt="rozvrzeni {$i}" title="rozvrzeni {$i}" /></a> 
+            {/for}
+        </div>
+    </div>
+{/block}

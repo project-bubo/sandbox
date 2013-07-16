@@ -1,0 +1,20 @@
+
+{block content}
+
+{control testForm}
+
+
+{foreach $galleries as $gal}
+
+    {foreach $gal as $props}
+        
+        {foreach $props as $prop}
+        
+            {dump $prop}
+                <a href="{$basePath}{$prop['image']['url']}"><img src="{$basePath}{$prop['thumbnails']['small']['url']}" /></a>
+        {/foreach}
+
+    {/foreach}
+
+
+{/foreach}

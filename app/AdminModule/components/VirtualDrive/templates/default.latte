@@ -1,0 +1,80 @@
+{layout '@layout.latte'}
+
+
+{block #tree}          
+<a class="ajax" n:href="move! fid=>0">{_"Soubory"}</a>:/{if $tree}{foreach $tree as $item}<a class="ajax" n:href="move! fid=>$item[folder_id]">{$item[name]}</a>/{/foreach}{/if}
+{/block}
+
+
+{block #left}      
+        <div id="file_info">
+                {if $fileInfo}
+                    <table class="finfo">
+                        <tr><td>{_"Název souboru"}</td><td title="{$fileInfo->name}">{$fileInfo->name|truncate:22}</td></tr>
+                        <tr><td>{_"Datum vytvoření"}</td><td>{$fileInfo->added|date:"d.m.Y"}</td></tr>
+                        {if $gallery}<tr><td>{_"Galerie"}</td><td><a class="ajax" n:href="setView 'view'=>'galleries','gid'=>$fileInfo->gallery_id">{$gallery->name}</td></tr>{/if}
+                        <tr><td>{_"Akce"}</td><td><a class="confirm" confirm="{_"Opravdu chcete soubor '%s' natrvalo odstranit",$fileInfo->name}?" n:href="deleteFile 'fileId'=>$fileInfo->file_id">{_"Smazat soubor"}</td></tr>
+                    </table>
+
+                    {if $thumb}
+                        <a href="{$basePath}{$detail}" title="{_'Detail'}" rel="external"><img src="{$basePath}{$thumb}" width="190" alt="" title="{_'Náhled'}" /></a>
+                    {/if}
+                {/if}
+                {if $folderInfo}
+                    <table class="finfo">
+                        <tr><td>{_"Název složky"}</td><td title="{$folderInfo['name']}">{$folderInfo['name']|truncate:22}</td></tr>
+                        <tr n:if="count($folderInfo['folders']) > 0"><td>{_"Podsložky"}</td><td>{count($folderInfo['folders'])}</td></tr>
+                        <tr n:if="count($folderInfo['files']) > 0"><td>{_"Soubory"}</td><td>{count($folderInfo['files'])}</td></tr>
+                        <tr><td>{_"Akce"}</td><td><a class="confirm" confirm="{_"Opravdu chcete složku '%s' natrvalo odstranit",$folderInfo['name']}?" n:href="deleteFolder 'id'=>$folderInfo['folder_id'], 'recursively'=>FALSE">{_"Smazat složku"}</td></tr>
+                        <tr><td></td><td><a class="confirm" confirm="{_"Opravdu chcete natrvalo odstranit složku '%s' včetně podadresářů",$folderInfo['name']}?" n:href="deleteFolder 'id'=>$folderInfo['folder_id'], 'recursively'=>TRUE">{_"Smazat včetně obsahu"}</td></tr>
+                    </table>
+                {/if}
+            </div>
+{/block}
+
+{block #content}            
+    <div style="position:relative" id="{$contextMenuListenerId}">
+        <table class="drive_legend">
+            <tr><td width="32"></td><td>{_"Název"}</td><td width="80">{_"Velikost"}</td><td width="100">{_"Datum vytvoření"}</td></tr>
+        </table>
+            <div class="fileManager">
+                <table class="drive">
+                {if $parent !== false}
+                        <tr class="click" n:href="move! fid=>$parent"><td class="folder_up" width="32"></td><td>..</td><td width="80"></td><td width="100"></td></tr>
+                {/if}
+
+                {if is_array($data['folders'])}
+                    {foreach $data['folders'] as $folder}
+                        <tr class="file_line click" menu_id="{$folder->folder_id}" n:href="getFolderInfo! 'id'=>$folder->folder_id" detail="{link move! fid=>$folder->folder_id}"><td class="folder{if $presenter->virtualDriveService->isFolderEmpty($folder->folder_id)}_empty{/if}" width="32"></td><td>{$folder->name}</td><td width="80">[{_"Složka"}]</td><td width="100">{$folder->added|date:"d.m.Y"}</td></tr>
+                    {/foreach}
+                {/if}
+
+
+                {if is_array($data['files'])}
+
+                    {foreach $data['files'] as $file}
+                        <tr class="file_line click cmenu" detail="{link setView! 'view'=>'file', 'id'=>$file->file_id}" n:href="getInfo! id=>$file->file_id" menu_id="{$file->file_id}"><td class="file file_{if $file->image}image{else}{substr($file->name,-(strlen($file->name)-strrpos($file->name,'.')-1))}{/if}" width="32"></td><td>{$file->name}</td><td width="80">{$file->size|bytes}</td><td width="100">{$file->added|date:"d.m.Y"}</td></tr>
+                    {/foreach}
+                {/if}
+                </table>
+            </div>
+    </div>              
+
+    <script type="text/javascript">
+        var selected = false;
+        $(function() {
+            $('.file_line').click(function(){
+                if(selected == $(this).attr('menu_id')){
+                    $.get($(this).attr('detail'));
+                }else{
+                    $('.file_line').removeClass('clicked');
+                    $(this).addClass('clicked');
+                    selected = $(this).attr('menu_id');
+                }
+            });
+
+        })
+    </script>
+
+{/block} 
+

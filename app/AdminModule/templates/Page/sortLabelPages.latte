@@ -1,0 +1,10 @@
+{block title} <h1>{_"Řazení stránek v rámci štítku '$label[name]"}&nbsp;<span style="color:#{$label[color]}">&diams;</span>'</h1> {/block}
+
+{block content}
+
+    {snippet #labelSorter}
+        {control labelSorter $label[label_id]}
+    {/snippet}
+    
+{/block}
+

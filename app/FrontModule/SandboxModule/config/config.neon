@@ -1,0 +1,23 @@
+production:
+    parameters:
+        database:
+            driver: mysql
+            host: localhost
+            username: ***
+            password: ***
+            database: ***
+            charset: utf8
+            profiler: true
+
+
+development:
+    parameters:
+        database:
+            driver: mysql
+            host: localhost
+            username: root
+            password: root
+            database: bubo
+            charset: utf8
+            profiler: true
+

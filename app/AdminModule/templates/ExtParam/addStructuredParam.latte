@@ -1,0 +1,122 @@
+{block title} <h1>{_"Vytvoření strukturovaného parametru ke stránce"} "{$page->_name}"</h1> {/block}
+
+{block content}
+
+
+    <div class="tom_cleaner"></div>
+    
+    {form extStructuredParamForm}
+    
+    
+    <ul class="errors" n:if="$form->hasErrors()">
+            <li n:foreach="$form->errors as $error">{$error}</li>
+    </ul>
+    
+    <script type="text/javascript">
+        
+        $(function() {
+            $( "#tabs" ).tabs();
+        })
+        
+    </script>
+    
+    <fieldset>
+        <legend><b>Společné atributy</b></legend>
+            <table>
+                        
+                
+                <tr>
+                    <td>
+                        {label 'parent' /}
+                    </td>
+                    <td>
+                        {input 'parent'}
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>
+                        {label 'x_coord' /}
+                    </td>
+                    <td>
+                        {input 'x_coord'}
+                    </td>
+                </tr>
+                
+                
+                <tr>
+                    <td>
+                        {label 'y_coord' /}
+                    </td>
+                    <td>
+                        {input 'y_coord'}
+                    </td>
+                </tr>
+                
+                
+                <tr>
+                    <td>
+                        {label 'image' /}
+                    </td>
+                    <td>
+                        {input 'image'}
+                    </td>
+                </tr>
+
+            </table>
+    </fieldset>
+    
+    
+    <br />
+        {if count($activatedLanguages) > 1}
+        <div id="tabs">
+            <ul>
+            {foreach $activatedLanguages as $code => $language}
+                <li><a href="#tabs-{$code}"><img src="{$basePath}/images/flags/{$code}.png">&nbsp;{$language}</a></li>
+            {/foreach}
+            </ul>
+        {/if}
+        
+            
+            
+            
+            {foreach $activatedLanguages as $code => $language}
+            
+            
+                <div id="tabs-{$code}">
+                                        
+                    <table>
+                        
+                        {foreach $form->components[$code]->components as $comp}
+                        
+                        
+                        <tr>
+                            <td>
+                                {label $code.'-'.$comp->name /}
+                            </td>
+                            <td>
+                                {input $code.'-'.$comp->name }
+                            </td>
+                        </tr>
+                        
+                        {/foreach}
+
+                    </table>
+                    
+                </div>
+            {/foreach}
+        
+            
+            
+        {if count($activatedLanguages) > 1}
+            
+        </div>
+    
+        {/if}
+
+        <br />
+        {input send}
+        
+    {/form}
+
+{/block}

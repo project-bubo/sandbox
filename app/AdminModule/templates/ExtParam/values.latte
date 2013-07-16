@@ -1,0 +1,103 @@
+{block title} <h1>{_"Zadávání parametrů pro stránku"} "{$page->_name}"</h1> {/block}
+
+{block content}
+
+
+    <div class="tom_cleaner"></div>
+    
+    {form extParamValuesForm}
+    
+    
+    <ul class="errors" n:if="$form->hasErrors()">
+            <li n:foreach="$form->errors as $error">{$error}</li>
+    </ul>
+    
+    <script type="text/javascript">
+        
+        $(function() {
+            $( "#tabs" ).tabs();
+        })
+        
+    </script>
+    
+        {if count($activatedLanguages) > 1}
+        <div id="tabs">
+            <ul>
+            {foreach $activatedLanguages as $code => $language}
+                <li><a href="#tabs-{$code}"><img src="{$basePath}/images/flags/{$code}.png">&nbsp;{$language}</a></li>
+            {/foreach}
+            </ul>
+        {/if}
+        
+            {foreach $activatedLanguages as $code => $language}
+            
+                
+                {*foreach $params as $extTreeNodeId => $langSection*}
+            
+            
+                    <div id="tabs-{$code}">
+
+                        <table>
+
+                            {if $units !== NULL}                        
+                            <tr>
+                                <td>
+
+                                </td>
+                                {foreach $units as $unit => $unitLabel}
+                                <td style="text-align:center;">
+                                    {$unitLabel}
+                                </td>
+                                {/foreach}
+                            </tr>
+                            {/if}
+
+                            {foreach $params as $extTreeNodeId => $data}
+                            
+                            <tr>
+                                {if $units === NULL}
+                                <td>
+                                    {label 'ext_tree_node_id_'.$extTreeNodeId.'-'.$code /}
+                                    {*label $code.'-ext_tree_node_id_'.$extTreeNodeId /*}
+                                </td>
+                                <td>
+                                    {input 'ext_tree_node_id_'.$extTreeNodeId.'-'.$code}
+                                    {*input $code.'-ext_tree_node_id_'.$extTreeNodeId*}
+                                </td>
+                                {else}
+                                    {foreach $units as $unit => $unitLabel}
+                                        {first}
+                                            <td>
+                                                {label 'ext_tree_node_id_'.$extTreeNodeId.'-'.$code.'-'.$unit /}
+                                            </td>
+                                        {/first}
+                                            <td>
+                                                {input 'ext_tree_node_id_'.$extTreeNodeId.'-'.$code.'-'.$unit}
+                                            </td>
+                                    {/foreach}
+                                {/if}
+                            </tr>
+                            {/foreach}
+
+                        </table>
+
+                    </div>
+            
+                {*/foreach*}
+                
+            {/foreach}
+        
+            
+            
+        {if count($activatedLanguages) > 1}
+            
+        </div>
+    
+        {/if}
+
+        <br />
+        {input send}
+        
+    {/form}
+
+{/block}

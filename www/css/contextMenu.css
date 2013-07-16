@@ -1,0 +1,10 @@
+ .vmenu{border:1px solid #aaa;position:absolute;background:#fff;color:#000;display:none;font-size:11px;}
+       .vmenu .first_li a,.first_li span{width:100px;display:block;padding:5px 10px;}
+       .vmenu .inner_li{display:none;margin-left:110px;position:absolute;border:1px solid #aaa;border-left:1px solid #ccc;margin-top:-28px;background:#fff;}
+       .vmenu .sep_li{border-top: 1px ridge #aaa;margin:5px 0}
+       .vmenu .fill_title{font-size:11px;font-weight:bold;height:15px;overflow:hidden;word-wrap:break-word;}
+       .vmenu .inner_li a{background-color: #fff}
+       .vmenu .inner_li a:hover, .vmenu .first_li a:hover{background-color : #b2c777;display:block}
+       .vmenu a{color:#000;text-decoration:none}
+.vmenu .first_li a.menu_status_true{background:url('../images/check.png') center left no-repeat;padding:5px 10px 5px 25px}
+.vmenu .first_li a.menu_status_false{padding:5px 10px 5px 25px}

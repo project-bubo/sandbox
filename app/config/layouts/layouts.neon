@@ -1,0 +1,8 @@
+
+layouts:
+    subpageLayout.latte: "Běžná stránka"
+    homepageLayout.latte: "Domovská stránka"
+    photogallery.latte: "Stránka fotogalerie"
+    photogalleryDetail.latte: "Detail fotogalerie"
+    news.latte: "Novinky"
+    newsDetail.latte: "Detail novinky"

@@ -1,0 +1,35 @@
+# mandatory properties of the form
+
+name:
+    type: 'text'
+    label: 'Name'
+url_name:
+    type: 'text'
+    label: 'Url'
+#start_public:
+#    type: 'text'
+#    label: 'Start public'
+#    class: j_date_from
+#stop_public:
+#    type: 'text'
+#    label: 'Stop public'
+#    class: j_date_to
+title:
+    type: 'text'
+    label: 'Title'
+page_title:
+    type: 'text'
+    label: 'Page title'
+link_title:
+    type: 'text'
+    label: 'Link title'
+menu_title:
+    type: 'text'
+    label: 'Menu title'
+meta_keys:
+    type: 'text'
+    label: 'Meta keys'
+meta_description:
+    type: 'textArea'
+    label: 'Meta description'
+    class: notiny

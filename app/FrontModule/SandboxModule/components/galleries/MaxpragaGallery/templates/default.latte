@@ -1,0 +1,48 @@
+
+{if $images}
+{var $firstImage =  reset($images)}
+
+<div class="gallery-outer">
+    <div class="gallery-inner">
+        <h1>Galerie</h1>
+        
+        <div class="gallery-container clearfix">
+
+            <div class="gallery-main-container fleft">
+                <div class="gallery-main">
+                    <div class="image-container">
+                        <img src="{$basePath}{$galPath}{$firstImage['filename']}" alt="" />
+                    </div>
+                    <div class="spinner"><span class="mask"></span></div>
+                </div>
+
+                <div class="gallery-controls clearfix">
+                    <a class="arrow left" href="#"></a>
+                    <span class="name"></span>
+                    <a class="arrow right" href="#"></a>
+                </div>
+
+            </div>
+
+            <div class="gallery-thumbs fright">
+                <div class="thumbs-container clearfix">
+                    <div class="gallery-viewport clearfix">
+                        {foreach $images as $image}
+                        <div class="thumb-box"><a href="{$basePath}{$galPath}{$image['filename']}" title=""><img src="{$basePath}{$galPath}thumbs/small/{$image['filename']}" alt=""></a></div>
+                        {/foreach}
+
+                    </div>
+
+
+                </div>
+                <div class="thumbs-controls">
+       
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+{/if}

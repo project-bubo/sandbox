@@ -1,0 +1,159 @@
+   /* ICONS */
+    
+    /**************** Icons *****************/
+span.icon {
+/*float: left;*/
+margin: 1px 4px;
+padding-left: 5px;
+text-align: left;
+color: #FF6464;
+}
+span.icon:hover{
+/*float: left;*/
+color: red;
+}
+.icon {
+height: 16px;
+/*width: 80px;*/
+background-repeat: no-repeat;
+display: block;
+overflow: hidden;
+text-indent: 20px;
+}
+.icon-add {
+background-image: url('../images/datagrid/icons/page_add.png');
+}
+.icon-edit {
+background-image: url('../images/datagrid/icons/page_edit.png');
+}
+.icon-del {
+background-image: url('../images/datagrid/icons/page_delete.png');
+}
+.icon-stats {
+background-image: url('../images/datagrid/icons/stats.png');
+}
+.icon-attach {
+background-image: url('../images/datagrid/icons/attach.png');
+}
+.icon-mailer {
+background-image: url('../images/datagrid/icons/mail.png');
+}
+.icon-media-bank {
+background-image: url('../images/datagrid/icons/video.png');
+}
+.icon-copy {
+background-image: url('../images/datagrid/icons/page_copy.png');
+}
+.icon-save {
+background-image: url('../images/datagrid/icons/page_save.png');
+}
+.icon-attendance {
+background-image: url('../images/datagrid/icons/users_male.png');
+}
+.icon-detail {
+background-image: url('../images/datagrid/icons/page_detail.png');
+}
+.icon-add-images {
+background-image: url('../images/datagrid/icons/image_plus.png');
+}
+.icon-images {
+background-image: url('../images/datagrid/icons/pictures.png');
+}
+.icon-run {
+background-image: url('../images/datagrid/icons/control_right_blue.png');
+}
+.icon-print {
+background-image: url('../images/datagrid/icons/printer.png');
+}
+.icon-bin {
+background-image: url('../images/datagrid/icons/bin_closed.png');
+}
+.icon-find {
+background-image: url('../images/datagrid/icons/find.png');
+}
+.icon-pending {
+background-image: url('../images/datagrid/icons/flag_orange.png');
+}
+.icon-confirmed {
+background-image: url('../images/datagrid/icons/flag_green.png');
+}
+.icon-apologised {
+background-image: url('../images/datagrid/icons/flag_red.png');
+}
+.icon-accept {
+background-image: url('../images/datagrid/icons/accept.png');
+}
+.icon-refresh, .icon-invert {
+background-image: url('../images/datagrid/icons/arrow_refresh.png');
+}
+.icon-tick {
+background-image: url('../images/datagrid/icons/tick-icon.png');
+}
+.icon-crop {
+background-image: url('../images/datagrid/icons/crop.png');
+}
+.icon-concept {
+background-image: url('../images/datagrid/icons/book-open-icon.png');
+}
+.icon-premium {
+background-image: url('../images/datagrid/icons/award-star-gold-3-icon.png');
+}
+.icon-house {
+background-image: url('../images/datagrid/icons/house-icon.png');
+}
+.icon-money {
+background-image: url('../images/datagrid/icons/money-icon.png');
+}
+.icon-eye {
+background-image: url('../images/datagrid/icons/eye-icon.png');
+}
+.icon-cog {
+background-image: url('../images/datagrid/icons/cog-icon.png');
+}
+.icon-cross {
+background-image: url('../images/datagrid/icons/cross-icon.png');
+}
+.icon-clock {
+background-image: url('../images/datagrid/icons/clock-icon.png');
+}
+.icon-invert, .icon-find {
+cursor: pointer;
+margin-left: auto !important;
+margin-right: auto !important;
+padding: 0 !important;
+}
+.icon-shipped, .icon-resolved, .icon-cancelled,
+.icon-process, .icon-hold, .icon-disputed,
+.icon-no-orders, .icon-invert, .icon-find {
+float: none !important
+}
+.icon-shipped {
+background-image: url('../images/datagrid/icons/cart_go.png');
+}
+.icon-resolved {
+background-image: url('../images/datagrid/icons/flag_green.png');
+}
+.icon-cancelled {
+background-image: url('../images/datagrid/icons/flag_red.png');
+}
+.icon-no-orders {
+background-image: url('../images/datagrid/icons/box.png');
+}
+.icon-process {
+background-image: url('../images/datagrid/icons/date_go.png');
+}
+.icon-hold {
+background-image: url('../images/datagrid/icons/flag_orange.png');
+}
+.icon-disputed {
+background-image: url('../images/datagrid/icons/flag_blue.png');
+}
+
+
+
+.money-low {
+background: papayawhip !important;
+}
+.money-high {
+background: #E4F6D2 !important;
+}

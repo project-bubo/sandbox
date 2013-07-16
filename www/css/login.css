@@ -1,0 +1,100 @@
+/* CSS Document */
+body, ul, ol, p, h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  outline: none; 
+}
+ 
+
+p {
+  padding: 8px 0;
+  line-height: 18px;
+}
+
+.fleft {
+  float: left;
+}
+
+.fright {
+  float: right;
+}
+
+.tom_cleaner {
+  width: 100%;
+  height: 1px;
+  clear: both;
+}
+
+body {
+  font-family: Arial, Helvetica, Verdana;
+  font-size: 12px;
+  color: #fff;
+  background-color: #eee;
+  position: relative;
+}
+
+/*login box*/
+.login_box {
+  width: 398px;
+  height: 218px;
+  background: url(../images/bg.png) no-repeat top;
+  margin: 100px auto;
+  padding: 38px 57px 67px 32px;
+}
+
+.log_title {
+  background: url(../images/log_title.png) no-repeat;
+  width: 97px;
+  height: 19px;
+}
+
+.login_box form {
+  margin-top: 15px;
+  display: block;
+}
+
+input[type=text],input.input {
+  display: block;
+  background: url(../images/input.png) repeat-x;
+  height: 28px;
+  width: 243px;
+  border: 1px solid #296d23;
+  padding: 0 10px;
+  margin:0 5px;
+  color: #444;
+}
+
+form.login-form input.submit {
+  display: block;
+  border: none;
+  background: url(../images/prihlasit.png) no-repeat;
+  width: 148px;
+  height: 37px;
+  text-align: center;
+  line-height: 37px;
+  font-size: 14px;
+  color: #fff;
+}
+
+.submit:hover {
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

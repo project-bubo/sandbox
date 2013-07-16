@@ -1,0 +1,88 @@
+<table class="cnt" border="0">
+    <tr><td height="20" colspan="2" class="">
+            <div id="url">
+               {snippet tree}
+                {block #tree}{/block}
+               {/snippet}
+            </div>
+        </td>
+    </tr>
+    <tr><td height="30" colspan="2">
+           <div class="top_panel">
+               {snippet topmenu}
+                    {block #topmenu}
+                    <a n:href="setView! 'view'=>'addFolder'" class="add_folder ajax">{_"Vložit složku"}</a> 
+                    {if $fid}<a n:href="setView! 'view'=>'addFile'"  class="add_file ajax">{_"Vložit soubor"}</a>{/if}
+                    <a n:href="setView! 'view'=>'addGallery'"  class="add_gallery ajax">{_"Vložit galerii"}</a>
+                    {/block}
+               {/snippet}
+           </div>
+            
+        </td>
+    </tr>
+    <tr><td class="left">
+            <div id="left_block">
+                    <a class="ajax" n:href="move! fid=>$fid">{_"Soubory"}</a>
+                    <a class="ajax" n:href="setView 'view'=>'galleries','gid'=>NULL">{_"Galerie"}</a>
+            </div>
+            {snippet left}
+            
+                {block #left}{/block}
+                
+               
+                {if $gid}  
+                    <div style="position:absolute;bottom:10px;left:15px">
+                        {_"Režim:"} <a n:if="$display != 'list'" n:href="changeDisplayType! 'type'=>'list'" class="ajax">{_"Seznam"}</a><span n:if="$display == 'list'">{_"Seznam"}</span> | <a n:if="$display != 'icons'" n:href="changeDisplayType! 'type'=>'icons'" class="ajax">{_"Ikony"}</a><span n:if="$display == 'icons'">{_"Ikony"}</span>
+                    <!--<input type="button" id="cancel" name="cancel" value="{_'Zavřít'}" onclick="tinyMCEPopup.close();" />-->
+                    </div>    
+                {/if}
+                
+                    <div id="confirm_dialog"></div>
+                    <script>
+                        $(function() {
+                            $('a.confirm').click(function(ev){
+                                var $href = this.href;
+                                ev.preventDefault();
+                                $('#confirm_dialog').html($(this).attr('confirm'));
+                                $('#confirm_dialog').dialog({
+                                    modal: true,
+                                    buttons: { 
+                                        "Ano" : function(){
+                                            $.get($href);
+                                            $(this).dialog("close"); 
+                                        },
+                                        "NEEE": function() { 
+                                            $(this).dialog("close"); 
+                                        } 
+                                    }
+                                });
+                            });
+                        });
+                    </script>
+            {/snippet}
+               
+        </td><td class="drive_space">
+            {snippet #flashMessages}
+                {block #flashMessages}
+                    {foreach $flashes as $flash}<div class="flash {$flash->type}"><span>{$flash->message}</span></div>{/foreach}                    
+                {/block}
+                    <script>
+                        $('div.flash').dialog({ 
+                            modal: true,
+                            buttons: { 
+                                "Budiž": function() { 
+                                    $(this).dialog("close"); 
+                                    $(this).remove();
+                                } 
+                            }
+                        });
+                    </script>
+            {/snippet}
+            {snippet content}
+                    {block #content}{/block} 
+                    
+            {/snippet}
+        </td>
+    </tr>
+</table>
+

@@ -1,0 +1,8 @@
+{block title} <h1><img src="{$basePath}/images/icons/scrap-add-icon.png" />{_"Vyberte typ útržku"}</h1> {/block}
+{block content}
+    <div class="tom_cleaner"></div>
+
+    <ul n:inner-foreach="$buttons as $entityName => $entityTitle">
+        <li><a class="buttonek add-icon fleft" href="{link addScrap entity => $entityName}"><span class="icon-add-scrap"></span>{$entityTitle}</a></li>
+    </ul>
+    <div class="tom_cleaner"></div>

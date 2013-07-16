@@ -1,0 +1,18 @@
+
+{block content}
+
+{if $firstInRegion}
+<h1>{$page->_ext_region[value]}</h1>
+<span class="stripes-border"></span>
+{/if}
+
+<div class="address-box fleft">
+    <a class="shop-name" href="{plink Default:default lang => $page->getUrlLang(), url => $page->getUrl()}" >{$page->_ext_shopBrand}</a>
+    <p>{$page->_ext_shopAddress}</p>
+    {if $page->_ext_shopPhoneNumber}
+    <p><span class="icon phone"></span>{$page->_ext_shopPhoneNumber}</p>
+    {/if}
+    {if $page->_ext_shopEmail}
+    <p><span class="icon mail"></span><a href="mailto:{$page->_ext_shopEmail}">{$page->_ext_shopEmail}</a></p>
+    {/if}
+</div>

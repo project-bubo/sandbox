@@ -1,0 +1,94 @@
+{layout '@layout.latte'}
+
+
+{block #tree}
+    <a class="ajax" n:href="setView, 'view'=>'galleries', 'gid'=>0">{_"Galerie"}</a>:/{if $gal}{$gal->name}{/if}            
+{/block}
+
+{block #left}
+              
+<div id="file_info">
+    {if $gal}
+        {_"Název galerie"} : {$gal->name}<br />
+        <a n:href="setView 'view'=>'addToGallery'" class="ajax">{_"Upravit galerii"}</a><br />
+        <form onsubmit="VirtualDrive.insertGallery();return false;">
+        <input type="hidden" name="gallery" value="{$gid}"/>    
+        <input type="hidden" name="thumb" value="{$basePath}{$galThumb}" />
+        <input type="hidden" name="name" value="<p style='text-align:center'>{_'Galerie'}<br />{$gal->name}</p>" />
+        <div class="mceActionPanel">
+                <input type="submit" id="insert" name="insert" value="{_'Vložit galerii'}" />
+        </div>
+        </form>
+        <br /><br /><br /><hr />
+    {/if}
+    
+     {if $fileInfo}
+     <table class="finfo">
+         <tr><td>{_"Název souboru"}</td><td title="{$fileInfo->name}">{$fileInfo->name|truncate:22}</td></tr>
+         <tr><td>{_"Datum vložení"}</td><td>{$fileInfo->added|date:"d.m.Y"}</td></tr>
+         {if $gallery}<tr><td>{_"Galerie"}</td><td><a class="ajax" n:href="setView 'view'=>'galleries','gid'=>$fileInfo->gallery_id">{$gallery->name}</td></tr>{/if}
+         <tr><td>{_"Akce"}</td><td><a class="confirm" confirm="{_"Opravdu chcete soubor '%s' natrvalo odstranit",$fileInfo->name}?" n:href="deleteFile 'fileId'=>$fileInfo->file_id">{_"Smazat soubor"}</td></tr>
+     </table>
+
+        {if $thumb}
+            <a href="{$basePath}{$detail}" title="{_'Detail'}" rel="external"><img src="{$basePath}{$thumb}" width="190" alt="" title="{_'Náhled'}" /></a>
+        {/if}
+     {/if}
+</div>
+   {/block}
+
+
+{block #content}
+            <script type="text/javascript">
+                $(function() {
+                    $('.file_line').live('click',function(){
+                        $('.file_line').removeClass('clicked');
+                        $(this).addClass('clicked');
+                    });
+                  $('.sortable').sortable({
+                      stop:function(data){
+                          $.getJSON({link sortGallery!},{ 'data' : $('.sortable').sortable('serialize')});
+                      }
+                  });
+                  $( ".sortable" ).disableSelection();  
+                  $('.gallery_folder').mouseenter(function(){
+                      $(this).animate(
+                            {
+                                top: '-5px'
+                            }, 70, function(){
+                            $(this).animate({ top: '0px'})
+                            });
+                  });
+                })
+            </script>
+                <div style="position:relative" id="">
+                            <div class="fileManager">
+                                <div class="gallery_cnt">
+                               {if $galleries}
+                                    {foreach $galleries as $item}
+                                    <div class="gallery_folder " menu_id="{$item->gallery_id}"><a class="ajax" n:href="galleryMove! gid=>$item->gallery_id"><img src="{$basePath}/js/tiny_mce/plugins/vd/img/galleryFolder{if $item->public == 0 || ($item->stop_public != NULL && strtotime($item->stop_public) < time() )}_off{/if}.png" alt="{_'Gallery folder'}"/> <span>{$item->name}</span></a></div>
+                                    {/foreach}
+                                {/if}
+                                {if $files}
+                                    
+                                    {if $display == 'list'}
+                                        <table class="drive">
+                                        {foreach $files as $file}
+                                            <tr id="galleryimage_{$file->file_id}" class="file_line click cmenu" n:href="getInfo! id=>$file->file_id" menu_id="{$file->file_id}"><td class="file file_image" width="32"></td><td>{$file->name}</td><td width="80">{$file->size|bytes}</td><td width="100">{$file->added|date:"d.m.Y"}</td></tr>
+                                        {/foreach}
+                                        </table>
+                                    {else}
+                                        <div class="sortable">
+                                        {foreach $files as $file}
+                                            <div id="galleryimage_{$file->file_id}" class="gallery_folder " ><a class="ajax" n:href="getInfo! id=>$file->file_id" menu_id="{$file->file_id}"><img src="{$basePath}{$presenter->virtualDriveService->getImageThumbnailFromRealPath($presenter->virtualDriveService->getFilePath($file->file_id), 84, 84,'CROP')}" height="84" width="84" alt=""/> <span>{$file->name}</span></a></div>
+                                        {/foreach}
+                                        </div>
+                                            <div class="clear"></div>
+                                    {/if}
+                                            
+                                    
+                                {/if}
+                                </div>
+                            </div>
+            </div>
+    {/block}

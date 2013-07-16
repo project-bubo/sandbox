@@ -1,0 +1,59 @@
+<script type="text/javascript">
+    $(function() {
+        $('.w_menu > li a').contextMenu({ 
+                                    'contextMenuClassName':    'structureManagerContextMenu',
+                                    'contextMenuSelector':   '{!$contextMenuSelector}',
+                                    'contextMenuSnippetName':  'structureManagerContextMenu',
+                                    contextMenuListenerId: {$contextMenuListenerId},
+                                    showContentMenuSignal: {link showContextMenuSignal!}
+                                });
+                                
+        $('#options').contextMenu({ 
+                                    'contextMenuClassName':    'optionsContextMenu',
+                                    'contextMenuSelector':   '{!$optionsContextMenuSelector}',
+                                    'contextMenuSnippetName':  'optionsContextMenu',
+                                    contextMenuListenerId: {$contextMenuListenerId},
+                                    showContentMenuSignal: {link showContextMenuSignal!}
+                                });
+
+    })
+    
+    
+</script>
+
+<div style="position:relative" id="{$contextMenuListenerId}">
+
+    
+        <div class="structure-manager-menu">
+        {foreach $langCodes as $code => $language}
+            {if $language[enabled]}
+                <a class="ajax{if $code == $actualLangCode} current{/if}" n:href="changeLanguageView! $code">{$code}</a>
+            {/if}
+        {/foreach}
+        
+        {*
+        [
+        g{if $labelViewGlobal}+{else}-{/if}
+        l{if $labelViewLocal}+{else}-{/if}
+        ]
+        *}
+        
+             
+        <span id="options"><img src="{$basePath}/images/cog-icon.png" /></span>
+        </div>
+
+        {control adminPageMenu}
+
+        <div id="sidetreecontrol"> <a href="#">{_"Sbalit vše"}</a> | <a href="#">{_"Rozbalit vše"}</a> </div>
+
+        {snippet #structureManagerContextMenu}
+            {control 'structureManagerContextMenu_'.$contextMenuSelector.'_structureManagerContextMenu'}
+        {/snippet}
+
+        {*
+        {snippet #optionsContextMenu}
+            {control 'optionsContextMenu_'.$optionsContextMenuSelector.'_optionsContextMenu'}
+        {/snippet}
+        *}
+        
+</div>

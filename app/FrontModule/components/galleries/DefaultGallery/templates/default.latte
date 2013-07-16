@@ -1,0 +1,7 @@
+{if $images}
+<div class="gallery">
+        {foreach $images as $item}
+            <a rel="pel-gal" href="{$basePath}{$galPath}{$item['filename']}" class="colorbox cboxElement"><img src="{$basePath}{$galPath}/thumbs/small/{$item['filename']}" alt=""></a>
+        {/foreach}
+</div>
+{/if}

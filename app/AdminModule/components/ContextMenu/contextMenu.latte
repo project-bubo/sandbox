@@ -1,0 +1,18 @@
+<div id="{$menuId}" class="vmenu" style="display:{$display};left:{$left}px;top:{$top}px;z-index:1001;">
+ 	   
+    {var $page = 'page:'.$treeNodeId}
+    <div class="first_li"><a href="" class="ajax">{_"Copy"}</a></div>
+    <div class="first_li disabled"><a>{_"Insert"}</a></div>
+    
+    <div class="first_li"><a n:href="delete! 'id'=>$treeNodeId">{_"Trash"}</a></div>
+    <div class="sep_li"></div>
+
+    <div class="first_li"><a>Vlastnosti</a>
+            <div class="inner_li">
+                <a href="Page:, id=>$treeNodeId">Změnit URL</a> 
+                    <a>Zobrazit práva</a>
+                    <a>Změnit štítky</a>
+            </div>
+    </div>
+
+</div>
