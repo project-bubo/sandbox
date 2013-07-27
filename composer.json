@@ -3,8 +3,7 @@
     "description": "Sandbox for bubo application",
     "require": {
         "nette/nette": "2.0.*",
-        "project-bubo/bubo": "dev-develop",
-        "project-bubo/datagrid": "@dev"
+        "project-bubo/bubo": "dev-develop"
     },
     "authors": [
         {
