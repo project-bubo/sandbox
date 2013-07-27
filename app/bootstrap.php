@@ -206,9 +206,9 @@ if (function_exists('apache_get_modules') && in_array('mod_rewrite', apache_get_
 
 
 
-\Kdyby\Forms\Containers\Replicator::register();
+//\Kdyby\Forms\Containers\Replicator::register();
 
-SimpleProfiler\Profiler::register();
+//SimpleProfiler\Profiler::register();
 //Extras\Debug\ComponentTreePanel::$dumps = FALSE;
 //Extras\Debug\ComponentTreePanel::register();
 
