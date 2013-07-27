@@ -2,9 +2,9 @@
 
 namespace AdminModule\Components;
 
-use Netstars;
+use Bubo;
 
-class VirtualDrive extends Netstars\Components\ContextMenuControl {   
+class VirtualDrive extends Bubo\Components\ContextMenuControl {   
 
     private $userId;
     

@@ -663,7 +663,7 @@ class PageForm extends BaseForm {
 //            die();
             
             // create new version of the page
-            $pageSet[$langCode] = $page = new \Netstars\Pages\CMSPage($this->presenter->context, $treeNodeId, $pageFormData, $entity);
+            $pageSet[$langCode] = $page = new \Bubo\Pages\CMSPage($this->presenter->context, $treeNodeId, $pageFormData, $entity);
 
             $page->save($this->presenter);
          
@@ -818,7 +818,7 @@ class PageForm extends BaseForm {
             $pageFormData['status'] = $status;
 
             // create new version of the page
-            $pageSet[$langCode] = $page = new \Netstars\Pages\CMSPage($this->presenter->context, $treeNodeId, $pageFormData, $entity);
+            $pageSet[$langCode] = $page = new \Bubo\Pages\CMSPage($this->presenter->context, $treeNodeId, $pageFormData, $entity);
             
             
 //            dump('chci ulozit stránku');

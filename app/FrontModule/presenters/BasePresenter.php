@@ -16,7 +16,7 @@ abstract class BasePresenter extends \BasePresenter {
     
     public function startup() {
         parent::startup();
-        \PavelMaca\Captcha\CaptchaControl::register();
+//        \PavelMaca\Captcha\CaptchaControl::register();
     }
     
     

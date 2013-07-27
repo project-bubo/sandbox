@@ -2,9 +2,9 @@
 
 namespace AdminModule\Components;
 
-use Netstars;
+use Bubo;
 
-class StructureManager extends Netstars\Components\ContextMenuControl {   
+class StructureManager extends Bubo\Components\ContextMenuControl {   
 
     private $userId;
     

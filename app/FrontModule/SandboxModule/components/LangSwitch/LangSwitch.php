@@ -2,9 +2,9 @@
 
 namespace FrontModule\SandboxModule\Components;
 
-use Netstars;
+use Bubo;
 
-class LangSwitch extends Netstars\Components\RegisteredControl {
+class LangSwitch extends Bubo\Components\RegisteredControl {
     
     
     public function render($page) {
