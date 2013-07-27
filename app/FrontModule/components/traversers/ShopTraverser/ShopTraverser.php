@@ -2,7 +2,7 @@
 
 namespace FrontModule\Components\Traversers;
 
-use Netstars;
+use Bubo;
 
 /**
  * Label traverser
@@ -11,7 +11,7 @@ use Netstars;
  * 
  * @author Marek Juras
  */
-final class ShopTraverser extends Netstars\Traversing\RenderingTraverser {
+final class ShopTraverser extends Bubo\Traversing\RenderingTraverser {
     
     private $label;
     

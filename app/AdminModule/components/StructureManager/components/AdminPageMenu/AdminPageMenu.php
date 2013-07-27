@@ -5,9 +5,9 @@ namespace AdminModule\Components\StructureManager\Components;
 use Nette\Application\UI\Form,
     Nette\Utils\Html,
     Nette\Environment,
-    Netstars;
+    Bubo;
 
-class AdminPageMenu extends \Netstars\Navigation\PageMenu {
+class AdminPageMenu extends \Bubo\Navigation\PageMenu {
 
     public function setUpRenderer($renderer) {
         $renderer->getTopLevelPrototype()->class = 'w_menu treeview-white';
@@ -23,7 +23,7 @@ class AdminPageMenu extends \Netstars\Navigation\PageMenu {
 //        dump($section->langCode);
 //        die();
         
-        $traverser = new Netstars\Traversersing\RenderingTraversers\AdminMenuTraverser($this);
+        $traverser = new Bubo\Traversersing\RenderingTraversers\AdminMenuTraverser($this);
         
         // try to configure page loading via entity config
         $entityConfig = $this->presenter->configLoaderService->loadEntityConfig('page');

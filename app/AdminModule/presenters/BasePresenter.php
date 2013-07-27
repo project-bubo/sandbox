@@ -2,7 +2,7 @@
 
 namespace AdminModule;
 
-use ContextMenu, Netstars;
+use ContextMenu, Bubo;
 
 /**
  * @persistent(urlEditor)
@@ -59,7 +59,7 @@ abstract class BasePresenter extends \BasePresenter {
     }
     
     public function createComponentMedia($name) {
-        return new Netstars\Media($this, $name);
+        return new Bubo\Media($this, $name);
     }
     
     public function beforeRender() {
