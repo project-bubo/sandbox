@@ -37,7 +37,7 @@ common:
 
     services:
         database:
-            factory: Netstars\DibiFactory::createConnection
+            factory: Bubo\DibiFactory::createConnection
         authenticator:
             class: Acl\Security\CMSAuthenticator
             arguments: [@database]
@@ -45,40 +45,40 @@ common:
             class: Acl\Security\Acl
             arguments: [@resourceManager]
         modelLoader:
-            class: Netstars\Services\ModelLoader
+            class: Bubo\Services\ModelLoader
             arguments: [@container]
         pageManager:
-            class: Netstars\Services\PageManager
+            class: Bubo\Services\PageManager
             arguments: [@container, %pageLoadingMethod%]
         langManager:
-            class: Netstars\Services\LangManager
+            class: Bubo\Services\LangManager
             arguments: [@container]
         traverserFactory:
-            class: Netstars\Services\TraverserFactory
+            class: Bubo\Services\TraverserFactory
             arguments: [@container]
         resourceManager:
-            class: Netstars\Services\ResourceManager
+            class: Bubo\Services\ResourceManager
             arguments: [@database, @modelLoader]
         commandExecutor:
-            class: Netstars\Commanding\CommandExecutor
+            class: Bubo\Commanding\CommandExecutor
             arguments: [@pageManager]
         configLoader:
-            class: Netstars\Services\ConfigLoader
+            class: Bubo\Services\ConfigLoader
             arguments: [@container]
         virtualDrive:
-            class: Netstars\Services\VirtualDrive\Drive
+            class: Bubo\Services\VirtualDrive\Drive
             arguments: [@database, @container]#[@modelLoader]
         extManager:
-            class: Netstars\Services\ExtManager
+            class: Bubo\Services\ExtManager
             arguments: [@container]
         projectManager:
-            class: Netstars\Services\ProjectManager
+            class: Bubo\Services\ProjectManager
             arguments: [@container]
         pdfConverter:
-            class: Netstars\Services\PdfConverter
+            class: Bubo\Services\PdfConverter
             arguments: [@container]
         mediaManager:
-            class: Netstars\Services\MediaManager
+            class: Bubo\Services\MediaManager
             arguments: [@container, %media.rootFolder%]
         cacheStorage:
             class: Nette\Caching\Storages\FileStorage

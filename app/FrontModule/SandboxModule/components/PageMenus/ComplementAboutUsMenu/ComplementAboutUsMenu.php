@@ -3,9 +3,9 @@
 namespace FrontModule\SandboxModule\Components\PageMenus;
 
 use Nette\Utils\Html,
-    Netstars;
+    Bubo;
 
-class ComplementAboutUsMenu extends Netstars\Navigation\PageMenu {
+class ComplementAboutUsMenu extends Bubo\Navigation\PageMenu {
     
     private $aboutUsLabel;
     

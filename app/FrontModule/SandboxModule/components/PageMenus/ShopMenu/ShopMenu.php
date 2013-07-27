@@ -3,9 +3,9 @@
 namespace FrontModule\SandboxModule\Components\PageMenus;
 
 use Nette\Utils\Html,
-    Netstars;
+    Bubo;
 
-class ShopMenu extends Netstars\Navigation\PageMenu {
+class ShopMenu extends Bubo\Navigation\PageMenu {
     
     public function __construct($parent, $name, $lang) {
         parent::__construct($parent, $name, $lang);

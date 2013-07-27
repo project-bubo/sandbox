@@ -14,7 +14,7 @@ use Nette\Application\UI\Control;
  * 
  * 
  */
-abstract class ContextMenu extends \Netstars\Components\RegisteredControl {
+abstract class ContextMenu extends \Bubo\Components\RegisteredControl {
 
     /** @persistent */
     public $treeNodeId = 0;

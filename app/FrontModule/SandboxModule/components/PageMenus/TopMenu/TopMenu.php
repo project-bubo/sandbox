@@ -2,9 +2,9 @@
 
 namespace FrontModule\SandboxModule\Components\PageMenus;
 
-use Netstars;
+use Bubo;
 
-class TopMenu extends Netstars\Navigation\PageMenu {
+class TopMenu extends Bubo\Navigation\PageMenu {
     
     public function __construct($parent, $name, $lang) {
         parent::__construct($parent, $name, $lang);

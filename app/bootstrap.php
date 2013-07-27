@@ -206,9 +206,9 @@ if (function_exists('apache_get_modules') && in_array('mod_rewrite', apache_get_
 
 
 
-\Kdyby\Forms\Containers\Replicator::register();
+//\Kdyby\Forms\Containers\Replicator::register();
 
-SimpleProfiler\Profiler::register();
+//SimpleProfiler\Profiler::register();
 //Extras\Debug\ComponentTreePanel::$dumps = FALSE;
 //Extras\Debug\ComponentTreePanel::register();
 
@@ -236,7 +236,7 @@ if(class_exists("Dibi", true)) {
  * Extension method for FormContainer
  */
 function FormContainer_addMediaFile(/*\Nette\Application\UI\Form*/ $_this, $name, $label = NULL) {
-  return $_this[$name] = new \Netstars\MediaFileInput($label);
+  return $_this[$name] = new \Bubo\MediaFileInput($label);
 //    echo "mediaFile je připojeny";
 //    die();
 }
