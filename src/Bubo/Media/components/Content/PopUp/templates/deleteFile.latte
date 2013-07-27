@@ -1,0 +1,18 @@
+{block content}
+    
+        <div class="vd-popupHeading">
+            <span class="headingTitle">{$title}</span>
+            <span class="closeButton closeDialog">X</span>
+        </div>
+        {form deleteFileForm}
+            <fieldset>
+                <div class="vd-popupContent">
+                    {$message}
+                </div>
+
+                <div class="vd-popupButtons">
+                    {input send}
+                    <a href="#" class="button closeDialog">Storno</a>
+                </div>
+            </fieldset>
+        {/form} 

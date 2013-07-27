@@ -1,0 +1,49 @@
+
+{block content}
+
+<style>
+    .progress-label {
+      float: left;
+      margin-left: 50%;
+      margin-top: 5px;
+      font-weight: bold;
+      text-shadow: 1px 1px 0 #fff;
+    }
+  </style>
+  <script>
+    $(function() {
+      var progressbar = $( "#progressbar" ),
+        progressLabel = $( ".progress-label" );
+
+      progressbar.progressbar({
+        value: false,
+        change: function() {
+          progressLabel.text( progressbar.progressbar( "value" ) + "%" );
+        },
+        complete: function() {
+          progressLabel.text( "Complete!" );
+        }
+      });
+
+      function progress() {
+        var val = progressbar.progressbar( "value" ) || 0;
+
+        progressbar.progressbar( "value", val + 1 );
+
+        if ( val < 99 ) {
+          setTimeout( progress, 100 );
+        }
+      }
+
+      setTimeout( progress, 3000 );
+    });
+  </script>
+
+    <div class="vd-popupHeading">
+        <span class="headingTitle">{$title}</span>
+        <span class="closeButton closeDialog">X</span>
+    </div>
+    <div>
+        <div id="progressbar"><div class="progress-label">Loading...</div></div>
+    </div>
+        

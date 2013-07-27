@@ -1,0 +1,29 @@
+{block content}
+<div class="vd-container">
+    <div class="vd-topbar">
+        {snippet #sectionSwitch}
+            {control sectionSwitch}
+        {/snippet}
+
+        {*snippet #contentActions}
+            {control content:actions}
+        {/snippet*}
+    </div>
+
+    <div class="vd-breadcrumb">
+        {*snippet #navBar}
+            {control navBar}
+        {/snippet*}
+        
+        {*<div class="vd-drawStyleSwitch">
+            <i title="Mřížkové rozložení" class="tp icon-th m5 current"></i>
+            <i title="Tabulkové rozložení" class="tp icon-th-list"></i>
+        </div>*}
+    </div>
+
+    {snippet #contentPane}
+        {*control content*}
+        <span style="color:red;font-weight:bold;">{$message}</span>
+    {/snippet}
+
+</div>

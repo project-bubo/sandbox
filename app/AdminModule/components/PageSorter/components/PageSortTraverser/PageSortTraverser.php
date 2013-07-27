@@ -4,10 +4,10 @@ namespace AdminModule\Components\PageSorter\Components;
 
 use Nette\Application\UI\Form,
     Nette\Utils\Html,
-    Netstars,
+    Bubo,
     \Components\Core\PageTraversers\RenderingTraversers\AdminMenuTraverser;
 
-class PageSortTraverser extends \Netstars\Navigation\PageMenu {
+class PageSortTraverser extends \Bubo\Navigation\PageMenu {
 
     public function setUpRenderer($renderer) {
         //$renderer->getTopLevelPrototype()->class = 'w_menu treeview-white';

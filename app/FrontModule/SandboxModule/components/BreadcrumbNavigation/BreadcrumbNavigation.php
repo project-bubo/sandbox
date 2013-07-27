@@ -2,9 +2,9 @@
 
 namespace FrontModule\SandboxModule\Components;
 
-use Netstars;
+use Bubo;
 
-class BreadcrumbNavigation extends Netstars\Navigation\BreadcrumbNavigation {
+class BreadcrumbNavigation extends Bubo\Navigation\BreadcrumbNavigation {
     
     public function render($page) {
         \SimpleProfiler\Profiler::advancedTimer();

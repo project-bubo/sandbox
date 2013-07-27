@@ -1,0 +1,106 @@
+general:
+    defaultSection: files
+    defaultGalleryMode: '800x600-shrink_only|120x120-crop'
+    allowedTriggers:
+        - page
+        - container
+        - tiny
+
+layout:
+    sections:
+        files:  
+            label: Soubory
+            class: icon-file
+        galleries:  
+            label: Galerie
+            class: icon-picture
+#        movies:  
+#            label: Videa
+#            class: icon-film
+
+titles:
+    title:
+        title: Titulek
+        control: text
+    description:
+        title: Popisek
+        control: textArea
+
+# configuration of button menu
+#   trigger -> section -> screen -> actions
+buttonMenu:
+    page:   # opened from page (no insertion - just editing)
+        files:
+            default: newFolder|loadFiles
+        galleries:
+            default: newFolder|newGallery
+            gallery: loadImages
+    container:
+        files:
+            default: newFolder|loadFiles
+            file: insertFile
+        galleries:
+            default: newFolder|newGallery
+            gallery: insertGallery|loadImages
+            file: insertFile
+    tiny:
+        files:
+            default: newFolder|loadFiles
+            file: insertFile
+        galleries:
+            default: newFolder|newGallery
+            gallery: insertGallery|loadImages
+            file: insertFile
+            
+
+# configuration of context menu
+contextMenu:
+    page:
+        folder: renameFolder|sep|deleteFolder
+        file: editTitles|renameFile|toggleSelectFile|cutFile|sep|deleteFile
+        gallery: renameGallery|cutGallery|sep|deleteGallery
+    container:
+        folder: renameFolder|sep|deleteFolder
+        file: editTitles|renameFile|insertFile|cutFile|sep|deleteFile
+        gallery: renameGallery|insertGallery|cutGallery|sep|deleteGallery
+    tiny:
+        folder: renameFolder|sep|deleteFolder
+        file: editTitles|renameFile|cutFile|sep|deleteFile
+        gallery: renameGallery|insertGallery|cutGallery|sep|deleteGallery
+            
+
+insertionMethods:
+    image:
+        0: 
+            title: 'Prostý obrázek'
+        1: 
+            title: 'Obrázek s proklikem'
+            subform:
+                colorbox:
+                    title: 'Otevřít v colorboxu'
+                    control: checkbox
+                    default: yes
+        2: 
+            title: 'Text s proklikem na obrázek'
+            subform:
+                text:
+                    title: 'Text'
+                    control: text
+                colorbox:
+                    title: 'Otevřít v colorboxu'
+                    control: checkbox
+                    default: yes
+    file:
+        0: 
+            title: 'Ikona s proklikem na soubor'
+        1: 
+            title: 'Text s proklikem na soubor'
+            subform:
+                text:
+                    title: 'Text'
+                    control: text
+                appendSize:
+                    title: 'Připojit velikost souboru'
+                    control: checkbox
+                    default: yes
+        

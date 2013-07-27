@@ -51,7 +51,7 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter {
         
         $this->domainName = 'http://'.$_SERVER['HTTP_HOST'];
         
-        $this->addComponent(new \Netstars\Pages\CMSPage($this->context, 0, NULL, 'page'), 'pages');
+        $this->addComponent(new \Bubo\Pages\CMSPage($this->context, 0, NULL, 'page'), 'pages');
          
         $baseUrl = rtrim($this->presenter->getHttpRequest()->getUrl()->getBaseUrl(), '/');
         $this->baseUri = preg_replace('#https?://[^/]+#A', '', $baseUrl);
@@ -198,7 +198,7 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter {
         $this->context->translator->setLang($this->getFullLang());
         $this->template->setTranslator($this->context->translator);
         
-        $this->template->registerHelper('timeAgoInWords', 'Netstars\Helpers\Helpers::timeAgoInWords');
+        $this->template->registerHelper('timeAgoInWords', 'Bubo\Helpers\Helpers::timeAgoInWords');
         // session example
         /*
           $this->namespace = $this->context->session->getSection($this->namespace);

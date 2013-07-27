@@ -1,14 +1,20 @@
 {
-    "name": "project-bubo/sandbox",
-    "description": "Sandbox for bubo application",
-    "require": {
-        "nette/nette": "2.0.*",
-        "project-bubo/bubo": "dev-develop"
-    },
-    "authors": [
-        {
-            "name": "Bubo",
-            "email": "project.bubo@gmail.com"
-        }
-    ]
+	"name": "project-bubo/bubo",
+	"type": "library",
+	"description": "Bubo CMS",
+	"keywords": ["cms"],
+	"authors": [
+		{
+			"name": "Marek Juras"
+		}
+	],
+	"require": {
+		"php": ">=5.3.0",
+                "nette/nette": "2.0.6",
+                "project-bubo/datagrid": "dev-develop",
+                "srigi/nette-confirmationdialog": "1.0.1"
+	},
+	"autoload": {
+		"classmap": ["src/Bubo/"]
+	}
 }

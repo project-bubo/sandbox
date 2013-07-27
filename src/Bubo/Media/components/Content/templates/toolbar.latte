@@ -1,0 +1,16 @@
+
+{block content}
+    <div class="vd-sortbar">
+        {if $showSortBar}
+        <span>Seřadit podle:</span>
+        <ul class="vd-sortButtons">
+            <li data-sort="name" class="button button-white">Názvu <i class="icon-sort"></i></li>
+            <li data-sort="timestamp" class="button button-white">Data vložení <i class="icon-sort"></i></li>
+            <li data-sort="size" class="button button-white">Velikosti <i class="icon-sort"></i></li>
+        </ul>
+        {/if}
+        {foreach $pasteBin->getButtons() as $button}
+            {$button}
+        {/foreach}
+        <a href="#" class="button fright save-sortorder-button" style="display:none;"><i class="icon-save m5"></i>Uložit řazení</a>
+    </div>

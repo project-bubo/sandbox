@@ -2,9 +2,9 @@
 
 namespace AdminModule\Sorters;
 
-use Netstars;
+use Bubo;
 
-class GeneralSorter extends Netstars\Components\RegisteredControl {   
+class GeneralSorter extends Bubo\Components\RegisteredControl {   
 
     /**
      * @persistent
