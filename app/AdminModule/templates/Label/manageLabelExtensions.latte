@@ -1,0 +1,13 @@
+{block title} <h1>{_"Správa rozšíření štítku"} "{$labelName}"</h1> {/block}
+
+{block content}
+    {control extConfirmDialog}
+    {control extDataGrid}
+{/block}
+
+{block #toolbar}
+    <a href="{plink Label:addExt id => $labelId}">Vytvořit rozšíření</a>
+    <a href="{plink Label:sortExt id => $labelId}">Řadit rozšíření</a> 
+{/block}
+
+

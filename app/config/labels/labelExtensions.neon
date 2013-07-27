@@ -1,0 +1,59 @@
+properties:
+    text:
+        type: text
+        label: 'Textové pole'
+#        name: <name>
+#        data:
+#            method: <methodName>
+#            args: 
+#        class:
+#        htmlParams:
+#            red: blue
+#            white: red
+
+    datepicker:
+        type: text
+        label: 'Kalendář'
+        class: 'datepicker'
+
+    textArea:
+        type: textArea
+        label: 'Víceřádkové textové pole (WYSIWYG)'
+        class: wysiwyg
+
+    textAreaSimple:
+        type: textArea
+        label: 'Víceřádkové textové pole'
+        class: notiny
+
+    file:
+        type: textArea
+        label: 'Soubor'
+        class: file
+
+    color:
+        type: color
+        label: 'Barva'
+
+    mediaFile:
+        type: mediaFile
+        engine: media
+        mode: '120x120-shrink_only'
+        label: 'Soubor'
+
+    mediaGallery:
+        type: mediaGallery
+        engine: media
+        mode: '800x600-shrink_only|120x120-shrink_only'
+        label: 'Galerie'
+
+    flip:
+        type: select
+        label: 'Varianta flipu (select)'
+        data:
+            v1: 'Varianta 1'
+            v2: 'Varianta 2'
+            v3: 'Varianta 3'
+            v4: 'Varianta 4'
+        prompt: ':: Vyberte typ flipu ::'
+        #required: 'Vyberte kraj'

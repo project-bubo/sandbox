@@ -1,0 +1,89 @@
+{block title} <h1>{_"Vytvoření nového parametru"}</h1> {/block}
+
+{block content}
+
+
+    <div class="tom_cleaner"></div>
+    
+    {form extParamForm}
+    
+    
+    <ul class="errors" n:if="$form->hasErrors()">
+            <li n:foreach="$form->errors as $error">{$error}</li>
+    </ul>
+    
+    <script type="text/javascript">
+        
+        $(function() {
+            $( "#tabs" ).tabs();
+        })
+        
+    </script>
+    
+    <fieldset>
+        <legend><b>Tagy</b></legend>
+            <table>
+                        
+                {foreach $tags as $tagName => $tagCaption}        
+                <tr>
+                    <td>
+                        {label 'tags-'.$tagName /}
+                    </td>
+                    <td>
+                        {input 'tags-'.$tagName}
+                    </td>
+                </tr>
+                {/foreach}
+
+
+            </table>
+    </fieldset>
+    
+    
+    
+    <br />
+        {if count($activatedLanguages) > 1}
+        <div id="tabs">
+            <ul>
+            {foreach $activatedLanguages as $code => $language}
+                <li><a href="#tabs-{$code}"><img src="{$basePath}/images/flags/{$code}.png">&nbsp;{$language}</a></li>
+            {/foreach}
+            </ul>
+        {/if}
+        
+            {foreach $activatedLanguages as $code => $language}
+            
+                <div id="tabs-{$code}">
+                                        
+                    <table>
+                        
+                        
+                        <tr>
+                            <td>
+                                {label $code.'-param_name' /}
+                            </td>
+                            <td>
+                                {input $code.'-param_name'}
+                            </td>
+                        </tr>
+                        
+
+                    </table>
+                    
+                </div>
+            {/foreach}
+        
+            
+            
+        {if count($activatedLanguages) > 1}
+            
+        </div>
+    
+        {/if}
+
+        <br />
+        {input send}
+        
+    {/form}
+
+{/block}

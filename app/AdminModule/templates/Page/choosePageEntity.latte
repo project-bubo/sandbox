@@ -1,0 +1,8 @@
+{block title} <h1><img src="{$basePath}/images/icons/page-add-icon.png" />{_"Vyberte typ stránky"}</h1> {/block}
+{block content}
+    <div class="tom_cleaner"></div>
+
+    <ul n:inner-foreach="$buttons as $entityName => $entityTitle">
+        <li><a class="buttonek add-icon fleft" href="{link addPage entity => $entityName}"><span class="icon-add-page"></span>{$entityTitle}</a></li>
+    </ul>
+    <div class="tom_cleaner"></div>

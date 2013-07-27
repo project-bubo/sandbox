@@ -1,0 +1,15 @@
+{block title} <h1><img src="{$basePath}/images/icons/page-add-icon.png" />{_"Vytvořit stránku"}</h1> {/block}
+{block content}
+    <ul>
+        <li><a class="buttonek add-icon fleft" href="{link choosePageEntity}"><span class="icon-add-page"></span>Vytvořit stránku</a></li>
+        <li><a class="buttonek add-icon fleft" href="{link chooseScrapEntity}"><span class="icon-add-scrap"></span>Vytvořit útržek</a></li>
+        <li><a class="buttonek add-icon fleft" href="{link addLink}"><span class="icon-add-link"></span>Vytvořit odkaz na stránku</a></li>
+    </ul>
+
+    <div class="tom_cleaner"></div>
+
+    <ul n:inner-foreach="$buttons as $button">
+        <li><a class="buttonek" href="{link $button['destination'] labelId => $button['labelId'], entity => $button['entity']}">{$button['title']}</a></li>
+    </ul>
+    <div class="tom_cleaner"></div>
+

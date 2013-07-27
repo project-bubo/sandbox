@@ -1,0 +1,37 @@
+##
+# 
+# reserved property names:
+#       - name
+#       - title
+#       - link_title
+#       - menu_title
+#       - meta_keys
+#       - meta_description
+#
+#
+entityMeta:
+    title: 'Flipchart'    
+    createUrl: yes  
+    
+#templates:
+#    restrict:
+#        - homepage.latte
+#        - subpageLayout.latte
+
+properties:
+    content:
+#        db: # if ommited then cms_page.<propertyName> used
+#            table: '[:core:samsung]'	# if ommited table [cms_page] used, use dibi style notations
+#            attribute: '[content]'
+        type: textArea
+        label: 'Obsah'
+        class: wysiwyg
+
+
+groups:
+    full:
+        #perex: yes
+        content: no
+        #content2: yes
+        #content3: yes
+			

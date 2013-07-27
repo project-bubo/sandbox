@@ -1,0 +1,22 @@
+{block title} <h1>{_"Koncepty"}</h1> {/block}
+
+
+
+{block content}
+
+    {control conceptConfirmDialog}
+    {control conceptDataGrid}
+
+{/block}
+
+
+
+{block down}
+<div id="layout_workspace">
+        <div>
+            {for $i=1;$i<7;$i++}
+                <a href="#" onclick="return setPageSelectValue({$i})"><img src="{$basePath}/images/layouts/layout_style_{$i}.png" alt="rozvrzeni {$i}" title="rozvrzeni {$i}" /></a> 
+            {/for}
+        </div>
+    </div>
+{/block}

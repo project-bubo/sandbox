@@ -1,0 +1,96 @@
+#
+# SECURITY WARNING: it is CRITICAL that this file & directory are NOT accessible directly via a web browser!
+# http://nette.org/security-warning
+#
+common:
+    parameters:
+        langDir: %appDir%/lang # route to lang files
+        lang: cs_CZ
+#        langs:
+#            en: English
+#            cs: Čeština
+#            cn: 中文
+#            ru: Русский
+#            it: Italština
+#            de: Němčina
+#            hu: Maďarština
+#        defaultLang: en
+        pageLoadingMethod: # lazy or eager? by default: lazy
+            admin: eager
+#            'front:maxpraga': lazy
+#            'front:sabrina': eager
+        useLinks: yes       # use links
+
+        media:
+            rootFolder: media
+
+    php:
+        date.timezone: Europe/Prague
+        #%session.save_path: "temp/sessions"
+
+    nette:
+        session:
+            save_path: "%tempDir%/sessions"
+            expiration: "+ 5 days"
+        container:
+            debugger: true
+
+    services:
+        database:
+            factory: Bubo\DibiFactory::createConnection
+        authenticator:
+            class: Acl\Security\CMSAuthenticator
+            arguments: [@database]
+        authorizator:
+            class: Acl\Security\Acl
+            arguments: [@resourceManager]
+        modelLoader:
+            class: Bubo\Services\ModelLoader
+            arguments: [@container]
+        pageManager:
+            class: Bubo\Services\PageManager
+            arguments: [@container, %pageLoadingMethod%]
+        langManager:
+            class: Bubo\Services\LangManager
+            arguments: [@container]
+        traverserFactory:
+            class: Bubo\Services\TraverserFactory
+            arguments: [@container]
+        resourceManager:
+            class: Bubo\Services\ResourceManager
+            arguments: [@database, @modelLoader]
+        commandExecutor:
+            class: Bubo\Commanding\CommandExecutor
+            arguments: [@pageManager]
+        configLoader:
+            class: Bubo\Services\ConfigLoader
+            arguments: [@container]
+        virtualDrive:
+            class: Bubo\Services\VirtualDrive\Drive
+            arguments: [@database, @container]#[@modelLoader]
+        extManager:
+            class: Bubo\Services\ExtManager
+            arguments: [@container]
+        projectManager:
+            class: Bubo\Services\ProjectManager
+            arguments: [@container]
+        pdfConverter:
+            class: Bubo\Services\PdfConverter
+            arguments: [@container]
+        mediaManager:
+            class: Bubo\Services\MediaManager
+            arguments: [@container, %media.rootFolder%]
+        cacheStorage:
+            class: Nette\Caching\Storages\FileStorage
+            arguments: [%tempDir%/cache]
+            #class: Nette\Caching\Storages\DevNullStorage
+
+# translator
+        translator:
+            factory: NetteTranslator\Gettext::getTranslator
+
+# /translator
+
+production < common:
+
+development < common:

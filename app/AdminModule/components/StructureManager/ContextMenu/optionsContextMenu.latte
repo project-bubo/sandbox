@@ -1,0 +1,18 @@
+<div id="{$menuId}" class="vmenu" style="display:{$display};left:{$left}px;top:{$top}px;z-index:1001;">
+ 	   
+    
+    <div class="first_li"><a n:href="" class="ajax">{_"Zobrazit štítky"}</a>
+            <div class="inner_li">
+                    <a class="ajax menu_status_{if $labelViewLocal}true{else}false{/if}" n:href="toggleLocal!">{_"lokální"}</a>
+                    <a class="ajax menu_status_{if $labelViewGlobal}true{else}false{/if}" n:href="toggleGlobal!">{_"globální"}</a>
+            </div>
+    </div>
+    
+    <div class="first_li"><a n:href="" class="ajax">{_"Mód štítků"}</a>
+            <div class="inner_li">
+                <a class="ajax menu_status_{if $labelAdminMode}true{else}false{/if}" n:href="changeMode! mode => admin">{_"administrátorský"}</a>
+                    <a class="ajax menu_status_{if !$labelAdminMode}true{else}false{/if}" n:href="changeMode! mode => user">{_"uživatelský"}</a>
+            </div>
+    </div>
+
+</div>

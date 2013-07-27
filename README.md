@@ -1,4 +1,0 @@
-bubo
-====
-
-Bubo CMS

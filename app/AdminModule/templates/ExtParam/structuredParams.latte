@@ -1,0 +1,11 @@
+{block title} <h1>{_"Seznam strukturovaných parametrů ke stránce"} "{$page->_name}"</h1> {/block}
+
+{block content}
+    {control extStructuredParamConfirmDialog}
+    {control extStructuredParamDataGrid}
+
+{/block}
+
+{block #toolbar}
+    <a href="{plink addStructuredParam}">Vytvořit parametr</a> 
+{/block}

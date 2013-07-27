@@ -1,0 +1,74 @@
+{layout $page->getDoctype('@xhtml')}
+
+{block #title}{$page->_title} | MaxPraga{/block}
+
+{block css}
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="{$themePath}/css/base.css" media="all" />
+<link rel="stylesheet" type="text/css" href="{$themePath}/css/styles.css" media="all" />
+{/block}
+
+{block ga}
+<script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4903580-52']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+</script>
+{/block}
+
+{block js}
+<script type="text/javascript" src="{$basePath}/front/js/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="{$themePath}/js/lemmon-slider.js"></script>
+<script type="text/javascript" src="{$basePath}/front/js/plugins/jquery.cycle.all.js"></script>
+<script type="text/javascript" src="{$basePath}/front/js/plugins/jquery.maphilight.js"></script>
+<script type="text/javascript" src="{$basePath}/front/js/plugins/shadowbox.js"></script>
+<script type="text/javascript" src="{$themePath}/js/scripts.js"></script>
+
+
+<script src="{$basePath}/js/jquery.nette.js" type="text/javascript"></script>
+<script src="{$basePath}/js/netteForms.js" type="text/javascript"></script>
+
+{/block}
+
+
+{block body}
+
+<div n:class="wrapper, clearfix, !$page->isActivelyLabelledBy(1) ? subpage">
+    <div class="header-outer">
+
+        <div class="header-inner">
+            <a href="{plink Default:default lang => $page->getUrlLang(), url => NULL}" class="logo fleft">MaxPraga</a>
+        </div>
+    </div>
+
+    {foreach $flashes as $flash}
+        <div class="flash-msg {$flash->type}">{$flash->message}</div>
+    {/foreach}
+
+
+    {block #content}
+    {/block}
+
+</div>
+
+<div class="footer-outer">
+	<div class="footer-inner">
+
+	    <div class="footer-address">
+            <span class="fleft">Bubo sandbox</span>
+
+
+
+	</div>
+</div>
+
+
+{/block}

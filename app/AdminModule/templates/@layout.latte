@@ -1,0 +1,22 @@
+{layout '@masterLayout.latte'}
+
+{block wrapper}
+
+        {block title}{/block}
+
+        {block statusBar}
+        {/block}
+
+        <div class="sub_body">
+            <div class="sub_body_top"> </div>
+            <div class="sub_body_cont">
+                {block content}Content je prázdný{/block}
+            </div>
+            <div class="sub_body_bottom"> </div>
+            <div class="smooth_toolbar">
+                {block #toolbar}
+                {/block}
+            </div>
+        </div>
+
+{/block}

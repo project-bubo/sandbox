@@ -1,0 +1,43 @@
+{block title} <h1>{_"Řazení atributů"} "{$page->_name}" {_"v rámci tagu"} "{$tag}"</h1> {/block}
+
+{block content}
+    
+<style>
+    #sortable { list-style-type: none; margin: 0; padding: 0; width: 60%; }
+    #sortable li { margin: 0 3px 3px 3px; padding: 0.4em; padding-left: 1.5em; font-size: 1.4em; height: 18px; }
+    #sortable li span { position: absolute; margin-left: -1.3em; }
+    </style>
+    <script>
+    $(function() {
+        $( "#sortable" ).sortable();
+        $( "#sortable" ).disableSelection();
+            
+        $( "#saveSortOrder" ).live('click', function() {
+            //alert($( "#sortable" ).sortable('serialize'));
+
+             $.getJSON({link saveParamSortOrder!}, {'data': $( "#sortable" ).sortable('serialize')});
+
+
+            return false;
+        });
+    });
+    </script>
+
+{if !empty($params)}
+<ul id="sortable">
+    {foreach $params as $param}
+    <li class="ui-state-default" id="param_{$param[ext_tree_node_id]}"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>{$param[param_name]}</li>
+    {/foreach}
+</ul>
+{else}
+    <strong>K tagu nejsou přiřazeny žádné parametry</strong>
+{/if}
+
+{/block}
+
+{block #toolbar}
+    <a id="saveSortOrder" class="save" href="#">Uložit řazení</a>
+    <a class="save" n:href="chooseParamTag">Zpět na výběr tagu</a>
+    <a class="save" n:href="params">Zpět na přehled parametrů</a>
+{/block}
+    

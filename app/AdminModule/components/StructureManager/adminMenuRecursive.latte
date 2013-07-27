@@ -1,0 +1,22 @@
+{if $menuItems}
+                <ul {if $parent == 1}class="w_menu treeview-white" id="tree"{/if}>
+                {foreach $menuItems as $menuItem}
+                  {if $menuItem[parent] == $parent}
+                       
+                        <li {if $menuItem['has_child'] == 1}class="expandable"{/if}>{if $menuItem['has_child'] == 1}<div class="hitarea expandable-hitarea"></div>{/if}&nbsp;{foreach $menuItem[labels] as $label}<span class="label-bullet" style="color:#{$label->color}">&bullet;</span>{/foreach}{if $menuItem[tree_node_id] == $clipboardedPage}[c]{/if}<a {if $menuItem[tree_node_id] == $treeNodeId}class="admin_menu_current"{/if} menu_id="{$menuItem[tree_node_id]}" depth="{$depth}" id="menuitem-{$menuItem[tree_node_id]}" href="{plink Page:default 'id'=>$menuItem[tree_node_id]}">{$menuItem[name]}{if $menuItem[autosaved]}*{/if}</a>
+                        
+                            {if $menuItem['has_child'] == 1}
+                            <? $subMenu = array();$depth++;?>
+                            {foreach $fullMenu as $menuSubItem}
+                                {if $menuSubItem['parent'] == $menuItem['tree_node_id']}
+                                    <? $subMenu[] = $menuSubItem; ?>
+                                {/if}
+                            {/foreach}
+                            {include adminMenuRecursive.latte, 'parent' => $menuItem[tree_node_id], 'menuItems'=>$subMenu, 'fullMenu'=>$fullMenu, 'depth'=>$depth, 'treeNodeId' => $treeNodeId}
+                            {/if}
+                      
+                      </li>
+                  {/if}
+                {/foreach}
+                </ul>
+{/if}

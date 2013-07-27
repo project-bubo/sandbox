@@ -1,0 +1,14 @@
+{layout $page->getLayout('@@common')}
+ 
+{block #content}
+    {block #masterContent}
+    {/block}
+
+    <div class="slider subpage">
+        <div class="slider-inner-bottom subpage">
+            {*cache $page->getCacheID('brandMenu'), tags => ['labels/nase-znacky']*}
+            {control brandMenu}
+            {*/cache*}
+        </div>
+    </div>
+{/block}

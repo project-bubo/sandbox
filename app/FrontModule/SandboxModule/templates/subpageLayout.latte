@@ -1,0 +1,26 @@
+{layout $page->getLayout('@master')}
+
+{block #masterContent}
+
+{*cache $page->getCacheID('content'), tags => ['contents/'.$page->_tree_node_id, 'labels/nase-znacky', 'labels/novinky', 'labels/akce']*}
+
+        <div class="content">
+            <div class="content-header clearfix">
+                {control breadcrumbNavigation $page}
+                <div class="title fleft">
+                    <h1>{$page->_title}</h1>
+                </div>
+            </div>
+            <span class="stripes-border"></span>
+
+            <div class="content-text clearfix">            
+                
+            {!$page->_content_f}   
+                
+            </div>
+
+        </div>
+
+
+{*/cache*}
+{/block}

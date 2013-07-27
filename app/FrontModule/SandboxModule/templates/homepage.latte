@@ -1,0 +1,15 @@
+{layout $page->getLayout('@homepage')}
+
+{block #masterContent}
+            <div class="news-outer">
+                <div class="news-wrapper">
+                    <div class="news-inner fleft">
+                        <h1>{_Obsah}</h1>
+                        <span class="stripes-border"></span>
+                        {!$page->_content}
+                    </div>
+
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+{/block}

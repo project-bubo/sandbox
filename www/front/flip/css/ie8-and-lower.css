@@ -1,0 +1,22 @@
+.book-case .page-btn.next-page {
+  right: 13px;
+}
+
+.photo-frame-v4 .image-container {
+	border-color: #efefef;
+}
+
+.photo-frame-v4 .image-container.ic1 {
+  top: 30px;
+  left: 45px;
+}
+.photo-frame-v4 .image-container.ic2 {
+  top: 30px;
+  right: 10px;
+}
+.photo-frame-v3 {
+  left: 170px;
+}
+.title-box-v3 {
+  top: 55px;
+}

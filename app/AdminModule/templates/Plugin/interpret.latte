@@ -1,0 +1,7 @@
+{layout '../@plugin.latte'}
+
+{block wrapper} 
+    {ifset $plugin}
+        {control $plugin:$view $args}
+    {/ifset}
+{/block}

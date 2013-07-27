@@ -1,0 +1,360 @@
+@import "config.less";
+@import "lessins.less";
+@import "norm.less";
+body {
+	background: #8C8E99;}
+
+.book-case {
+	background: url(../images/book-case.png);
+	width:960px;
+	padding:15px 13px 12px 15px;
+	margin:40px auto;
+	moz-box-shadow: 	inset 1px 1px 3px 0 rgba(255, 255, 255, 0.35),inset -2px -2px 2px 0 rgba(0, 0, 0, 0.6),2px 2px 7px 0 rgba(0, 0, 0, 0.6);
+	-webkit-box-shadow: inset 1px 1px 3px 0 rgba(255, 255, 255, 0.35),inset -2px -2px 2px 0 rgba(0, 0, 0, 0.6),2px 2px 7px 0 rgba(0, 0, 0, 0.6);
+	box-shadow: 		inset 1px 1px 3px 0 rgba(255, 255, 255, 0.35),inset -2px -2px 2px 0 rgba(0, 0, 0, 0.6),2px 2px 7px 0 rgba(0, 0, 0, 0.6);
+	position:relative;
+	#border.radius(10px);
+	.outer-arrow {
+		display:block;
+		.square(70px);
+		position: absolute;
+		top:-30px;
+		background: url(../images/outer-arrows.png) no-repeat;
+		span {
+			display:block;
+			.square(70px);
+			background: url(../images/outer-arrows.png) no-repeat;
+		}
+		&.prev {
+			background-position: 0 0;
+			left:-35px;
+			span {
+				background-position: 0 -70px;
+			}
+		}
+		&.next {
+			background-position: -70px 0;
+			right:-38px;
+			span {
+				background-position: -70px -70px;
+			}
+		}
+	}
+	.page-btn {
+		overflow:hidden;
+		position:absolute;
+		display:block;
+		.size(50px,100%);
+		top:15px;
+		z-index:9999;
+		outline:0;
+		span {
+			position:absolute;
+			display:block;
+			.square(36px);
+			z-index:999;
+			top:-40px;
+			
+			
+		}
+		&.prev-page {
+			left:15px;
+			span {
+				left:-40px;
+				background: url(../images/prev-page-button.png) top left no-repeat;
+			}
+		}
+		&.next-page {
+			right:18px;
+			span {
+				right: -40px;
+				background: url(../images/next-page-button.png) top right no-repeat;	
+			}
+		}
+	}
+}
+.booklet {
+	&:after {
+		width:5px;
+		height: 497px;
+		content:"";
+		position:absolute;
+		right:0;
+		top:0;
+		z-index:20;
+		background: url(../images/book-right.png) no-repeat;
+	}
+}
+.b-wrap {
+	position:relative;
+	&:before {
+		content:"";
+		width:481px;
+		height:6px;
+		position:absolute;
+		bottom:0;
+		left:0;
+		background: url(../images/book-bottom-left.png) no-repeat;
+	}
+}
+.b-wrap-left {
+	.page-content {
+		padding:0 45px 0 0;
+	}
+}
+.b-wrap-right {
+	.page-content {
+		//padding:0 0 0 45px;
+	}
+	&:after {
+		content: "";
+		position:absolute;
+		.size(35px,494px);
+		z-index:20;
+		top:0;
+		left:0;
+		background: url(../images/book-edge-right.png) repeat-y;
+
+	}
+	&:before {
+		left:2px;
+	}
+
+}
+.yesteryear {
+	font-family: 'yesteryear', sans-serif;
+}
+
+.rotate-counter-30 {
+	.rotate(-30deg);
+}
+.rotate-2 {
+	.rotate(2deg);
+}
+.rotate-counter-2 {
+	.rotate(-2deg);
+}
+.rotate-8 {
+	.rotate(8deg);
+}
+.rotate-3 {
+	.rotate-aa(3deg);
+}
+.rotate-counter-3 {
+	.rotate-aa(-3deg);
+}
+.rotate-5 {
+	.rotate-aa(5deg);
+}
+.rotate-counter-5 {
+	.rotate-aa(-5deg);
+}
+
+.photo-frame-v1 {
+	position:relative;
+	.size(375px,480px);
+	margin:auto;
+	left: 15px;
+	.mask {
+		position:absolute;
+		top:0;
+		left:0;
+		.size(375px,480px);
+		background: url(../images/photo-frame-v1.png) no-repeat;
+		z-index:999;
+	}
+	img {
+		position:absolute;
+		top:35px;
+		left:35px;
+		max-width:310px;
+		max-height:420px;
+	}
+}
+
+.photo-frame-v2 {
+	width:480px;
+	height: 494px;
+	overflow:hidden;
+	margin-left:2px;
+	z-index: 300;
+	img {
+		display:block;
+		position: relative;
+		max-width:480px;
+		z-index: 300;
+	}
+}
+
+.photo-frame-v3 {
+	.size(300px,390px);
+	overflow: hidden;
+	position: absolute;
+	top:50px;
+	left:150px;
+	.mask {
+		position:absolute;
+		top:0;
+		left:0;
+		.square(450px);
+		background: url(../images/photo-frame-v3.png) no-repeat;
+		z-index:999;
+	}
+	img {
+		position: absolute;
+		top:15px;
+		left:15px;
+		max-width: 270px;
+		max-height: 360px;
+	}
+}
+
+.photo-frame-v4 {
+	.size(435px,444px);
+	background: url(../images/wood-pattern.jpg);
+	padding:50px 0 0 45px;
+	.image-container {
+		.size(200px,271px);
+		border: 5px solid #fff;
+		.box-shadow(0,1px,5px,0,rgba(0,0,0,0.65));
+		position: absolute;
+		overflow: hidden;
+		background: #fff;
+		text-align:center;
+		line-height: 270px;
+		&.ic1 {
+			top:30px;
+			left:55px;
+		}
+		&.ic2 {
+			top:40px;
+			right:40px;
+		}
+		img {
+			max-width: 200px;
+			vertical-align: middle;
+		}
+	}
+}
+
+.title-box {
+	position:absolute;
+	
+	background: url(../images/title-paper-bg.png);
+	padding:5px 30px 5px 10px;
+	.box-shadow(0px,0px,5px,0,rgba(0,0,0,0.5));
+	min-width:70px;
+	min-height:35px;
+	font-size:25px;
+	.text-shadow(0,1px,0,rgba(255,255,255,0.5));
+	color: #333;
+	font-family: 'Kaushan Script', serif;
+	text-align:right;
+	z-index: 800;
+	&.left-page {
+		top:15px;
+		right:55px;
+	}
+	&.right-page {
+		right:15px;
+		bottom:15px;
+	}
+	.small {
+		font-size:15px;
+		margin-right:10px;
+	}
+	&:after {
+		content:"";
+		.size(63px,30px);
+		position:absolute;
+
+	}
+	&.right-page:after {
+		background: url(../images/paperclip-right.png) no-repeat;
+		top:0px;
+		right:0px;
+	}
+	&.left-page:after {
+		background: url(../images/paperclip-left.png) no-repeat;
+		top:0px;
+		left:0px;
+	}
+}
+
+.title-box-v3 {
+	.size(260px,340px);
+	background: url(../images/title-box-v3.png) no-repeat;
+	position: absolute;
+	top:60px;
+	left:60px;
+	padding:20px;
+	color: #000;
+	font-size: 14px;
+	text-transform: uppercase;
+	font-style: italic;
+}
+
+.title-box-v4 {
+	position: absolute;
+	bottom:6px;
+	.size(400px,155px);
+	background: url(../images/title-box-v4.png) no-repeat;
+	overflow:hidden;
+	.text-container {
+		font-family:yesteryear;
+		color: #353C72;
+		font-size:20px;
+		line-height: 30px;
+		padding:20px 40px 0px 80px;
+		p {
+			margin-bottom:0;
+		}
+	}
+}
+
+.left-page-text {
+	width:350px;
+	position:absolute;
+	top:10px;
+	left:50px;
+	&.indent {
+		top:80px;
+	}
+
+	.collection-name {
+		font-family: 'Arial', sans-serif;
+		font-size: 50px;
+		line-height: 50px;
+		font-weight: bold;
+		color: #900;
+		text-shadow: 2px 2px 0px #fff, 5px 5px 0px #252525;
+		top:-70px;
+		//right:40px;
+		text-align:center;
+	}
+	.rotated-text {
+		margin:100px 0 0 30px;
+		text-align:center;
+		span {
+			display:block;
+			position:relative;
+			&.s1 {
+				font-size:70px;
+				line-height: 70px;
+
+			}
+			&.s2 {
+				font-size:50px;
+				line-height: 50px;
+				top:-10px;
+			}
+			&.s3 {
+				font-size: 120px;
+				line-height: 120px;
+				top: -60px;
+			}
+		}
+	}
+}
+
+@import "shadowbox";

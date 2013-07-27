@@ -1,0 +1,12 @@
+{block title} <h1>{_"Seznam parametrů ke stránce"} "{$page->_name}"</h1> {/block}
+
+{block content}
+    {control extParamConfirmDialog}
+    {control extParamDataGrid}
+
+{/block}
+
+{block #toolbar}
+    <a href="{plink addParam}">Vytvořit parametr</a> 
+    <a href="{plink chooseParamTag}">Řadit parametry</a> 
+{/block}

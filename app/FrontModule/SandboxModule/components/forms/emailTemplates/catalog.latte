@@ -1,0 +1,16 @@
+
+{block content}
+    Z webu MaxPraga registrujeme objednávku katalogu:<br/><br/>
+    Jméno: {$values[name]}<br />
+    Příjmení: {$values[surname]}<br />
+    Adresa: {$values[address]}<br />
+    Město: {$values[city]}<br />
+    PSČ: {$values[zip]}<br />
+    Email: {$values[email]}<br /><br />
+    
+    Uživatel vybral tyto katalogy:
+    <ul>
+    {foreach $values[catalogs] as $name}
+        <li n:if="$name !== FALSE">{$name}</li>
+    {/foreach}
+    </ul>

@@ -1,0 +1,38 @@
+
+
+{block content}
+    
+<style>
+    #sortable { list-style-type: none; margin: 0; padding: 0; width: 60%; }
+    #sortable li { margin: 0 3px 3px 3px; padding: 0.4em; padding-left: 1.5em; font-size: 1.4em; height: 18px; }
+    #sortable li span { position: absolute; margin-left: -1.3em; }
+    </style>
+    <script>
+    $(function() {
+        $( "#sortable" ).sortable();
+        $( "#sortable" ).disableSelection();
+            
+        $( "#saveSortOrder" ).live('click', function() {
+            //alert($( "#sortable" ).sortable('serialize'));
+
+             $.getJSON({link saveSortorder!}, {'data': $( "#sortable" ).sortable('serialize')});
+
+
+            return false;
+        });
+    });
+    </script>
+
+{if !empty($itemList)}
+<ul id="sortable">
+    {foreach $itemList as $itemId => $item}
+    <li class="ui-state-default" id="items_{$itemId}"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span><a n:tag-if="isset($item[link]) && $item[link]" href="{!$item[link]}">{$item[title]}</a></li>
+    {/foreach}
+    <a id="saveSortOrder" class="save" href="#">Uložit řazení</a>
+</ul>
+{else}
+    <strong>No data</strong>
+{/if}
+
+{/block}
+

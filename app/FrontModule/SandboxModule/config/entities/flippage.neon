@@ -1,0 +1,31 @@
+##
+# 
+# reserved property names:
+#       - name
+#       - title
+#       - link_title
+#       - menu_title
+#       - meta_keys
+#       - meta_description
+#
+#
+entityMeta:
+    title: 'Stránka flipchartu'
+    createUrl: no
+
+properties:
+    content:
+#        db: # if ommited then cms_page.<propertyName> used
+#            table: '[:core:samsung]'	# if ommited table [cms_page] used, use dibi style notations
+#            attribute: '[content]'
+        type: textArea
+        label: 'Popis'
+        class: wysiwyg
+
+groups:
+    full:
+        #perex: yes
+        content: no
+        #content2: yes
+        #content3: yes
+			

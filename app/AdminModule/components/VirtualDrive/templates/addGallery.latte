@@ -1,0 +1,14 @@
+{layout '@layout.latte'}
+{block #top}
+        <a class="ajax" n:href="setView, 'view'=>'galleries', 'gid'=>0">{_"Galerie"}</a>:/
+{/block}
+
+
+{block #content}
+                
+                    
+                            <div class="fileManager">
+                                <h1>{_"Vložit galerii"}</h1>
+                                {widget tinyAddGalleryForm}
+                            </div>
+{/block}

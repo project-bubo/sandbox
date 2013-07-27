@@ -1,0 +1,11 @@
+
+modules:
+    'Front/Sandbox':
+        title: 'Bubo sandbox'
+        langs:
+            cs: Čeština
+            en: English
+            #it: Italiano
+        defaultLang: cs
+        hosts:
+            - 'localhost/bubo-sandbox/www/'

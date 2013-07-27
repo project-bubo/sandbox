@@ -1,0 +1,329 @@
+/********************** DataGrid *********************/
+table.datagrid {
+padding: 0;
+margin: 0;
+border-collapse: collapse;
+width: 100%;
+}
+table.datagrid tr {
+background: #FFFFFF;
+}
+table.datagrid tbody tr.even {
+background: #e6f8cc;
+}
+table.datagrid tbody tr:hover {
+background: #effbde !important;
+}
+table.datagrid tbody tr.selected, table.datagrid tbody tr.selected td {
+background: #B3F76F !important;
+}
+
+table.datagrid input, table.datagrid select{
+display:inline;
+height:24px;
+}
+table.datagrid input[type=text], table.datagrid select {
+color: #525B37;
+font-family: Arial,sans-serif;
+border: 1px #CCCCCC solid;
+padding: 2px 0px;
+margin: 0 auto;
+}
+table.datagrid tr.filters input[type=text], table.datagrid tr.filters select {
+width: 100%;
+}
+table.datagrid select {
+padding: 1px 0px;
+}
+table.datagrid input[type=text]:hover, table.datagrid input[type=text]:focus {
+background-color: #F6F7FA;
+}
+table.datagrid input[type=checkbox], table.datagrid input[type=checkbox]:hover {
+border: none;
+*background-color: #C6DBFF;
+display: block;
+margin: 0 auto;
+}
+table.datagrid input[type=submit] {
+border: 0px;
+color: #fff;
+font-weight: bold;
+font-family: Arial,sans-serif;
+cursor: pointer;
+padding-right: 18px;
+=padding-right: 10px;
+background: transparent no-repeat right center;
+}
+table.datagrid input[name=filterSubmit] {
+background-image: url('../images/datagrid/icons/find.png') !important;
+}
+table.datagrid input[name=operationSubmit] {
+background-image: url('../images/datagrid/icons/accept.png') !important;
+}
+table.datagrid input[name=pageSubmit], table.datagrid input[name=itemsSubmit] {
+background-image: url('../images/datagrid/icons/arrow_rotate_clockwise.png') !important;
+}
+table.datagrid input[name=resetSubmit] {
+background-image: url('../images/datagrid/icons/arrow_refresh_small.png') !important;
+}
+table.datagrid input.datepicker {
+background: white url('../images/datagrid/calendar.gif') no-repeat right !important;
+}
+table.datagrid td, table.datagrid th {
+color: #525b37;
+border: 1px solid #ddd;
+padding: 6px 10px;
+}
+table.datagrid th {
+color: #505767;
+background: #eee url('../images/datagrid/th-bg.gif') no-repeat;
+text-align: left;
+padding: 0 10px;
+}
+table.datagrid th.checker, table.datagrid td.checker, table.datagrid td.actions {
+text-align: center;
+padding-left: 6px;
+}
+table.datagrid td.actions a {
+    text-decoration: none;
+}
+table.datagrid tr.header th a span {
+color: #7D9DC9;
+font-size: 90%;
+padding-left: 6px;
+}
+table.datagrid tr.filters, table.datagrid tr.filters td {
+background: #eee url('../images/datagrid/th-bg-mid.gif') no-repeat;
+padding: 3px 6px !important;
+}
+table.datagrid tr.header th span.link {
+color: #fff;
+}
+table.datagrid th a, table.datagrid tr.filters a.filter {
+color: #fff;
+text-decoration: none;
+line-height: 30px;
+float: left;
+}
+table.datagrid tr.filters a.filter {
+background: url('../images/datagrid/icons/find.png') no-repeat right center;
+padding-right: 25px;
+padding-left: 5px;
+font-weight: bold;
+text-align: left !important;
+line-height: 10px !important;
+}
+table.datagrid th p {
+text-decoration: none;
+line-height: 30px;
+float: left;
+}
+table.datagrid tr.filters td.actions {
+text-align: left;
+*padding: 6px !important;
+}
+table.datagrid tr.footer td {
+background: #eee url('../images/datagrid/th-bg-top.gif') repeat-x;
+color: #505767;
+border: 1px solid #ddd;
+padding: 0 10px;
+text-align: left;
+font-weight: bold;
+line-height: 1em;
+}
+table.datagrid span.positioner {
+width: 22px;
+height: 16px;
+display: block;
+float: left;
+margin-right: 2px;
+}
+table.datagrid th span.positioner {
+padding-top: 7px;
+}
+table.datagrid span.positioner a {
+line-height: 0px;
+}
+table.datagrid span.positioner a span {
+border: none;
+display: block;
+float: left;
+margin: 2px;
+width: 21px;
+height: 4px;
+opacity: 0.40;
+=filter: alpha(opacity=40);
+padding-left: 0px !important;
+}
+table.datagrid span.positioner a span.up {
+background: url('../images/datagrid/asc.gif') no-repeat right center;
+}
+table.datagrid span.positioner a span.down {
+background: url('../images/datagrid/desc.gif') no-repeat right center;
+}
+table.datagrid span.positioner a span.down:hover, table.datagrid span.positioner a span.up:hover {
+opacity: 1;
+=filter: alpha(opacity=100);
+}
+table.datagrid span.positioner a.active span, table.datagrid span.positioner a.active span:hover {
+opacity: 1;
+=filter: alpha(opacity=100);
+cursor: default;
+}
+table.datagrid span.positioner a.inactive span, table.datagrid span.positioner a.inactive span:hover {
+background: none !important;
+cursor: default;
+}
+table.datagrid tr.footer select, table.datagrid tr.footer input[type=text] {
+margin: 0 0.2em;
+padding: 0 0.2em !important;
+}
+table.datagrid tr.footer input {
+text-align: center;
+}
+
+
+/** footer **/
+table.datagrid .paginator, table.datagrid .operations, table.datagrid .grid-info {
+padding: 0.6em 1.8em 0.6em 0.1em;
+float: left;
+}
+table.datagrid .grid-info {
+float: right;
+}
+table.datagrid .paginator .paginator-controls {
+float: left;
+padding: 0em;
+}
+table.datagrid .paginator a {
+float: left !important;
+padding: 0em !important;
+}
+table.datagrid .paginator .paginator-first, table.datagrid .paginator .paginator-prev, 
+table.datagrid .paginator .paginator-next,  table.datagrid .paginator .paginator-last {
+margin: 0em 0.2em;
+float: left;
+margin: 1px 4px;
+height: 16px;
+width: 16px;
+background-repeat: no-repeat;
+display: block;
+overflow: hidden;
+text-indent: -99999px;
+}
+table.datagrid .paginator .paginator-first {
+background-image: url('../images/datagrid/icons/control_start_blue.png');
+}
+table.datagrid .paginator .paginator-prev {
+background-image: url('../images/datagrid/icons/control_left_blue.png');
+}
+table.datagrid .paginator .paginator-next {
+background-image: url('../images/datagrid/icons/control_right_blue.png');
+}
+table.datagrid .paginator .paginator-last {
+background-image: url('../images/datagrid/icons/control_end_blue.png');
+}
+table.datagrid .inactive {
+opacity: 0.40;
+=filter: alpha(opacity=40);
+}
+
+
+
+span.icon {
+margin: 1px 4px;
+padding-left: 5px;
+text-align: left;
+color: #FF6464;
+}
+.icon {
+height: 16px;
+/*width: 16px;*/
+background-repeat: no-repeat;
+display: block;
+overflow: hidden;
+text-indent: 20px;
+}
+.icon-no {
+background-image: url('../images/datagrid/icons/page_no.png');
+}
+.icon-add {
+background-image: url('../images/datagrid/icons/page_add.png');
+}
+.icon-edit {
+background-image: url('../images/datagrid/icons/page_edit.png');
+}
+.icon-del {
+background-image: url('../images/datagrid/icons/page_delete.png');
+}
+.icon-copy {
+background-image: url('../images/datagrid/icons/page_copy.png');
+}
+.icon-save {
+background-image: url('../images/datagrid/icons/page_save.png');
+}
+.icon-detail {
+background-image: url('../images/datagrid/icons/page_detail.png');
+}
+.icon-print {
+background-image: url('../images/datagrid/icons/printer.png');
+}
+.icon-bin {
+background-image: url('../images/datagrid/icons/bin_closed.png');
+}
+.icon-find {
+background-image: url('../images/datagrid/icons/find.png');
+}
+.icon-refresh, .icon-invert {
+background-image: url('../images/datagrid/icons/arrow_refresh.png');
+}
+.icon-invert, .icon-find {
+cursor: pointer;
+margin-left: auto !important;
+margin-right: auto !important;
+padding: 0 !important;
+}
+.icon-shipped, .icon-resolved, .icon-cancelled,
+.icon-process, .icon-hold, .icon-disputed,
+.icon-no-orders, .icon-invert, .icon-find {
+float: none !important
+}
+.icon-shipped {
+background-image: url('../images/datagrid/icons/cart_go.png');
+}
+.icon-resolved {
+background-image: url('../images/datagrid/icons/flag_green.png');
+}
+.icon-cancelled {
+background-image: url('../images/datagrid/icons/flag_red.png');
+}
+.icon-no-orders {
+background-image: url('../images/datagrid/icons/box.png');
+}
+.icon-process {
+background-image: url('../images/datagrid/icons/date_go.png');
+}
+.icon-hold {
+background-image: url('../images/datagrid/icons/flag_orange.png');
+}
+.icon-disputed {
+background-image: url('../images/datagrid/icons/flag_blue.png');
+}
+.icon-install{
+background-image: url('../images/datagrid/icons/brick-add-icon.png');
+}
+.icon-uninstall{
+background-image: url('../images/datagrid/icons/brick-delete-icon.png');
+}
+.icon-basket-add{
+background-image: url('../images/datagrid/icons/basket-add-icon.png');
+}
+.icon-pencil{
+background-image: url('../images/datagrid/icons/pencil.png');
+}
+.icon-key{
+background-image: url('../images/datagrid/icons/key-icon.png');
+}
+.icon-reload-from-backup{
+background-image: url('../images/datagrid/icons/arrow-rotate-anticlockwise-icon.png');
+}

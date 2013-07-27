@@ -1,0 +1,39 @@
+{block title} <h1>{_"Upravit štítek"} "{$labelName}"</h1> {/block}
+
+
+
+{block content}
+
+<script type="text/javascript">
+    $(function(){
+        
+        $('#frmlabelForm-name').after('<div id="colorSelector"><div></div></div>');
+        
+        var $initColor = $('.color-listener').val();
+        
+        $('#colorSelector div').css('backgroundColor', '#' + $initColor);
+        
+        $('#colorSelector').ColorPicker({
+            color: '#'+$initColor,
+            onShow: function (colpkr) {
+                $(colpkr).fadeIn(500);
+                return false;
+            },
+            onHide: function (colpkr) {
+                $(colpkr).fadeOut(500);
+                return false;
+            },
+            onChange: function (hsb, hex, rgb) {
+                $('#colorSelector div').css('backgroundColor', '#' + hex);
+                $('.color-listener').val(hex);
+            }
+        });  
+    });
+</script>
+
+
+{control labelForm}
+
+
+
+{/block}

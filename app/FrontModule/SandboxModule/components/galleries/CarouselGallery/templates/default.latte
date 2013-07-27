@@ -1,0 +1,24 @@
+
+{if $images}
+
+<div class="carousel-container clearfix">
+                <div class="carousel">
+                    <ul>
+                        {foreach $images as $image}
+                            {var $imageSizes = getimagesize($image->getDirPath(2))}
+                            <li>
+                                <a rel="shadowbox[gal]" href="{$image->getPath(1)}">
+                                    <img {$imageSizes[3]} src="{$image->getPath(2)}" alt="">
+                                </a>
+                            </li>
+                        {/foreach}
+                        
+                    </ul>
+                </div>
+                <div class="controls">
+                    <a href="#" class="prev-page"></a>
+                    <a href="#" class="next-page"></a>
+                </div>
+            </div>
+
+{/if}

@@ -1,0 +1,66 @@
+<div id="{$menuId}" class="vmenu" style="display:{$display};left:{$left}px;top:{$top}px;z-index:1001;">
+ 	   
+   
+    {*<div class="first_li"><a class="ajax" n:href="delete treeNodeId => $treeNodeId">{_"Hodit do koše"}</a></div>
+    
+    <div class="sep_li"></div>
+    *}
+    {if $labelAdminMode}
+    
+        <div class="first_li"><a>{_"Štítky"}</a>
+                <div class="inner_li">
+                        {foreach $labels as $label}
+                            {if !$page->isPassivelyLabelledBy($label[label_id])}
+                                <a class="menu_status_{if $page->isActivelyLabelledBy($label[label_id])}true{else}false{/if} ajax" href="{link toggleActiveLabel! labelId =>$label['label_id']}">{_$label['name']}</a>
+                            {else}
+                                {*<span class="menu_status_false" style="padding-left: 25px;">{_$label['name']}</span>*}
+                            {/if}
+                        {/foreach}
+
+
+                        <div class="sep_li"></div>
+                        {foreach $labels as $label}
+                            {if $page->isPassivelyLabelledBy($label[label_id])}
+                                <a class="menu_status_true ajax" n:href="removePassiveLabel labelId => $label['label_id']">{_$label['name']} {_"(pasivní)"}</a>
+                            {/if}
+                        {/foreach}
+
+
+                </div>
+
+        </div>
+    
+    {else}
+    
+        <div class="first_li"><a>{_"Možnosti stránky"}</a>
+                <div class="inner_li">
+                        {*foreach $labels as $label}
+                            {if $label['name'] == 'Homepage'}
+                                <a class="menu_status_{if in_array($label[label_id], $assignedActiveLabels)}true{else}false{/if} ajax" href="{link toggleActiveLabel! labelId =>$label['label_id']}">{_"Domovská stránka"}</a>
+                            {/if}
+                        {/foreach*}
+
+                        {*{foreach $labels as $label}
+                            {if in_array($label[label_id], $passiveLabels) || (!in_array($label[label_id], $passiveLabels)) && (in_array($label[label_id], $assignedPassiveLabels))}
+                                {if $label[name] == "Show in main menu"}
+                                    <a class="menu_status_{if in_array($label[label_id], $assignedPassiveLabels)}false{else}true{/if} ajax" n:href="togglePassiveLabel labelId => $label['label_id']">{_"Nezobrazovat v hlavním menu"}</a>
+                                {/if}
+                                
+                                {if $label[name] == "Show in sitemap.xml"}
+                                    <a class="menu_status_{if in_array($label[label_id], $assignedPassiveLabels)}false{else}true{/if} ajax" n:href="togglePassiveLabel labelId => $label['label_id']">{_"Nezapisovat do sitemap.xml"}</a>
+                                {/if}
+
+                            {/if}
+                        {/foreach}*}
+                </div>
+
+        </div>
+    
+    
+    {/if}
+    
+    {*<div class="first_li"><a class="ajax" n:href="showHistory treeNodeId => $treeNodeId">{_"Zobrazit historii..."}</a></div>*}
+    
+  
+
+</div>

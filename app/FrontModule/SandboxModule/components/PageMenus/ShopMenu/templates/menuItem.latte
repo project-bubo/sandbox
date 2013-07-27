@@ -1,0 +1,12 @@
+
+<div class="address-box fleft">
+    <a class="shop-name" href="{$page->_front_url}">{$page->_ext_shopBrand}</a>
+    <p>{$page->_ext_shopAddress}</p>
+    {if $page->_ext_shopPhoneNumber}
+    <p class="remove-bottom"><span class="icon phone"></span>{$page->_ext_shopPhoneNumber}</p>
+    {/if}
+    {if $page->_ext_shopEmail}
+    <p class="remove-bottom"><span class="icon mail"></span><a href="mailto:{$page->_ext_shopEmail}">{$page->_ext_shopEmail}</a></p>
+    {/if}
+</div>
+

@@ -1,0 +1,13 @@
+<div id="{$menuId}" class="vmenu" style="display:{$display};left:{$left}px;top:{$top}px;z-index:1001;">
+ 	   
+    <div class="first_li"><a n:href="cutFolder! id=>$id" class="ajax">{_"Cut folder"}</a></div>
+    <div class="first_li">
+    {if $clipboard}    
+            <a n:href="paste! id=>$id" class="ajax">{_"Paste"}</a>
+        {else}
+            <span>{_"Paste"}</span>
+        {/if}
+    </div>
+    <div class="first_li"><a n:href="deleteFolder:confirmDelete! id=>$id" class="ajax" >{_"Delete folder"}</a></div>
+</div>
+{control deleteFolder}

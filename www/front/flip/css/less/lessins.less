@@ -1,0 +1,110 @@
+#gradient { /*-- GRADIENT MIXIN BUNDLE --*/
+
+	.horizontal(@startColor: #555, @endColor: #333) {
+		background-color: @endColor;
+		background-repeat: no-repeat;
+		background-image: -webkit-gradient(linear, left top, right top, from(@startColor), to(@endColor));
+		background-image: -webkit-linear-gradient(right center, @startColor, @endColor);
+		background-image: -moz-linear-gradient(right center, @startColor, @endColor);
+		background-image: -o-linear-gradient(left,  @startColor,  @endColor);
+		background-image: -khtml-gradient(linear, left top, right top, from(@startColor), to(@endColor));
+		filter: e(%("progid:DXImageTransform.Microsoft.Gradient(StartColorStr='%d', EndColorStr='%d', GradientType=1)",@startColor,@endColor));
+		-ms-filter: %("progid:DXImageTransform.Microsoft.gradient(startColorStr='%d', EndColorStr='%d', GradientType=1))",@startColor,@endColor);
+	}
+
+	.vertical(@startColor: #555, @endColor: #333) {
+		background-color: @endColor;
+		background-repeat: no-repeat;
+		background-image: -webkit-gradient(linear, left top, left bottom, from(@startColor), to(@endColor));
+		background-image: -webkit-linear-gradient(@startColor, @endColor);
+		background-image: -moz-linear-gradient(@startColor, @endColor);
+		background-image: -o-linear-gradient(top,  @startColor,  @endColor);
+		background-image: -khtml-gradient(linear, left top, left bottom, from(@startColor), to(@endColor));
+		filter: e(%("progid:DXImageTransform.Microsoft.Gradient(StartColorStr='%d', EndColorStr='%d', GradientType=0)",@startColor,@endColor));
+		-ms-filter: %("progid:DXImageTransform.Microsoft.gradient(startColorStr='%d', EndColorStr='%d', GradientType=0))",@startColor,@endColor);
+	}
+
+	.vertical-three-colors(@startColor: #00b3ee, @midColor: #7a43b6, @colorStop: 0.5, @endColor: #c3325f) {
+		background-color: @endColor;
+		background-repeat: no-repeat;
+		background-image: -webkit-gradient(linear, 0 0, 0 100%, from(@startColor), color-stop(@colorStop, @midColor), to(@endColor));
+		background-image: -webkit-linear-gradient(@startColor, color-stop(@colorStop, @midColor), @endColor);
+		background-image: -moz-linear-gradient(@startColor, color-stop(@midColor, @colorStop), @endColor);
+	}
+}
+
+#border { /*-- BORDER MIXIN BUNDLE --*/
+
+	.radius(@radius:5px) {
+		-webkit-border-radius: @radius;
+		-moz-border-radius:@radius;
+		border-radius:@radius;
+	}
+
+	.radius-single(@a: 4px, @b: 4px, @c: 4px, @d: 4px) {
+	  -webkit-border-top-left-radius: @a;
+	  -webkit-border-top-right-radius: @b;
+	  -webkit-border-bottom-left-radius: @c;
+	  -webkit-border-bottom-right-radius: @d;
+	  -moz-border-radius-topleft: @a;
+	  -moz-border-radius-topright: @b;
+	  -moz-border-radius-bottomleft: @c;
+	  -moz-border-radius-bottomright: @d;
+	  border-top-left-radius: @a;
+	  border-top-right-radius: @b;
+	  border-bottom-left-radius: @c;
+	  border-bottom-right-radius: @d;
+	}
+}
+
+#transition { /*-- TRANSITION MIXIN --*/
+
+	.transition(@transition:all 1s ease-in-out) {
+		-webkit-transition:@transition;
+		-moz-transition:@transition;
+		transition:@transition;
+	}
+}
+
+.url(@image,@posX,@posY,@repeat) {
+	background:url('../images/@image') @posX @posY @repeat;
+}
+
+.box-shadow(@x: 0, @y: 0, @blur: 5px, @spread:0, @color: rgba(116,116,116,0.5)) {
+  -moz-box-shadow: @arguments;
+  -webkit-box-shadow: @arguments;
+  box-shadow: @arguments;
+}
+
+.box-shadow-inset(@x: 2px, @y: 2px, @blur: 8px, @spread:0, @color: rgba(116,116,116,0.3)) {
+  -moz-box-shadow: inset @arguments;
+  -webkit-box-shadow: inset @arguments;
+  box-shadow: inset @arguments;
+}
+
+.text-shadow(@x: 0, @y: 1px, @blur: 0, @color: rgba(255,255,255,0.2)) {
+	text-shadow: @arguments;
+}
+
+.square(@s) {
+	width:@s; height:@s;
+}
+
+.size(@w, @h) {
+	width:@w; height:@h;
+}
+
+.rotate(@deg) {
+	transform:rotate(@deg);
+    -moz-transform:rotate(@deg);
+    -ms-transform:rotate(@deg);
+    -webkit-transform:rotate(@deg);
+}
+
+.rotate-aa(@deg) {
+	transform:rotate(@deg) translate3d( 0, 0, 0);
+    -moz-transform:rotate(@deg) translate3d( 0, 0, 0);
+    -ms-transform:rotate(@deg);
+    -webkit-transform:rotate(@deg) translate3d( 0, 0, 0);
+
+}

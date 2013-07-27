@@ -1,0 +1,16 @@
+<!-- LABELS -->
+<div class="labels">
+    <div class="l_top">{_"Štítky"}</div>
+    <ul class="v_menu">
+        {dump $labels}
+        {foreach $labels as $label}
+        <li><a class="label" href="{plink Label:editLabel labelId=>$label[label_id]}"><span style="color:#{$label[color]};padding-right:5px;font-size:15px;">{if $label[create_button] == 1}&diams;{else}&#x25cf;{/if}</span>{$label[name]}</a></li>
+        {/foreach}
+    </ul>  
+
+    <div class="insert">
+        <a href="{plink Label:addLabel}" class="w_insert fleft">{_"Přidat štítek"}</a>
+        <div class="tom_cleaner"></div>
+    </div>
+</div>
+<!-- / LABELS -->
