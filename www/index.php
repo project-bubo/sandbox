@@ -10,7 +10,7 @@ define('APP_DIR', WWW_DIR . '/../app');
 define('TEMP_DIR', WWW_DIR . '/../temp');
 
 // absolute filesystem path to the temporary files
-define('LIBS_DIR', WWW_DIR . '/../libs');
+define('LIBS_DIR', WWW_DIR . '/../vendor');
 
 // absolute filesystem path to the temporary files
 define('PLUGINS_DIR', WWW_DIR . '/../plugins');
