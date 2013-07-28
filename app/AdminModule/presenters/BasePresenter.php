@@ -13,41 +13,41 @@ abstract class BasePresenter extends \BasePresenter {
     public $system = array();
     public $css = array();
     public $label = '.';
-    
+
     public function startup() {
         parent::startup();
 
-        
+
 //        dump($this->getHttpRequest()->url->host);
 //        die();
-        
+
         $this->basePath = $this->getHttpRequest()->getUrl()->basePath;
         $this->system['cms_version'] = '0.1';
-        
-        
+
+
         // register admin menu sections (installed plugins only)
-//        foreach ($this->plugins as $plugin) { 
+//        foreach ($this->plugins as $plugin) {
 //            if ($plugin['instance']->isInstalled() && $plugin['instance']->hasAdminSection()) {
 //                $this['adminMenu']->registerSection($plugin['instance']->getAdminSection()->setParent($this));
 //            }
 //        }
-        
+
         $this['adminMenu']->registerSection('labelSection');
         $this['adminMenu']->registerSection('virtualDriveSection');
         //$this['adminMenu']->registerSection('pluginSection');
         //$this['adminMenu']->registerSection('toolsSection');
-        
-        
-        
+
+
+
         $currentModule = $this->pageManagerService->getCurrentModule();
         // set session
         $this['moduleSwitch']->getActualModule($currentModule);
-        
-        
+
+
 //        $info = $this->virtualDriveService->getFileInfo(1);
 //        dump($info);
 //        die();
-        
+
     }
 
     public function createComponentAdminMenu($name) {
@@ -57,19 +57,19 @@ abstract class BasePresenter extends \BasePresenter {
     public function createComponentSitemapIndexer($name) {
         return new Sitemap\SitemapIndexer($this, $name);
     }
-    
+
     public function createComponentMedia($name) {
         return new Bubo\Media($this, $name);
     }
-    
+
     public function beforeRender() {
         parent::beforeRender();
 
-        
+
         //$this['sitemapIndexer']->render();
 
         $this->template->pageManager = $this->pageManagerService;
-        
+
     }
 
     /**
@@ -79,15 +79,15 @@ abstract class BasePresenter extends \BasePresenter {
      * - confirmdialogs
      *
      * @param type $name
-     * @return classname 
+     * @return classname
      */
     public function createComponent($name) {
 
         if ($name == 'pageMultiForm') {
             return new Components\MultiForms\PageMultiForm($this, $name);
-            
+
         } else if (preg_match('([a-zA-Z0-9]+Form)', $name)) {
-            // detect forms   
+            // detect forms
             $classname = "AdminModule\\Forms\\" . ucfirst($name);
             if (class_exists($classname)) {
                 $form = new $classname($this, $name);
@@ -106,7 +106,7 @@ abstract class BasePresenter extends \BasePresenter {
             // detect confrim dialogs
             $classname = "AdminModule\\Dialogs\\" . ucfirst($name);
             if (class_exists($classname)) {
-                $dialog = new $classname($this);
+                $dialog = new $classname($this, $name);
                 //$dialog->setTranslator($this->context->translator);
                 return $dialog;
             }
@@ -118,10 +118,10 @@ abstract class BasePresenter extends \BasePresenter {
                 //$dialog->setTranslator($this->context->translator);
                 return $sorter;
             }
-        } 
-        
+        }
+
         return parent::createComponent($name);
-        
+
     }
 
     public function createComponentLanguageManager($name) {
@@ -131,7 +131,7 @@ abstract class BasePresenter extends \BasePresenter {
     public function createComponentModuleSwitch($name) {
         return new Components\ModuleSwitch($this, $name);
     }
-    
+
     public function createComponentCss() {
 
         $css = new \WebLoader\CssLoader;

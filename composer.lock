@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "cf1e996ee5e5a6ac67f52e16e772d71d",
+    "hash": "32b9d983c353dfc0a011068e175c8cbb",
     "packages": [
         {
             "name": "dibi/dibi",
@@ -52,56 +52,6 @@
                 "sqlite"
             ],
             "time": "2013-04-03 12:40:16"
-        },
-        {
-            "name": "janmarek/webloader",
-            "version": "2.1.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/janmarek/WebLoader.git",
-                "reference": "2.1.1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/janmarek/WebLoader/zipball/2.1.1",
-                "reference": "2.1.1",
-                "shasum": ""
-            },
-            "require": {
-                "nette/nette": "2.0.*"
-            },
-            "require-dev": {
-                "mockery/mockery": "0.7.*",
-                "phpunit/phpunit": "3.7.*"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "WebLoader": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Jan Marek",
-                    "email": "mail@janmarek.net",
-                    "homepage": "http://www.janmarek.net/",
-                    "role": "Author"
-                }
-            ],
-            "description": "Tool for loading or deploying CSS and JS files into web pages",
-            "homepage": "http://addons.nette.org/cs/webloader",
-            "keywords": [
-                "assets",
-                "css",
-                "javascript",
-                "nette",
-                "webloader"
-            ],
-            "time": "2013-04-04 14:34:03"
         },
         {
             "name": "jkuchar/multiplefileupload",
@@ -211,12 +161,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/project-bubo/bubo.git",
-                "reference": "12055095e14a03bd7913dabcb8e7fafc3946275b"
+                "reference": "892ffac8fc9388a052daa63ffddc574fa6c8e8e1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/project-bubo/bubo/zipball/12055095e14a03bd7913dabcb8e7fafc3946275b",
-                "reference": "12055095e14a03bd7913dabcb8e7fafc3946275b",
+                "url": "https://api.github.com/repos/project-bubo/bubo/zipball/892ffac8fc9388a052daa63ffddc574fa6c8e8e1",
+                "reference": "892ffac8fc9388a052daa63ffddc574fa6c8e8e1",
                 "shasum": ""
             },
             "require": {
@@ -241,7 +191,7 @@
             "keywords": [
                 "cms"
             ],
-            "time": "2013-07-27 16:28:50"
+            "time": "2013-07-28 12:06:43"
         },
         {
             "name": "project-bubo/datagrid",
