@@ -6,7 +6,8 @@
  * @property-read \Model\PageModel $pageModel
  * @property-read \Model\LabelModel $labelModel
  */
-abstract class BasePresenter extends Nette\Application\UI\Presenter {
+abstract class BasePresenter extends \Bubo\Application\UI\Presenter
+{
 
     /** @persistent default language */
     public $lang;
@@ -41,7 +42,8 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter {
      * Returns "Admin" or "Front" or ...
      * @return type
      */
-    private function detectModule() {
+    private function detectModule()
+    {
         $moduleName = '';
 
         $a = strrpos($this->name, ':');
@@ -56,7 +58,8 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter {
         return $this->lang ?: $this->langManagerService->getDefaultLanguage();
     }
 
-    public function startup() {
+    public function startup()
+    {
         \Nette\Diagnostics\Debugger::timer(); // zapne stopky
         parent::startup();
         $this->moduleName = $this->detectModule();
@@ -67,64 +70,6 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter {
 
         $baseUrl = rtrim($this->presenter->getHttpRequest()->getUrl()->getBaseUrl(), '/');
         $this->baseUri = preg_replace('#https?://[^/]+#A', '', $baseUrl);
-
-        /**
-         * This is the only place, where plugins are instantiated!!
-         */
-        //$this->plugins = $this->pluginManagerService->getPluginsInstances();
-        //die();
-
-
-//        dump($this->plugins);
-//        die();
-
-        // after plugin instantiation -> register them as subcomponents
-//        foreach ($this->plugins as $pluginName => $plugin) {
-//            $this->addComponent($plugin['instance'], lcfirst($pluginName));
-//
-////            // add plugins as resources
-////            if ($plugin['instance']->isInstalled()) {
-////                $resource = $plugin['instance']->getResource();
-////                if ($resource !== NULL) {
-////                    $this->context->resourceManager->addResource($resource);
-////                }
-////            }
-//        }
-
-//        $page = new \Models\Resources\Page();
-//        $resourceLabels = $this->getModelLabel()->getResourceLabels();
-//        $page->setLabels($resourceLabels);
-
-        //$this->context->resourceManager->addResource($page->getResource());
-
-//        $pageResource = array(
-//            'resource' => array(
-//                'name' => 'core_page',
-//                'title' => 'Page'
-//            ),
-//            'privileges' => array(
-//                'edit' => 'Edit page',
-//                'add' => 'Add page',
-//                'delete' => 'Delete page'
-//            )
-//        );
-
-
-//        $labelResource = array(
-//            'resource' => array(
-//                'name' => 'labels',
-//                'title' => 'Labels'
-//            ),
-//            'privileges' => array(
-//                'menu' => 'Přístup na stránku se štítkem "Menu"',
-//                'hornimenu' => 'Přístup na stránku se štítkem "Horní menu"'
-//            )
-//        );
-
-  //      $this->context->resourceManager->addResource($pageResource);
-//        $this->context->resourceManager->addResource($pluginResource);
-//        $this->context->resourceManager->addResource($labelResource);
-
 
         $resources = $this->context->resourceManager->getResources();
 
@@ -140,14 +85,10 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter {
         if (!$this->isAjax() && $this->showTime) {
             dump($message);
         }
-
-        //MFU
-
-
-
     }
 
-    public function &__get($name) {
+    public function &__get($name)
+    {
         if (preg_match('#([[:alnum:]]+Model)#', $name, $matches)) {
             $model = $this->context->modelLoader->loadModel(ucfirst($matches[1]));
             return $model;
@@ -178,7 +119,8 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter {
 
 
 
-    public function beforeRender() {
+    public function beforeRender()
+    {
         \Nette\Diagnostics\Debugger::timer(); // zapne stopky
         parent::beforeRender();
 
@@ -251,7 +193,8 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter {
 //    }
 
 
-    public function getOrderedModuleNamespaces($module = NULL) {
+    public function getOrderedModuleNamespaces($module = NULL)
+    {
 
     }
 
