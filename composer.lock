@@ -1,0 +1,349 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
+    ],
+    "hash": "32b9d983c353dfc0a011068e175c8cbb",
+    "packages": [
+        {
+            "name": "dibi/dibi",
+            "version": "v2.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dg/dibi.git",
+                "reference": "v2.0.3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dg/dibi/zipball/v2.0.3",
+                "reference": "v2.0.3",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "dibi/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3",
+                "GPLv2",
+                "GPLv3"
+            ],
+            "authors": [
+                {
+                    "name": "David Grudl",
+                    "homepage": "http://davidgrudl.com"
+                }
+            ],
+            "description": "Dibi is Database Abstraction Library for PHP 5.",
+            "homepage": "http://dibiphp.com/",
+            "keywords": [
+                "access",
+                "database",
+                "dbal",
+                "mssql",
+                "mysql",
+                "odbc",
+                "oracle",
+                "pdo",
+                "postgresql",
+                "sqlite"
+            ],
+            "time": "2013-04-03 12:40:16"
+        },
+        {
+            "name": "jkuchar/multiplefileupload",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jkuchar/MultipleFileUpload.git",
+                "reference": "78147ee2bcda58149b3a1b6d6a5e36d9d4fc7d8e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jkuchar/MultipleFileUpload/zipball/78147ee2bcda58149b3a1b6d6a5e36d9d4fc7d8e",
+                "reference": "78147ee2bcda58149b3a1b6d6a5e36d9d4fc7d8e",
+                "shasum": ""
+            },
+            "require": {
+                "nette/nette": ">= 2.0",
+                "php": ">= 5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "MultipleFileUpload": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "New BSD"
+            ],
+            "authors": [
+                {
+                    "name": "Jan Kuchař",
+                    "homepage": "http://www.jankuchar.cz"
+                }
+            ],
+            "description": "Multiple upload form control for Nette framework.",
+            "time": "2013-05-27 12:23:07"
+        },
+        {
+            "name": "nette/nette",
+            "version": "v2.0.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nette/nette.git",
+                "reference": "v2.0.6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nette/nette/zipball/v2.0.6",
+                "reference": "v2.0.6",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "nette/tester": "@dev"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.1-dev"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "Nette/loader.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause",
+                "GPL-2.0",
+                "GPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "David Grudl",
+                    "homepage": "http://davidgrudl.com"
+                },
+                {
+                    "name": "Nette Community",
+                    "homepage": "http://nette.org/contributors"
+                }
+            ],
+            "description": "Nette Framework - innovative framework for fast and easy development of secured web applications in PHP. Write less, have cleaner code and your work will bring you joy.",
+            "homepage": "http://nette.org",
+            "keywords": [
+                "Forms",
+                "database",
+                "dbal",
+                "debugging",
+                "framework",
+                "images",
+                "latte",
+                "mailing",
+                "micro",
+                "mvc",
+                "neon",
+                "templating"
+            ],
+            "time": "2012-10-01 19:34:05"
+        },
+        {
+            "name": "project-bubo/bubo",
+            "version": "dev-develop",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/project-bubo/bubo.git",
+                "reference": "892ffac8fc9388a052daa63ffddc574fa6c8e8e1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/project-bubo/bubo/zipball/892ffac8fc9388a052daa63ffddc574fa6c8e8e1",
+                "reference": "892ffac8fc9388a052daa63ffddc574fa6c8e8e1",
+                "shasum": ""
+            },
+            "require": {
+                "nette/nette": "2.0.6",
+                "php": ">=5.3.0",
+                "project-bubo/datagrid": "dev-develop",
+                "srigi/nette-confirmationdialog": "1.0.1"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/Bubo/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Marek Juras"
+                }
+            ],
+            "description": "Bubo CMS",
+            "keywords": [
+                "cms"
+            ],
+            "time": "2013-07-28 12:06:43"
+        },
+        {
+            "name": "project-bubo/datagrid",
+            "version": "dev-develop",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/project-bubo/datagrid.git",
+                "reference": "bfb38e7c98b61b18493be7fbcac066aa2953130f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/project-bubo/datagrid/zipball/bfb38e7c98b61b18493be7fbcac066aa2953130f",
+                "reference": "bfb38e7c98b61b18493be7fbcac066aa2953130f",
+                "shasum": ""
+            },
+            "require": {
+                "nette/nette": "2.0.6",
+                "php": ">=5.3.0",
+                "srigi/nette-confirmationdialog": "1.0.1"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/DataGrid/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Roman Sklenář"
+                }
+            ],
+            "description": "Official Bubo CMS Datagrid",
+            "keywords": [
+                "cms",
+                "datagrid"
+            ],
+            "time": "2013-07-16 19:56:40"
+        },
+        {
+            "name": "schmutzka/gettexttranslator",
+            "version": "2.0.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Schmutzka/GettextTranslator.git",
+                "reference": "2.0.6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Schmutzka/GettextTranslator/zipball/2.0.6",
+                "reference": "2.0.6",
+                "shasum": ""
+            },
+            "require": {
+                "nette/nette": ">=2.0.0",
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "GettextTranslator/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Patrik Votoček",
+                    "email": "patrik@votocek.cz",
+                    "homepage": "http://patrik.votocek.cz",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Tomáš Votruba",
+                    "homepage": "http://www.schmutzka.eu"
+                }
+            ],
+            "description": "Translator for Nette (PHP framework).",
+            "homepage": "http://addons.nette.org/en/gettext-translator",
+            "keywords": [
+                "gettext",
+                "nette",
+                "translator"
+            ],
+            "time": "2013-07-21 12:36:14"
+        },
+        {
+            "name": "srigi/nette-confirmationdialog",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/srigi/nette-confirmationdialog.git",
+                "reference": "v1.0.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/srigi/nette-confirmationdialog/zipball/v1.0.1",
+                "reference": "v1.0.1",
+                "shasum": ""
+            },
+            "require": {
+                "nette/nette": ">=2.0,<3.0",
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "ConfirmationDialog": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL",
+                "CC-BY",
+                "WTFPL"
+            ],
+            "authors": [
+                {
+                    "name": "Igor Hlina",
+                    "email": "srigi@srigi.sk"
+                },
+                {
+                    "name": "Václav Šír",
+                    "email": "vaclav.sir@gmail.com"
+                },
+                {
+                    "name": "Lukáš Doležal",
+                    "email": "dolezal@gdmt.cz"
+                }
+            ],
+            "description": "Addon to display confirmation dialog in Nette  webapplications",
+            "time": "2013-02-21 17:07:49"
+        }
+    ],
+    "packages-dev": [
+
+    ],
+    "aliases": [
+
+    ],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "project-bubo/bubo": 20,
+        "project-bubo/datagrid": 20,
+        "jkuchar/multiplefileupload": 20
+    },
+    "platform": [
+
+    ],
+    "platform-dev": [
+
+    ]
+}

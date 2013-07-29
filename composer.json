@@ -3,12 +3,11 @@
     "description": "Sandbox for bubo application",
     "require": {
         "nette/nette": "2.0.*",
-        "project-bubo/bubo": "@dev",
+        "project-bubo/bubo": "dev-develop",
         "project-bubo/datagrid": "@dev",
         "jkuchar/multiplefileupload": "@dev",
         "dibi/dibi": "2.0.*",
-        "schmutzka/gettexttranslator": "2.0.*",
-        "janmarek/webloader": "2.1.*"
+        "schmutzka/gettexttranslator": "2.0.*"
     },
     "authors": [
         {

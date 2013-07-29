@@ -5,71 +5,82 @@ namespace AdminModule;
 use ContextMenu, Bubo;
 
 /**
- * @persistent(urlEditor)
+ * Admin base presenter
  */
-abstract class BasePresenter extends \BasePresenter {
+abstract class BasePresenter extends \BasePresenter
+{
 
     public $basePath;
     public $system = array();
     public $css = array();
     public $label = '.';
-    
-    public function startup() {
-        parent::startup();
 
-        
-//        dump($this->getHttpRequest()->url->host);
-//        die();
-        
-        $this->basePath = $this->getHttpRequest()->getUrl()->basePath;
-        $this->system['cms_version'] = '0.1';
-        
-        
-        // register admin menu sections (installed plugins only)
-//        foreach ($this->plugins as $plugin) { 
-//            if ($plugin['instance']->isInstalled() && $plugin['instance']->hasAdminSection()) {
-//                $this['adminMenu']->registerSection($plugin['instance']->getAdminSection()->setParent($this));
-//            }
-//        }
-        
-        $this['adminMenu']->registerSection('labelSection');
-        $this['adminMenu']->registerSection('virtualDriveSection');
-        //$this['adminMenu']->registerSection('pluginSection');
-        //$this['adminMenu']->registerSection('toolsSection');
-        
-        
-        
-        $currentModule = $this->pageManagerService->getCurrentModule();
-        // set session
-        $this['moduleSwitch']->getActualModule($currentModule);
-        
-        
-//        $info = $this->virtualDriveService->getFileInfo(1);
-//        dump($info);
-//        die();
-        
+    public function startup()
+    {
+        parent::startup();
+        $this->basePath = $this->getBasePath();
+
+        // configure native components
+        $adminModuleControlMap = array(
+            '~^pageMultiForm$~'  =>  'Components\\MultiForms', // REFACTOR !!
+            '~^[[:alnum:]]+Form$~'  =>  'AdminModule\\Forms',
+            '~^[[:alnum:]]+DataGrid$~'  =>  'AdminModule\\DataGrids',
+            '~^[[:alnum:]]+ConfirmDialog$~'  =>  'AdminModule\\Dialogs',
+            '~^[[:alnum:]]+Sorter$~' => 'AdminModule\\Sorters\\',
+        );
+        $this->nativeControlMap = array_merge($this->nativeControlMap, $adminModuleControlMap);
+
+        $this->registerAdminMenuSections();
+        $this->setupModuleSwitch();
     }
 
-    public function createComponentAdminMenu($name) {
+    /**
+     * Returns base path
+     * @return string
+     */
+    public function getBasePath()
+    {
+        return $this->getHttpRequest()->getUrl()->basePath;
+    }
+
+    /**
+     * Registers admin menu sections
+     */
+    protected function registerAdminMenuSections()
+    {
+        $this['adminMenu']->registerSection('labelSection');
+        $this['adminMenu']->registerSection('virtualDriveSection');
+    }
+
+    /**
+     * Setups module switch by current module
+     */
+    protected function setupModuleSwitch()
+    {
+        $currentModule = $this->pageManagerService->getCurrentModule();
+        $this['moduleSwitch']->getActualModule($currentModule);
+    }
+
+    public function createComponentAdminMenu($name)
+    {
         return new Components\AdminMenu($this, $name);
     }
 
-    public function createComponentSitemapIndexer($name) {
+    public function createComponentSitemapIndexer($name)
+    {
         return new Sitemap\SitemapIndexer($this, $name);
     }
-    
-    public function createComponentMedia($name) {
+
+    public function createComponentMedia($name)
+    {
         return new Bubo\Media($this, $name);
     }
-    
-    public function beforeRender() {
+
+    public function beforeRender()
+    {
         parent::beforeRender();
-
-        
-        //$this['sitemapIndexer']->render();
-
+        // page manager id automatically injected into template
         $this->template->pageManager = $this->pageManagerService;
-        
     }
 
     /**
@@ -79,15 +90,16 @@ abstract class BasePresenter extends \BasePresenter {
      * - confirmdialogs
      *
      * @param type $name
-     * @return classname 
+     * @return classname
      */
-    public function createComponent($name) {
+    public function createComponent($name)
+    {
 
         if ($name == 'pageMultiForm') {
             return new Components\MultiForms\PageMultiForm($this, $name);
-            
+
         } else if (preg_match('([a-zA-Z0-9]+Form)', $name)) {
-            // detect forms   
+            // detect forms
             $classname = "AdminModule\\Forms\\" . ucfirst($name);
             if (class_exists($classname)) {
                 $form = new $classname($this, $name);
@@ -106,7 +118,7 @@ abstract class BasePresenter extends \BasePresenter {
             // detect confrim dialogs
             $classname = "AdminModule\\Dialogs\\" . ucfirst($name);
             if (class_exists($classname)) {
-                $dialog = new $classname($this);
+                $dialog = new $classname($this, $name);
                 //$dialog->setTranslator($this->context->translator);
                 return $dialog;
             }
@@ -118,39 +130,24 @@ abstract class BasePresenter extends \BasePresenter {
                 //$dialog->setTranslator($this->context->translator);
                 return $sorter;
             }
-        } 
-        
+        }
+
         return parent::createComponent($name);
-        
+
     }
 
-    public function createComponentLanguageManager($name) {
+    public function createComponentLanguageManager($name)
+    {
         return new \Components\LanguageManager($this, $name);
     }
 
-    public function createComponentModuleSwitch($name) {
+    public function createComponentModuleSwitch($name)
+    {
         return new Components\ModuleSwitch($this, $name);
     }
-    
-    public function createComponentCss() {
 
-        $css = new \WebLoader\CssLoader;
-
-        // cesta na disku ke zdroji
-        $css->sourcePath = PLUGINS_DIR;
-
-        // cesta na webu k cílovému adresáři
-        $css->tempUri = $this->basePath . "css/plugins";
-
-        // cesta na disku k cílovému adresáři
-        $css->tempPath = WWW_DIR . "/css/plugins";
-
-        $css->joinFiles = FALSE;
-
-        return $css;
-    }
-
-    public function createComponentStructureManager($name) {
+    public function createComponentStructureManager($name)
+    {
         return new Components\StructureManager($this, $name, $this->userId);
     }
 

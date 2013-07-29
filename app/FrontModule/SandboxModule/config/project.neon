@@ -8,4 +8,4 @@ modules:
             #it: Italiano
         defaultLang: cs
         hosts:
-            - 'localhost/bubo-sandbox/www/'
+            - 'localhost/bubotest/www/'

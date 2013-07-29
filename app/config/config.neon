@@ -4,7 +4,7 @@
 #
 common:
     parameters:
-        langDir: %appDir%/lang # route to lang files
+        langDir: "/var/www/bubotest/app/lang" # route to lang files
         lang: cs_CZ
 #        langs:
 #            en: English
@@ -23,6 +23,15 @@ common:
 
         media:
             rootFolder: media
+
+#    gettextTranslator:
+#        lang: cs
+#        files:
+#            front: %appDir%/lang # for module Front and other non-specified modules
+#            admin: %appDir%/lang # for module Admin
+#        # optional with defaults
+#        layout: horizontal # or: vertical
+#        height: 450
 
     php:
         date.timezone: Europe/Prague
@@ -84,10 +93,10 @@ common:
             class: Nette\Caching\Storages\FileStorage
             arguments: [%tempDir%/cache]
             #class: Nette\Caching\Storages\DevNullStorage
-
-# translator
         translator:
-            factory: NetteTranslator\Gettext::getTranslator
+            class: GettextTranslator\Gettext
+            arguments: [@session, @cacheStorage, @httpResponse]
+
 
 # /translator
 
