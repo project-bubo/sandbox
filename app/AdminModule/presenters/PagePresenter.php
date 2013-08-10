@@ -1,9 +1,9 @@
 <?php
 
-namespace AdminModule;
+namespace BuboApp\AdminModule\Presenters;
 
 
-class PagePresenter extends SecuredPresenter {
+class PagePresenter extends BasePresenter {
 
     public $page;
 

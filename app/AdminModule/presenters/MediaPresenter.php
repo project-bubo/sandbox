@@ -1,10 +1,10 @@
 <?php
 
-namespace AdminModule;
+namespace BuboApp\AdminModule\Presenters;
 
 
-final class MediaPresenter extends SecuredPresenter {
+final class MediaPresenter extends BasePresenter {
 
-    
-    
+
+
 }

@@ -1,19 +1,15 @@
 <?php
 
-namespace AdminModule;
+namespace BuboApp\AdminModule\Presenters;
 
-use Nette\Http\User,
-    \AdminModule\DataGrids\TestDataGrid,
-    AdminModule\Forms\LoginForm;
-
-final class LabelPresenter extends SecuredPresenter {
+final class LabelPresenter extends BasePresenter {
 
     /**
      * @persistent
      */
     public $labelId;
-    
-    
+
+
     public function beforeRender() {
         parent::beforeRender();
 //        dump($this->labelId);
@@ -23,13 +19,13 @@ final class LabelPresenter extends SecuredPresenter {
             $this->template->labelName = $label ? $label['name'] : '';
         }
     }
-    
-    public function renderManageLabelExtensions($labelId) {       
+
+    public function renderManageLabelExtensions($labelId) {
         $this->labelId = $labelId;
-        $this->template->labelId = $labelId;        
+        $this->template->labelId = $labelId;
     }
-    
-        
+
+
     public function renderEditLabel($labelId) {
         $this->template->labelId = $labelId;
     }

@@ -1,17 +1,13 @@
 <?php
 
-namespace AdminModule;
+namespace BuboApp\AdminModule\Presenters;
 
-use Nette\Http\User,
-    \AdminModule\DataGrids\TestDataGrid,
-    AdminModule\Forms\LoginForm;
+final class LanguagePresenter extends BasePresenter {
 
-final class LanguagePresenter extends SecuredPresenter {
-    
-       
+
     public function renderDefault() {
-        
+
     }
-    
-    
+
+
 }

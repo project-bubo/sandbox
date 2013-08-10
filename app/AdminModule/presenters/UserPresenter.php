@@ -1,12 +1,8 @@
 <?php
 
-namespace AdminModule;
+namespace BuboApp\AdminModule\Presenters;
 
-use Nette\Http\User,
-    \AdminModule\DataGrids\TestDataGrid,
-    AdminModule\Forms\LoginForm;
-
-final class UserPresenter extends AbstractAclPresenter {
+final class UserPresenter extends BasePresenter {
 
 
     public function renderSetAcl($user_id) {
@@ -15,9 +11,9 @@ final class UserPresenter extends AbstractAclPresenter {
         if (empty($user)) {
             throw new \Nette\Application\BadRequestException('User not found');
         }
-                
+
         $this->template->user = $user;
-        
+
     }
-    
+
 }

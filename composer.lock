@@ -161,12 +161,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/project-bubo/bubo.git",
-                "reference": "892ffac8fc9388a052daa63ffddc574fa6c8e8e1"
+                "reference": "f64e80ba1685eab02b293bea0baea32e7bae7983"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/project-bubo/bubo/zipball/892ffac8fc9388a052daa63ffddc574fa6c8e8e1",
-                "reference": "892ffac8fc9388a052daa63ffddc574fa6c8e8e1",
+                "url": "https://api.github.com/repos/project-bubo/bubo/zipball/f64e80ba1685eab02b293bea0baea32e7bae7983",
+                "reference": "f64e80ba1685eab02b293bea0baea32e7bae7983",
                 "shasum": ""
             },
             "require": {
@@ -191,7 +191,7 @@
             "keywords": [
                 "cms"
             ],
-            "time": "2013-07-28 12:06:43"
+            "time": "2013-08-10 14:01:47"
         },
         {
             "name": "project-bubo/datagrid",

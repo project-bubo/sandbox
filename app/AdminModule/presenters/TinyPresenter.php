@@ -1,12 +1,11 @@
 <?php
-namespace AdminModule;
+namespace BuboApp\AdminModule\Presenters;
 
 /**
  * Description of TinyPresenter
  *
- * @author toretak
  */
-class TinyPresenter  extends SecuredPresenter {
+class TinyPresenter  extends BasePresenter {
 
     /** @persistent */
     public $tree = array();

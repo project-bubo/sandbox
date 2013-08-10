@@ -58,6 +58,8 @@ common:
                 - addRole('admin')
                 - addResource('Admin:Default')
                 - addResource('Admin:Page')
+                - addResource('Admin:Media')
+                - addResource('Admin:Label')
                 - allow('editor', 'Admin:Default')
                 - allow('admin')
         modelLoader:

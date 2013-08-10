@@ -1,21 +1,22 @@
 <?php
 
-namespace AdminModule;
+namespace BuboApp\AdminModule\Presenters;
 
 use Bubo;
 
 use Nette\Utils\Arrays;
+use Nette\Security\User;
 
 /**
  * Base presenter of admin module
  */
 abstract class BasePresenter extends \BasePresenter
 {
-
+    /**
+     * Base path
+     * @var string
+     */
     public $basePath;
-//    public $system = array();
-//    public $css = array();
-//    public $label = '.';
 
     /**
      * List of activated admin sections
@@ -26,6 +27,9 @@ abstract class BasePresenter extends \BasePresenter
         'virtualDriveSection',
     );
 
+    /**
+     * Startup
+     */
     public function startup()
     {
         parent::startup();
@@ -49,8 +53,6 @@ abstract class BasePresenter extends \BasePresenter
             }
         }
 
-
-
         // configure native components
         $adminModuleControlMap = array(
             '~^pageMultiForm$~'  =>  'Components\\MultiForms', // REFACTOR !!
@@ -63,8 +65,6 @@ abstract class BasePresenter extends \BasePresenter
         $this->nativeControlMap = Arrays::mergeTree($this->nativeControlMap, $adminModuleControlMap);
         $this->setupUiComponents();
     }
-
-
 
 
     /**

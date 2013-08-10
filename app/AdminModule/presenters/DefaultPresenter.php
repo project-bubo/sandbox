@@ -1,8 +1,8 @@
 <?php
 
-namespace AdminModule;
+namespace BuboApp\AdminModule\Presenters;
 
-class DefaultPresenter extends SecuredPresenter {
+class DefaultPresenter extends BasePresenter {
 
 
     public function renderDefault($plugin, $view) {
@@ -20,7 +20,7 @@ class DefaultPresenter extends SecuredPresenter {
 
         $this->template->numberOfConcepts = 0;
         $this->template->numberOfTrashed = 0;
-                
+
     }
 
 
@@ -30,9 +30,5 @@ class DefaultPresenter extends SecuredPresenter {
         $this->flashMessage('Právě jste se odhlásili z administrace.');
         $this->redirect('Auth:login');
     }
-
-
-
-
 
 }
