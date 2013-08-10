@@ -48,11 +48,18 @@ common:
         database:
             factory: Bubo\DibiFactory::createConnection
         authenticator:
-            class: Acl\Security\CMSAuthenticator
+            class: Bubo\Security\Authenticator
             arguments: [@database]
         authorizator:
-            class: Acl\Security\Acl
-            arguments: [@resourceManager]
+            class: Nette\Security\Permission
+            setup:
+                - addRole('guest')
+                - addRole('editor')
+                - addRole('admin')
+                - addResource('Admin:Default')
+                - addResource('Admin:Page')
+                - allow('editor', 'Admin:Default')
+                - allow('admin')
         modelLoader:
             class: Bubo\Services\ModelLoader
             arguments: [@container]

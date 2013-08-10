@@ -2,23 +2,54 @@
 
 namespace AdminModule;
 
-use ContextMenu, Bubo;
+use Bubo;
+
+use Nette\Utils\Arrays;
 
 /**
- * Admin base presenter
+ * Base presenter of admin module
  */
 abstract class BasePresenter extends \BasePresenter
 {
 
     public $basePath;
-    public $system = array();
-    public $css = array();
-    public $label = '.';
+//    public $system = array();
+//    public $css = array();
+//    public $label = '.';
+
+    /**
+     * List of activated admin sections
+     * @var array
+     */
+    protected $adminSections = array(
+        'labelSection',
+        'virtualDriveSection',
+    );
 
     public function startup()
     {
         parent::startup();
         $this->basePath = $this->getBasePath();
+
+        if ($this->name != 'Admin:Auth') {
+            if (!$this->user->isLoggedIn()) {
+                if ($this->user->getLogoutReason() === User::INACTIVITY) {
+                    $this->flashMessage('Session timeout, you have been logged out');
+                }
+
+                $this->redirect('Auth:login', array(
+                    'backlink' => $this->storeRequest()
+                ));
+
+            } else {
+                if (!$this->user->isAllowed($this->name, $this->action)) {
+                    $this->flashMessage('Access denied');
+                    $this->redirect('Default:');
+                }
+            }
+        }
+
+
 
         // configure native components
         $adminModuleControlMap = array(
@@ -28,9 +59,33 @@ abstract class BasePresenter extends \BasePresenter
             '~^[[:alnum:]]+ConfirmDialog$~'  =>  'AdminModule\\Dialogs',
             '~^[[:alnum:]]+Sorter$~' => 'AdminModule\\Sorters\\',
         );
-        $this->nativeControlMap = array_merge($this->nativeControlMap, $adminModuleControlMap);
 
+        $this->nativeControlMap = Arrays::mergeTree($this->nativeControlMap, $adminModuleControlMap);
+        $this->setupUiComponents();
+    }
+
+
+
+
+    /**
+     * Logout user
+     */
+    public function handleLogout()
+    {
+        $this->user->logOut();
+        $this->flashMessage('You were logged off.');
+        $this->redirect('this');
+    }
+
+
+    /**
+     * Setup UI components of admin dashboard
+     */
+    protected function setupUiComponents()
+    {
+        // admin menu sections
         $this->registerAdminMenuSections();
+        // module switch
         $this->setupModuleSwitch();
     }
 
@@ -48,8 +103,9 @@ abstract class BasePresenter extends \BasePresenter
      */
     protected function registerAdminMenuSections()
     {
-        $this['adminMenu']->registerSection('labelSection');
-        $this['adminMenu']->registerSection('virtualDriveSection');
+        foreach ($this->adminSections as $adminSection) {
+            $this['adminMenu']->registerSection($adminSection);
+        }
     }
 
     /**
@@ -83,58 +139,58 @@ abstract class BasePresenter extends \BasePresenter
         $this->template->pageManager = $this->pageManagerService;
     }
 
-    /**
-     * Factory method for all
-     * - forms
-     * - datagrids
-     * - confirmdialogs
-     *
-     * @param type $name
-     * @return classname
-     */
-    public function createComponent($name)
-    {
-
-        if ($name == 'pageMultiForm') {
-            return new Components\MultiForms\PageMultiForm($this, $name);
-
-        } else if (preg_match('([a-zA-Z0-9]+Form)', $name)) {
-            // detect forms
-            $classname = "AdminModule\\Forms\\" . ucfirst($name);
-            if (class_exists($classname)) {
-                $form = new $classname($this, $name);
-                $form->setTranslator($this->context->translator);
-                return $form;
-            }
-        } else if (preg_match('([a-zA-Z0-9]+DataGrid)', $name)) {
-            // detect datagrids
-            $classname = "AdminModule\\DataGrids\\" . ucfirst($name);
-            if (class_exists($classname)) {
-                $datagrid = new $classname($this, $name);
-                $datagrid->setTranslator($this->context->translator);
-                return $datagrid;
-            }
-        } else if (preg_match('([a-zA-Z0-9]+ConfirmDialog)', $name)) {
-            // detect confrim dialogs
-            $classname = "AdminModule\\Dialogs\\" . ucfirst($name);
-            if (class_exists($classname)) {
-                $dialog = new $classname($this, $name);
-                //$dialog->setTranslator($this->context->translator);
-                return $dialog;
-            }
-        }  else if (preg_match('([a-zA-Z0-9]+Sorter)', $name)) {
-            // detect confrim dialogs
-            $classname = "AdminModule\\Sorters\\" . ucfirst($name);
-            if (class_exists($classname)) {
-                $sorter = new $classname($this, $name);
-                //$dialog->setTranslator($this->context->translator);
-                return $sorter;
-            }
-        }
-
-        return parent::createComponent($name);
-
-    }
+//    /**
+//     * Factory method for all
+//     * - forms
+//     * - datagrids
+//     * - confirmdialogs
+//     *
+//     * @param type $name
+//     * @return classname
+//     */
+//    public function createComponent($name)
+//    {
+//
+//        if ($name == 'pageMultiForm') {
+//            return new Components\MultiForms\PageMultiForm($this, $name);
+//
+//        } else if (preg_match('([a-zA-Z0-9]+Form)', $name)) {
+//            // detect forms
+//            $classname = "AdminModule\\Forms\\" . ucfirst($name);
+//            if (class_exists($classname)) {
+//                $form = new $classname($this, $name);
+//                $form->setTranslator($this->context->translator);
+//                return $form;
+//            }
+//        } else if (preg_match('([a-zA-Z0-9]+DataGrid)', $name)) {
+//            // detect datagrids
+//            $classname = "AdminModule\\DataGrids\\" . ucfirst($name);
+//            if (class_exists($classname)) {
+//                $datagrid = new $classname($this, $name);
+//                $datagrid->setTranslator($this->context->translator);
+//                return $datagrid;
+//            }
+//        } else if (preg_match('([a-zA-Z0-9]+ConfirmDialog)', $name)) {
+//            // detect confrim dialogs
+//            $classname = "AdminModule\\Dialogs\\" . ucfirst($name);
+//            if (class_exists($classname)) {
+//                $dialog = new $classname($this, $name);
+//                //$dialog->setTranslator($this->context->translator);
+//                return $dialog;
+//            }
+//        }  else if (preg_match('([a-zA-Z0-9]+Sorter)', $name)) {
+//            // detect confrim dialogs
+//            $classname = "AdminModule\\Sorters\\" . ucfirst($name);
+//            if (class_exists($classname)) {
+//                $sorter = new $classname($this, $name);
+//                //$dialog->setTranslator($this->context->translator);
+//                return $sorter;
+//            }
+//        }
+//
+//        return parent::createComponent($name);
+//
+//    }
 
     public function createComponentLanguageManager($name)
     {

@@ -19,8 +19,6 @@ final class ExtConfirmDialog extends BaseConfirmDialog {
                         'Opravdu odstranit toto rozšíření?' // otázka (může být i callback vracející string)
                 );
 
-
-
     }
 
     public function deleteItem($extId) {
