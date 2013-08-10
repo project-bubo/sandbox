@@ -1,6 +1,6 @@
 <?php
 
-namespace AdminModule\Components;
+namespace BuboApp\AdminModule\Components;
 
 use Bubo;
 

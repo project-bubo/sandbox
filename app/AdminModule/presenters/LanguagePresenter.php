@@ -1,6 +1,6 @@
 <?php
 
-namespace BuboApp\AdminModule\Presenters;
+namespace BuboApp\AdminModule;
 
 final class LanguagePresenter extends BasePresenter {
 

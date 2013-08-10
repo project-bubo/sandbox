@@ -1,6 +1,6 @@
 <?php
 
-namespace AdminModule\Forms;
+namespace BuboApp\AdminModule\Forms;
 
 use Nette\Application\UI\Form,
     Nette\Environment,
@@ -137,7 +137,7 @@ class PageForm extends BaseForm {
 
             //dump($disablePagesWithNoUrl);
 
-            $st = new \AdminModule\Components\SelectTraverser($this->presenter, $treeNodeId, NULL, $disablePagesWithNoUrl);
+            $st = new \BuboApp\AdminModule\Components\SelectTraverser($this->presenter, $treeNodeId, NULL, $disablePagesWithNoUrl);
             $selectData = $st->getSelectMenu($this->presenter['structureManager']->getLanguage());
 
             $this->addSelect('parent', "Parent", $selectData)

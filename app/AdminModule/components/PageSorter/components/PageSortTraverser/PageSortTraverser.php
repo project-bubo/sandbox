@@ -1,6 +1,6 @@
 <?php
 
-namespace AdminModule\Components\PageSorter\Components;
+namespace BuboApp\AdminModule\Components\PageSorter\Components;
 
 use Nette\Application\UI\Form,
     Nette\Utils\Html,

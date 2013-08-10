@@ -1,6 +1,6 @@
 <?php
 
-namespace BuboApp\AdminModule\Presenters;
+namespace BuboApp\AdminModule;
 
 
 class PagePresenter extends BasePresenter {

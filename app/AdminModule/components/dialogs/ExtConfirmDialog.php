@@ -1,6 +1,6 @@
 <?php
 
-namespace AdminModule\Dialogs;
+namespace BuboApp\AdminModule\Dialogs;
 
 final class ExtConfirmDialog extends BaseConfirmDialog {
 

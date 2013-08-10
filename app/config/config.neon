@@ -45,6 +45,8 @@ common:
             debugger: true
 
     services:
+        nette.presenterFactory:
+            factory: Bubo\Application\PresenterFactory::factory
         database:
             factory: Bubo\DibiFactory::createConnection
         authenticator:
@@ -60,6 +62,7 @@ common:
                 - addResource('Admin:Page')
                 - addResource('Admin:Media')
                 - addResource('Admin:Label')
+                - addResource('Admin:Tiny')
                 - allow('editor', 'Admin:Default')
                 - allow('admin')
         modelLoader:

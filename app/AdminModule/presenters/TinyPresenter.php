@@ -1,5 +1,5 @@
 <?php
-namespace BuboApp\AdminModule\Presenters;
+namespace BuboApp\AdminModule;
 
 /**
  * Description of TinyPresenter

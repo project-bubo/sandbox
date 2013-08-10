@@ -1,6 +1,6 @@
 <?php
 
-namespace AdminModule\Forms;
+namespace BuboApp\AdminModule\Forms;
 
 use Nette\Application\UI\Form;
 
@@ -180,7 +180,7 @@ class BaseForm extends Form {
      *
      * @param type $values
      * @param type $erase
-     * @return \AdminModule\Components\Forms\BaseForm
+     * @return \BuboApp\AdminModule\Components\Forms\BaseForm
      */
     public function setDefaults($values, $erase = FALSE) {
 //        dump($values);

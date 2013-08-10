@@ -1,6 +1,6 @@
 <?php
 
-namespace BuboApp\AdminModule\Presenters;
+namespace BuboApp\AdminModule;
 
 use Bubo;
 
