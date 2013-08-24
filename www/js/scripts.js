@@ -1,7 +1,7 @@
 var menuState = false;
 
 $(document).ready(function(){
-    
+
     $("#tree").treeview({
             collapsed: true,
             animated: "medium",
@@ -9,7 +9,7 @@ $(document).ready(function(){
             /*prerendered: true,*/
             persist: "cookie"
     });
-    
+
     getWidth(true);
     $('.w_menu').live('click',function(){
         var width = getWidth(false)+'px';
@@ -26,7 +26,7 @@ $(document).ready(function(){
         $('.w_menu').stop().animate({width:'199px',queue:false},"fast",function(){});
         menuState = false;
     });
-    
+
     /*ajax */
     $("a.ajax").live("click", function (event) {
         event.preventDefault();
@@ -39,17 +39,17 @@ $(document).ready(function(){
         return false;
     });
 
-//    $("form.ajax :submit").live("click", function () {
-//        $(this).ajaxSubmit();
-//        return false;
-//    }); 
-    $('a[rel=external]').live('click',function(ev){ 
-        window.open(this.href); 
+    $("form.ajax :submit").live("click", function () {
+        $(this).ajaxSubmit();
+        return false;
+    });
+    $('a[rel=external]').live('click',function(ev){
+        window.open(this.href);
         ev.preventDefault();
         return false;
     });
-    
-    
+
+
     $("div.smooth_toolbar > a, form.form-with-smooth-buttons input:submit").button();
     $("a.smooth_button").livequery(function() {
         $(this).button();
@@ -60,7 +60,7 @@ $(document).ready(function(){
 function getWidth(reload){
     var $wmenu = $('.w_menu').width();
     $('.w_menu').css('width','auto');
-    
+
     $('.sidebar').css('width','auto');
     $('.w_menu li').css('width','auto');
     var maxWidth = 0;

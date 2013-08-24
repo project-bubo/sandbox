@@ -172,8 +172,8 @@
             "require": {
                 "nette/nette": "2.0.6",
                 "php": ">=5.3.0",
-                "project-bubo/datagrid": "dev-develop",
-                "srigi/nette-confirmationdialog": "1.0.1"
+                "project-bubo/confirm-dialog": "1.0.*",
+                "project-bubo/datagrid": "dev-develop"
             },
             "type": "library",
             "autoload": {
@@ -191,7 +191,62 @@
             "keywords": [
                 "cms"
             ],
+<<<<<<< Updated upstream
             "time": "2013-07-28 12:06:43"
+=======
+            "time": "2013-08-24 13:52:31"
+        },
+        {
+            "name": "project-bubo/confirm-dialog",
+            "version": "v1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/project-bubo/confirm-dialog.git",
+                "reference": "363beed78d39c89bc065ef49a5ccbe2bfa701bda"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/project-bubo/confirm-dialog/zipball/363beed78d39c89bc065ef49a5ccbe2bfa701bda",
+                "reference": "363beed78d39c89bc065ef49a5ccbe2bfa701bda",
+                "shasum": ""
+            },
+            "require": {
+                "nette/nette": "~2.0",
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "ConfirmationDialog": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL",
+                "CC-BY",
+                "WTFPL"
+            ],
+            "authors": [
+                {
+                    "name": "Igor Hlina",
+                    "email": "srigi@srigi.sk"
+                },
+                {
+                    "name": "Václav Šír",
+                    "email": "vaclav.sir@gmail.com"
+                },
+                {
+                    "name": "Lukáš Doležal",
+                    "email": "dolezal@gdmt.cz"
+                },
+                {
+                    "name": "Marek Juras",
+                    "email": "jurasm2@gmail.com"
+                }
+            ],
+            "description": "Addon to display confirmation dialog in Nette  webapplications",
+            "time": "2013-08-24 13:11:59"
+>>>>>>> Stashed changes
         },
         {
             "name": "project-bubo/datagrid",
@@ -199,18 +254,18 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/project-bubo/datagrid.git",
-                "reference": "bfb38e7c98b61b18493be7fbcac066aa2953130f"
+                "reference": "a5f8c610305a4bc04e0d4744c66e56a081f6e478"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/project-bubo/datagrid/zipball/bfb38e7c98b61b18493be7fbcac066aa2953130f",
-                "reference": "bfb38e7c98b61b18493be7fbcac066aa2953130f",
+                "url": "https://api.github.com/repos/project-bubo/datagrid/zipball/a5f8c610305a4bc04e0d4744c66e56a081f6e478",
+                "reference": "a5f8c610305a4bc04e0d4744c66e56a081f6e478",
                 "shasum": ""
             },
             "require": {
                 "nette/nette": "2.0.6",
                 "php": ">=5.3.0",
-                "srigi/nette-confirmationdialog": "1.0.1"
+                "project-bubo/confirm-dialog": "1.0.*"
             },
             "type": "library",
             "autoload": {
@@ -229,7 +284,7 @@
                 "cms",
                 "datagrid"
             ],
-            "time": "2013-07-16 19:56:40"
+            "time": "2013-08-24 13:39:39"
         },
         {
             "name": "schmutzka/gettexttranslator",
@@ -279,53 +334,6 @@
                 "translator"
             ],
             "time": "2013-07-21 12:36:14"
-        },
-        {
-            "name": "srigi/nette-confirmationdialog",
-            "version": "1.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/srigi/nette-confirmationdialog.git",
-                "reference": "v1.0.1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/srigi/nette-confirmationdialog/zipball/v1.0.1",
-                "reference": "v1.0.1",
-                "shasum": ""
-            },
-            "require": {
-                "nette/nette": ">=2.0,<3.0",
-                "php": ">=5.3.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "ConfirmationDialog": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "LGPL",
-                "CC-BY",
-                "WTFPL"
-            ],
-            "authors": [
-                {
-                    "name": "Igor Hlina",
-                    "email": "srigi@srigi.sk"
-                },
-                {
-                    "name": "Václav Šír",
-                    "email": "vaclav.sir@gmail.com"
-                },
-                {
-                    "name": "Lukáš Doležal",
-                    "email": "dolezal@gdmt.cz"
-                }
-            ],
-            "description": "Addon to display confirmation dialog in Nette  webapplications",
-            "time": "2013-02-21 17:07:49"
         }
     ],
     "packages-dev": [
