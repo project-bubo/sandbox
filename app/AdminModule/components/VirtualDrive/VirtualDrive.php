@@ -1,6 +1,6 @@
 <?php
 
-namespace AdminModule\Components;
+namespace BuboApp\AdminModule\Components;
 
 use Bubo;
 
@@ -36,17 +36,17 @@ class VirtualDrive extends Bubo\Components\ContextMenuControl {
     }
     
     public function createComponentTinyAddFileForm($name) {
-        return new \AdminModule\VirtualDrive\Forms\TinyAddFileForm($this, $name);
+        return new \BuboApp\AdminModule\VirtualDrive\Forms\TinyAddFileForm($this, $name);
     }
     public function createComponentTinyAddFolderForm($name) {
-        return new \AdminModule\VirtualDrive\Forms\TinyAddFolderForm($this, $name);
+        return new \BuboApp\AdminModule\VirtualDrive\Forms\TinyAddFolderForm($this, $name);
     }
     public function createComponentTinyAddGalleryForm($name) {
-        return new \AdminModule\VirtualDrive\Forms\TinyAddGalleryForm($this, $name);
+        return new \BuboApp\AdminModule\VirtualDrive\Forms\TinyAddGalleryForm($this, $name);
     }
     
     public function createComponentTinyAddToGalleryForm($name) {
-        return new \AdminModule\VirtualDrive\Forms\TinyAddToGalleryForm($this, $name);
+        return new \BuboApp\AdminModule\VirtualDrive\Forms\TinyAddToGalleryForm($this, $name);
     }
     public function __construct($parent, $name) {
         parent::__construct($parent, $name);

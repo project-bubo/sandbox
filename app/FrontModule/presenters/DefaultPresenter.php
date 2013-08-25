@@ -3,7 +3,7 @@
 namespace FrontModule;
 
 use Nette\Http\User,
-    \AdminModule\DataGrids\TestDataGrid,
+    \BuboApp\AdminModule\DataGrids\TestDataGrid,
     AdminModule\Forms\LoginForm;
 
 class DefaultPresenter extends BasePresenter {

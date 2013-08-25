@@ -1,6 +1,6 @@
 <?php
 
-namespace AdminModule\Forms;
+namespace BuboApp\AdminModule\Forms;
 
 use Nette\Application\UI\Form,
     Nette\Environment;
@@ -17,7 +17,7 @@ class LinkForm extends BaseForm {
         //dump($labelId);
         
         
-        $st = new \AdminModule\Components\SelectTraverser($this->presenter);
+        $st = new \BuboApp\AdminModule\Components\SelectTraverser($this->presenter);
         
         $cm = $this->presenter->pageManagerService->getCurrentModule();
         $moduleConfig = $this->presenter->configLoaderService->loadModulesConfig($cm);

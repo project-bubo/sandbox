@@ -1,11 +1,11 @@
 <?php
 
-namespace AdminModule\VirtualDrive\Forms;
+namespace BuboApp\AdminModule\VirtualDrive\Forms;
 
 use Nette\Application\UI\Form,
     Nette\Environment;
 
-class TinyAddToGalleryForm extends \AdminModule\Forms\BaseForm {
+class TinyAddToGalleryForm extends \BuboApp\AdminModule\Forms\BaseForm {
 
     public function __construct($parent, $name) {
         parent::__construct($parent, $name);

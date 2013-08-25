@@ -1,6 +1,6 @@
 <?php
 
-namespace AdminModule\Sorters;
+namespace BuboApp\AdminModule\Sorters;
 
 class LabelSorter extends GeneralSorter {   
     

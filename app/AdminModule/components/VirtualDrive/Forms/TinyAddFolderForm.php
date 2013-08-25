@@ -1,6 +1,6 @@
 <?php
 
-namespace AdminModule\VirtualDrive\Forms;
+namespace BuboApp\AdminModule\VirtualDrive\Forms;
 
 use Nette\Application\UI\Form,
     Nette\Environment,

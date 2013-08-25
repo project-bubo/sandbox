@@ -1,6 +1,6 @@
 <?php
 
-namespace AdminModule\Forms;
+namespace BuboApp\AdminModule\Forms;
 
 use Nette\Application\UI\Form,
     Nette\Environment,
