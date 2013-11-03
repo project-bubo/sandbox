@@ -2,3 +2,4 @@ temp/*
 log/*
 libs/*
 vendor/*
+composer.lock

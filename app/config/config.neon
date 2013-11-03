@@ -4,8 +4,7 @@
 #
 common:
     parameters:
-        langDir: %appDir%/lang # route to lang files
-        lang: cs_CZ
+
 #        langs:
 #            en: English
 #            cs: Čeština
@@ -24,6 +23,15 @@ common:
         media:
             rootFolder: media
 
+    gettextTranslator:
+        lang: cs
+        files:
+            front: %appDir%/lang # for module Front and other non-specified modules
+            #admin: %appDir%/lang # for module Admin
+        # optional with defaults
+        layout: horizontal # or: vertical
+        height: 450
+
     php:
         date.timezone: Europe/Prague
         #%session.save_path: "temp/sessions"
@@ -36,14 +44,27 @@ common:
             debugger: true
 
     services:
+        # custom presenter factory assuming all presenters to have 'BuboApp' as the root namespace
+        nette.presenterFactory:
+            factory: Bubo\Application\PresenterFactory::factory
         database:
             factory: Bubo\DibiFactory::createConnection
         authenticator:
-            class: Acl\Security\CMSAuthenticator
+            class: Bubo\Security\Authenticator
             arguments: [@database]
         authorizator:
-            class: Acl\Security\Acl
-            arguments: [@resourceManager]
+            class: Nette\Security\Permission
+            setup:
+                - addRole('guest')
+                - addRole('editor')
+                - addRole('admin')
+                - addResource('Admin:Default')
+                - addResource('Admin:Page')
+                - addResource('Admin:Media')
+                - addResource('Admin:Label')
+                - addResource('Admin:Tiny')
+                - allow('editor', 'Admin:Default')
+                - allow('admin')
         modelLoader:
             class: Bubo\Services\ModelLoader
             arguments: [@container]
@@ -84,10 +105,10 @@ common:
             class: Nette\Caching\Storages\FileStorage
             arguments: [%tempDir%/cache]
             #class: Nette\Caching\Storages\DevNullStorage
+#        translator:
+#            class: GettextTranslator\Gettext
+#            arguments: [@session, @cacheStorage, @httpResponse]
 
-# translator
-        translator:
-            factory: NetteTranslator\Gettext::getTranslator
 
 # /translator
 

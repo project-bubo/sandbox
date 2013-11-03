@@ -1,6 +1,6 @@
 <?php
 
-namespace AdminModule\DataGrids;
+namespace BuboApp\AdminModule\DataGrids;
 
 abstract class BaseDataGrid extends \DataGrid\DataGrid {
     

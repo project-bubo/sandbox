@@ -1,8 +1,8 @@
 <?php
 
-namespace AdminModule\Components\VirtialDrive\Dialogs;
+namespace BuboApp\AdminModule\Components\VirtialDrive\Dialogs;
 
-final class FileConfirmDialog extends \AdminModule\Dialogs\BaseConfirmDialog {
+final class FileConfirmDialog extends \BuboApp\AdminModule\Dialogs\BaseConfirmDialog {
     
     public function __construct($parentPresenter) {
         parent::__construct($parentPresenter);

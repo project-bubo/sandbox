@@ -1,6 +1,6 @@
 <?php
 
-namespace AdminModule\Components\StructureManager\Components;
+namespace BuboApp\AdminModule\Components\StructureManager\Components;
 
 use Nette\Application\UI\Form,
     Nette\Utils\Html,

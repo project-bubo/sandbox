@@ -5,6 +5,7 @@ use Nette\Diagnostics\Debugger,
 	Nette\Application\Routers\Route,
 	Nette\Application\Routers\RouteList,
 	Nette\Application\Routers\SimpleRouter;
+//use MultipleFileUpload;
 
 //ini_set('max_execution_time', 6);
 
@@ -15,6 +16,10 @@ require LIBS_DIR . '/autoload.php';
 // Configure application
 $configurator = new Nette\Config\Configurator;
 
+//$configurator->onCompile[] = function ($configurator, $compiler) {
+//    $compiler->addExtension('gettextTranslator', new GettextTranslator\DI\Extension);
+//};
+
 // Enable Nette Debugger for error visualisation & logging
 $configurator->setDebugMode();
 $configurator->enableDebugger(__DIR__ . '/../log');
@@ -23,8 +28,6 @@ $configurator->enableDebugger(__DIR__ . '/../log');
 $configurator->setTempDirectory(__DIR__ . '/../temp');
 $configurator->createRobotLoader()
 	->addDirectory(APP_DIR)
-	->addDirectory(LIBS_DIR)
-    //->addDirectory(PLUGINS_DIR)
 	->register();
 
 
@@ -93,16 +96,22 @@ $params = array(
 );
 $configurator->addParameters($params);
 
+$configurator->onCompile[] = function ($configurator, $compiler) {
+    $compiler->addExtension('gettextTranslator', new GettextTranslator\DI\Extension);
+};
+
 $container = $configurator->createContainer();
 
-//dump($container->parameters);
-//die();
+$appDir = $container->parameters['appDir'];
 
 // Translator
-$container->getService("translator")->addFile("%appDir%/lang/","core"); // add block homepage to (app/lang/{lang}.homepage.mo
+//$translator = $container->getService("translator");
+//$translator->addFile("$appDir/lang","core"); // add block homepage to (app/lang/{lang}.homepage.mo
 //$configurator->container->getService("translator")->addFile("%appDir%/lang/","about"); // add another block, if you need to separate particular pages
-NetteTranslator\Panel::register($container, $container->translator);
+//GettextTranslator\Panel::register($container->application, $container->translator, $container->session, $container->httpRequest, 'horizontal', '450');
+//$translator->addSetup('GettextTranslator\Panel::register', array('@application', '@self', '@session', '@httpRequest', $config['layout'], $config['height']));
 
+//Nette\Diagnostics\Debugger::$bar->addPanel(new static($container->application, $container->translator, $container->session, $container->httpRequest, 'horizontal', '450'));
 
 // Setup router using mod_rewrite detection
 if (function_exists('apache_get_modules') && in_array('mod_rewrite', apache_get_modules())) {
@@ -214,11 +223,11 @@ if (function_exists('apache_get_modules') && in_array('mod_rewrite', apache_get_
 
 //$container->application->catchExceptions = FALSE;
 \dibi::setConnection($container->database);
-MultipleFileUpload::register();
-MultipleFileUpload::getUIRegistrator()
+\MultipleFileUpload\MultipleFileUpload::register();
+\MultipleFileUpload\MultipleFileUpload::getUIRegistrator()
     ->clear()
 //    ->register("MFUUIHTML4SingleUpload")
-    ->register("MFUUIPlupload");
+    ->register('MultipleFileUpload\UI\Plupload');
 ////            ->register("MFUUISwfupload");
 ////            ->register("MFUUIUploadify");
 //
@@ -228,8 +237,8 @@ MultipleFileUpload::getUIRegistrator()
 //// When you want to use other driver use something like this:
 if(class_exists("Dibi", true)) {
     // dibi is already connected
-    MultipleFileUpload::setQueuesModel(new MFUQueuesDibi());
-    MultipleFileUpload::setLifeTime(3600); // 1hour for temporarily uploaded files
+    \MultipleFileUpload\MultipleFileUpload::setQueuesModel(new \MultipleFileUpload\Model\Dibi\Queues());
+    \MultipleFileUpload\MultipleFileUpload::setLifeTime(3600); // 1hour for temporarily uploaded files
 }
 
 /**

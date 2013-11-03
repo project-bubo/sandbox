@@ -2,14 +2,14 @@
 
 namespace FrontModule\Components\Files;
 
-use Bubo;
+use Bubo\Application\UI\Control;
 
-class File extends Bubo\Components\RegisteredControl {   
+class File extends Control {
 
     public function render($fileId = NULL, $getAs = NULL) {
         //$this->setTemplateFile();
-  
-   
+
+
         //echo "";
         if ($fileId !== NULL) {
 
@@ -31,8 +31,8 @@ class File extends Bubo\Components\RegisteredControl {
             }
         }
 
-        
-    }        
 
-    
+    }
+
+
 }

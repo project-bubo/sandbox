@@ -1,36 +1,36 @@
 <?php
 
-namespace AdminModule\Sorters;
+namespace BuboApp\AdminModule\Sorters;
 
-use Bubo;
+use Bubo\Application\UI\Control;
 
-class GeneralSorter extends Bubo\Components\RegisteredControl {   
+class GeneralSorter extends Control {
 
     /**
      * @persistent
      */
     public $parentId;
-    
-    
+
+
     public function handleShowDescendats($parentId) {
-        
+
     }
-    
+
     public function handleSaveSortorder() {
         $data = $this->presenter->getParam('data');
         parse_str($data);
         // order is in $items
-        
+
         $this->saveSortorder($items);
 
     }
-    
-    
+
+
     public function render() {
-        $template = $this->createNewTemplate(__DIR__.'/templates/default.latte');
+        $template = parent::initTemplate(dirname(__FILE__) . '/templates/default.latte');
         $template->itemList = $this->getItemList($this->parentId);
         echo $template;
     }
-        
-    
+
+
 }
