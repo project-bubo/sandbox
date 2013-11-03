@@ -39,10 +39,10 @@ $(document).ready(function(){
         return false;
     });
 
-    $("form.ajax :submit").live("click", function () {
-        $(this).ajaxSubmit();
-        return false;
-    });
+//    $("form.ajax :submit").live("click", function () {
+//        $(this).ajaxSubmit();
+//        return false;
+//    });
     $('a[rel=external]').live('click',function(ev){
         window.open(this.href);
         ev.preventDefault();
