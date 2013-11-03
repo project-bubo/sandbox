@@ -1,4 +1,8 @@
 <?php
+namespace BuboApp;
+
+use Bubo\Application\UI\Presenter;
+use GettextTranslator;
 
 /**
  * Base presenter for all application presenters.
@@ -6,7 +10,7 @@
  * @property-read \Model\PageModel $pageModel
  * @property-read \Model\LabelModel $labelModel
  */
-abstract class BasePresenter extends \Bubo\Application\UI\Presenter
+abstract class BasePresenter extends Presenter
 {
 
     /** @persistent default language */
@@ -26,17 +30,7 @@ abstract class BasePresenter extends \Bubo\Application\UI\Presenter
 
     public $baseUri;
 
-    /** @var GettextTranslator\Gettext */
-    protected $translator;
 
-
-    /**
-     * @param GettextTranslator\Gettext
-     */
-    public function injectTranslator(GettextTranslator\Gettext $translator)
-    {
-        $this->translator = $translator;
-    }
 
     /**
      * Returns "Admin" or "Front" or ...
@@ -149,8 +143,8 @@ abstract class BasePresenter extends \Bubo\Application\UI\Presenter
 
         //dump($this->lang ?: $this->langManagerService->getDefaultLanguage());
 
-        $this->context->translator->setLang($this->getFullLang());
-        $this->template->setTranslator($this->context->translator);
+        //$this->context->translator->setLang($this->getFullLang());
+        //$this->template->setTranslator($this->context->translator);
 
         $this->template->registerHelper('timeAgoInWords', 'Bubo\Helpers\Helpers::timeAgoInWords');
         // session example

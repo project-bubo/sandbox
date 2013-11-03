@@ -2,63 +2,57 @@
 
 namespace FrontModule\Components\Galleries;
 
-use Bubo;
+use Bubo\Application\UI\Control;
 
-class DefaultGallery extends Bubo\Components\RegisteredControl {   
-    
+class DefaultGallery extends Control {
+
     private $galleryId = NULL;
-    
+
     public $templateFile;
-    
+
     public function __construct($gid = NULL){
-        parent::__construct(); 
+        parent::__construct();
         $this->galleryId = $gid;
     }
-    
+
     public function setTemplateFile() {
         $this->templateFile = __DIR__ . '/templates/advanced.latte';
     }
-    
+
     public function getGalleryId() {
         return $this->galleryId;
     }
-    
-//    public function __get($name) {
-////        dump($name);
-////        die();
-//        parent::__get($name);
-//    }
-    
+
     public function render($gid = NULL, $page = NULL, $mode = NULL) {
         $this->setTemplateFile();
-        
-        
+
+
 //        dump($gid, $mode);
 //        die();
-        
+
         if ($mode !== NULL) {
-            
+
             //if (preg_match('#gallery\-([0-9]+)#', $gid, $matches)) {
                 $images = $this->presenter->mediaManagerService->loadImages($gid, $mode);
-                
+
 //                dump($images);
 //                die();
-                
+
                 $template = $this->template;
                 $template->setFile($this->templateFile);
                 $template->page = $page;
                 $template->presenter = $this->presenter;
-                
+
                 $template->images = $images;
                 $template->render();
-                
+
                 //die();
             //}
-            
-            
+
+
         } else {
-        
-        
+
+
     //        dump($gid);
     //        die();
 
@@ -86,5 +80,5 @@ class DefaultGallery extends Bubo\Components\RegisteredControl {
         }
     }
 
-    
+
 }

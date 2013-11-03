@@ -2,7 +2,9 @@
 
 namespace BuboApp\AdminModule\Components;
 
-class AdminMenu extends \Nette\Application\UI\Control {
+use Bubo\Application\UI\Control;
+
+class AdminMenu extends Control {
 
     public $sections = array();
 
@@ -64,19 +66,10 @@ class AdminMenu extends \Nette\Application\UI\Control {
 
     }
 
-
-
     public function render() {
-
-
-        $template = $this->template;
-        $template->setFile(dirname(__FILE__) . '/adminMenu.latte');
-        $template->setTranslator($this->getPresenter()->context->translator);
-
+        $template = parent::initTemplate(dirname(__FILE__) . '/adminMenu.latte');
         $template->sections = $this->sections;
-
         $template->render();
-
     }
 
 

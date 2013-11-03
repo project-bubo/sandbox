@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<title>{_"Virtual drive"}</title>
-        
+
     <script src="{$basePath}/js/jquery.min.js" type="text/javascript"></script>
     <script src="{$basePath}/js/jquery-ui.min.js" type="text/javascript"></script>
 	<script type="text/javascript" src="{$basePath}/js/tiny_mce/tiny_mce_popup.js"></script>
@@ -11,39 +11,39 @@
 	<script type="text/javascript" src="{$basePath}/js/tiny_mce/utils/validate.js"></script>
 	<script type="text/javascript" src="{$basePath}/js/tiny_mce/utils/editable_selects.js"></script>
 	<script type="text/javascript" src="{$basePath}/js/tiny_mce/plugins/vd/js/vd.js?v={? uniqid('__vd'); }"></script>
-        
+
 	<link href="{$basePath}/js/tiny_mce/plugins/vd/css/vd.css?version=1.2" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" media="screen" type="text/css" href="{$basePath}/js/colorpicker/css/colorpicker.css" />
-        
+
     <link rel="stylesheet" media="screen" type="text/css" href="{$basePath}/css/smoothness/jquery-ui-1.8rc3.custom.css" />
     <link rel="stylesheet" media="screen" type="text/css" href="{$basePath}/css/calendar/jquery.weekcalendar.css" />
 
     <link href="{$basePath}/js/tiny_mce/plugins/vd/css/icons.css?version=1.2" rel="stylesheet" type="text/css" />
-        
+
     <script src="{$basePath}/js/jquery.nette.js" type="text/javascript"></script>
     <script src="{$basePath}/js/jquery.livequery.js" type="text/javascript"></script>
     <script src="{$basePath}/js/netteForms.js" type="text/javascript"></script>
     <script src="{$basePath}/js/jquery.ajaxform.js" type="text/javascript"></script>
     <script type="text/JavaScript" src="{$baseUrl}/js/contextMenu.js"></script>
-        
-        
+
+
     <link rel="stylesheet" media="screen" type="text/css" href="{$basePath}/vd/css/styles.css" />
     <script src="{$basePath}/vd/js/scripts.js" type="text/javascript"></script>
-        
+
         <script type="text/javascript">
         var mediaJsConfig = {!$_presenter[media]->getMediaJsConfig()};
-        
+
         $(function(){
-            
-            
+
+
             $('a.trigger-media-image-setting-form').live('click', function(e) {
                 e.preventDefault();
                 $('form.media-image-setting-form').submit();
             });
-            
-            
-            
-            
+
+
+
+
             $('.fileManager').height($('.drive_space').height()-20);
             $(window).resize(function(){
                 $('.fileManager').height($('.drive_space').height()-20);
@@ -70,18 +70,18 @@
 //            $("form.ajax :submit").live("click", function () {
 //                $(this).ajaxSubmit();
 //                return false;
-//            }); 
-           
-            
-        });    
+//            });
+
+
+        });
         </script>
-	{!=\MultipleFileUpload::getHead()}
+	{!=\MultipleFileUpload\MultipleFileUpload::getHead()}
 </head>
 <body id="advimage" style="display: none" role="application" aria-labelledby="app_title">
 	<span id="app_title" style="display:none">{_"Virtual drive"}</span>
         {*control virtualDrive*}
         {control media}
-                        
-                    
-</body> 
-</html> 
+
+
+</body>
+</html>

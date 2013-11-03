@@ -2,6 +2,8 @@
 
 namespace BuboApp\AdminModule;
 
+use BuboApp;
+
 use Bubo;
 
 use Nette\Utils\Arrays;
@@ -10,7 +12,7 @@ use Nette\Security\User;
 /**
  * Base presenter of admin module
  */
-abstract class BasePresenter extends \BasePresenter
+abstract class BasePresenter extends BuboApp\BasePresenter
 {
     /**
      * Base path

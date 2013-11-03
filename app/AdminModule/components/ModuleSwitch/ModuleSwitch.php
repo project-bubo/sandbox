@@ -2,9 +2,9 @@
 
 namespace BuboApp\AdminModule\Components;
 
-use Bubo;
+use Bubo\Application\UI\Control;
 
-class ModuleSwitch extends \Bubo\Components\RegisteredControl {
+class ModuleSwitch extends Control {
 
     public function createComponentModuleSwitchForm($name) {
         return new ModuleSwitch\Components\ModuleSwitchForm($this, $name);

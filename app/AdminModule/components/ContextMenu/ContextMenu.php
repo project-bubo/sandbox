@@ -2,7 +2,7 @@
 
 namespace BuboApp\AdminModule\Components;
 
-use Nette\Application\UI\Control;
+use Bubo\Application\UI\Control;
 
 /**
  * Context menu component
@@ -14,7 +14,7 @@ use Nette\Application\UI\Control;
  *
  *
  */
-abstract class ContextMenu extends \Bubo\Components\RegisteredControl {
+abstract class ContextMenu extends Control {
 
     /** @persistent */
     public $treeNodeId = 0;
