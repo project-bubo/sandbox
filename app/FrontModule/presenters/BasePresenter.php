@@ -1,8 +1,10 @@
 <?php
 
-namespace FrontModule;
+namespace BuboApp\FrontModule;
 
-abstract class BasePresenter extends \BasePresenter {
+use BuboApp;
+
+abstract class BasePresenter extends BuboApp\BasePresenter {
 
     public $url;
 

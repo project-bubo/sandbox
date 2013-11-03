@@ -5,7 +5,7 @@ use Nette\Diagnostics\Debugger,
 	Nette\Application\Routers\Route,
 	Nette\Application\Routers\RouteList,
 	Nette\Application\Routers\SimpleRouter;
-use MultipleFileUpload;
+//use MultipleFileUpload;
 
 //ini_set('max_execution_time', 6);
 
@@ -96,13 +96,17 @@ $params = array(
 );
 $configurator->addParameters($params);
 
+$configurator->onCompile[] = function ($configurator, $compiler) {
+    $compiler->addExtension('gettextTranslator', new GettextTranslator\DI\Extension);
+};
+
 $container = $configurator->createContainer();
 
 $appDir = $container->parameters['appDir'];
 
 // Translator
-$translator = $container->getService("translator");
-$translator->addFile("$appDir/lang","core"); // add block homepage to (app/lang/{lang}.homepage.mo
+//$translator = $container->getService("translator");
+//$translator->addFile("$appDir/lang","core"); // add block homepage to (app/lang/{lang}.homepage.mo
 //$configurator->container->getService("translator")->addFile("%appDir%/lang/","about"); // add another block, if you need to separate particular pages
 //GettextTranslator\Panel::register($container->application, $container->translator, $container->session, $container->httpRequest, 'horizontal', '450');
 //$translator->addSetup('GettextTranslator\Panel::register', array('@application', '@self', '@session', '@httpRequest', $config['layout'], $config['height']));
@@ -219,8 +223,8 @@ if (function_exists('apache_get_modules') && in_array('mod_rewrite', apache_get_
 
 //$container->application->catchExceptions = FALSE;
 \dibi::setConnection($container->database);
-MultipleFileUpload\MultipleFileUpload::register();
-MultipleFileUpload\MultipleFileUpload::getUIRegistrator()
+\MultipleFileUpload\MultipleFileUpload::register();
+\MultipleFileUpload\MultipleFileUpload::getUIRegistrator()
     ->clear()
 //    ->register("MFUUIHTML4SingleUpload")
     ->register('MultipleFileUpload\UI\Plupload');
@@ -233,8 +237,8 @@ MultipleFileUpload\MultipleFileUpload::getUIRegistrator()
 //// When you want to use other driver use something like this:
 if(class_exists("Dibi", true)) {
     // dibi is already connected
-    MultipleFileUpload\MultipleFileUpload::setQueuesModel(new MultipleFileUpload\Model\Dibi\Queues());
-    MultipleFileUpload\MultipleFileUpload::setLifeTime(3600); // 1hour for temporarily uploaded files
+    \MultipleFileUpload\MultipleFileUpload::setQueuesModel(new \MultipleFileUpload\Model\Dibi\Queues());
+    \MultipleFileUpload\MultipleFileUpload::setLifeTime(3600); // 1hour for temporarily uploaded files
 }
 
 /**

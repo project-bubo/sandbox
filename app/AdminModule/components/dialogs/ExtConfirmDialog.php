@@ -1,6 +1,6 @@
 <?php
 
-namespace AdminModule\Dialogs;
+namespace BuboApp\AdminModule\Dialogs;
 
 final class ExtConfirmDialog extends BaseConfirmDialog {
 
@@ -18,8 +18,6 @@ final class ExtConfirmDialog extends BaseConfirmDialog {
                         array($this, 'deleteItem'), // callback na funkci při kliku na YES
                         'Opravdu odstranit toto rozšíření?' // otázka (může být i callback vracející string)
                 );
-
-
 
     }
 

@@ -3,11 +3,11 @@
 namespace ContextMenu;
 
 
-class VirtualDriveGalleryContextMenu extends \AdminModule\Components\ContextMenu {
+class VirtualDriveGalleryContextMenu extends \BuboApp\AdminModule\Components\ContextMenu {
 
     
     public function createComponentConfirmer(){
-        return new \AdminModule\Components\VirtialDrive\Dialogs\GalleryConfirmDialog($this->presenter);
+        return new \BuboApp\AdminModule\Components\VirtialDrive\Dialogs\GalleryConfirmDialog($this->presenter);
     }
     
     public function render() {

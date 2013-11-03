@@ -3,11 +3,11 @@
 namespace ContextMenu;
 
 
-class VirtualDriveFileContextMenu extends \AdminModule\Components\ContextMenu {
+class VirtualDriveFileContextMenu extends \BuboApp\AdminModule\Components\ContextMenu {
 
     
     public function createComponentDeleteFile() {
-        return new \AdminModule\Components\VirtialDrive\Dialogs\FileConfirmDialog($this->presenter);
+        return new \BuboApp\AdminModule\Components\VirtialDrive\Dialogs\FileConfirmDialog($this->presenter);
     }
     
     public function render() {

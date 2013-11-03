@@ -1,8 +1,6 @@
 <?php
 
-namespace AdminModule;
-
-use AdminModule\Forms\LoginForm;
+namespace BuboApp\AdminModule;
 
 final class AuthPresenter extends BasePresenter {
 

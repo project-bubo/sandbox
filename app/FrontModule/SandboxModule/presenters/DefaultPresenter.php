@@ -1,17 +1,19 @@
 <?php
 
-namespace FrontModule\SandboxModule;
+namespace BuboApp\FrontModule\SandboxModule;
 
-final class DefaultPresenter extends \FrontModule\DefaultPresenter {
+use BuboApp;
+
+final class DefaultPresenter extends BuboApp\FrontModule\DefaultPresenter {
 
      /**
      * Frontend dispatcher
-     * 
-     * @param type $url - url (without first slash) 
+     *
+     * @param type $url - url (without first slash)
      */
-    public function actionDefault($lang, $url) {        
+    public function actionDefault($lang, $url) {
         $this->loadPage($lang, $url);
     }
- 
-    
+
+
 }

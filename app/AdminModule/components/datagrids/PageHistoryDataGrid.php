@@ -1,6 +1,6 @@
 <?php
 
-namespace AdminModule\DataGrids;
+namespace BuboApp\AdminModule\DataGrids;
 
 
 final class PageHistoryDataGrid extends BaseDataGrid {
