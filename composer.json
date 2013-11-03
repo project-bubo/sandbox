@@ -5,9 +5,9 @@
         "nette/nette": "2.0.*",
         "project-bubo/bubo": "dev-develop",
         "project-bubo/datagrid": "@dev",
-        "jkuchar/multiplefileupload": "@dev",
+        "jurasm2/multiplefileupload": "@dev",
         "dibi/dibi": "2.0.*",
-        "schmutzka/gettexttranslator": "2.0.*"
+        "jurasm2/gettexttranslator": "2.0.*"
     },
     "authors": [
         {
