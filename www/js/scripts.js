@@ -34,15 +34,15 @@ $(document).ready(function(){
     });
 
     /* AJAXové odeslání formulářů */
-    $("form.ajax").live("submit", function () {
+    $("form.ajax, form.mfu").live("submit", function () {
         $(this).ajaxSubmit();
         return false;
     });
 
-//    $("form.ajax :submit").live("click", function () {
-//        $(this).ajaxSubmit();
-//        return false;
-//    });
+    $("form.ajax :submit").live("click", function () {
+        $(this).ajaxSubmit();
+        return false;
+    });
     $('a[rel=external]').live('click',function(ev){
         window.open(this.href);
         ev.preventDefault();
