@@ -1,5 +1,3 @@
-temp/*
-log/*
-libs/*
-vendor/*
+/libs/*
+/vendor/*
 composer.lock
