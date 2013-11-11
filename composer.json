@@ -1,13 +1,14 @@
 {
-    "name": "project-bubo/sandbox",
+    "name": "jurasm2/bubo-sandbox",
     "description": "Sandbox for bubo application",
     "require": {
         "nette/nette": "2.0.*",
-        "project-bubo/bubo": "dev-develop",
-        "project-bubo/datagrid": "@dev",
+        "jurasm2/bubo": "dev-develop",
+        "jurasm2/datagrid": "@dev",
         "jurasm2/multiplefileupload": "dev-develop",
         "dibi/dibi": "2.0.*",
-        "jurasm2/gettexttranslator": "2.0.*"
+        "jurasm2/gettexttranslator": "2.0.*",
+        "srigi/nette-confirmationdialog": "dev-master"
     },
     "authors": [
         {

@@ -44,7 +44,7 @@ $(function() {
 
         if ( $(this).hasClass('opened') ) {
             $('.itemContextMenuButton').removeClass('opened').next('.vd-contextMenu').hide();
-        } else {        
+        } else {
             $('.itemContextMenuButton').removeClass('opened').next('.vd-contextMenu').hide();
             $(this).addClass('opened').next('.vd-contextMenu').show();
         };
@@ -83,7 +83,7 @@ $(function() {
     $('.vd-itemProportions input').live('keypress',function(e) {
         if (e.which == 13) {
             $(this).blur();
-        } 
+        }
     });
 
     $('.vd-itemProportions').find('input').live('click',function(){
@@ -118,16 +118,16 @@ function closeDialog() {
 
 function _ajaxUpdateSnippet(snippetName, state, mediaData) {
     //console.log(snippetName);
-    
+
     switch(snippetName) {
         case 'snippet-media-contentPane':
             mediaJsConfig.offset = mediaJsConfig.initialOffset;
             mediaJsConfig.section = state['media-section'];
             mediaJsConfig.folderId = state['media-folderId'];
-            
+
             //_ajaxUpateScrollBar();
             _ajaxUpateSortable();
-            
+
             // contentType: null | image-detail | file-detail
             if (mediaData && mediaData.contentType) {
                 switch (mediaData.contentType) {
@@ -146,9 +146,9 @@ function _ajaxUpdateSnippet(snippetName, state, mediaData) {
         case 'snippet-media-content-popUp':
             _ajaxLabelTabs();
             break;
-        
+
     }
-    
+
 }
 
 //init tooltips
@@ -165,32 +165,6 @@ function _ajaxUpateTooltip() {
 //init scrollbar
 function _ajaxUpateScrollBar() {
     $(".vd-content").mCustomScrollbar("update");
-//    $('.vd-content').mCustomScrollbar({
-//        set_width: 750,
-//        set_height:470,
-//        mouseWheelPixels: 154,
-//        scrollInertia: 170,
-//        advanced: {
-//            updateOnContentResize: true
-//        },
-//        callbacks: {
-//            onTotalScroll: function() {
-//                var $data = {
-//                          'media-content-offset' :  mediaJsConfig.offset,
-//                          'media-content-folderId': mediaJsConfig.folderId,
-//                          'media-content-section': mediaJsConfig.section
-//                };
-//                
-//                if (mediaJsConfig.state) {
-//                    $data = mediaJsConfig.state
-//                }
-//                
-//                $.get(mediaJsConfig.link, $data, function(payload) {
-//                    $.nette.success(payload);
-//                })
-//            }
-//        }
-//    });
 }
 
 
@@ -252,9 +226,9 @@ function _ajaxImageDetail() {
     if ($('.vd-itemDetail').length > 0) {
 
         var imageRel = $('.vd-itemPreview').find('img').attr('rel');
-        
+
         if (imageRel != undefined) {
-        
+
             var imageSize = imageRel.split('x');
 
             var maxWidth = imageSize[0];
@@ -353,7 +327,7 @@ function _ajaxImageDetail() {
                         resetImage();
                         alert('Nově nastavená výška je větší než původní!');
                     };
-                }; 
+                };
                 if ( currentWidth <= 10 || currentHeight <= 10 || !this.value  ) {
                     resetImage()
                     alert('Obrázek je příliš malý!');
@@ -368,7 +342,7 @@ function _imageDetailPreviewUpdate(type,value1,value2) {
 
     var actualPercentage = Math.round( (value1/value2 * 100) );
     $('.vd-rangeSlider').val(actualPercentage);
-    
+
     switch(type) {
         case 'rangeSlider':
             $('.valIndicator,.vd-bigPreview').show().delay(3500).fadeOut(100);
@@ -433,7 +407,7 @@ function _js_init() {
     _ajaxImageDetail();
     _ajaxLabelTabs();
 
-    
+
 };
 
 
@@ -455,7 +429,7 @@ function _js_init() {
  * Thanks to: Seamus Leahy for adding deltaX and deltaY
  *
  * Version: 3.0.6
- * 
+ *
  * Requires: 1.2.2+
  */
 ;(function(a){function d(b){var c=b||window.event,d=[].slice.call(arguments,1),e=0,f=!0,g=0,h=0;return b=a.event.fix(c),b.type="mousewheel",c.wheelDelta&&(e=c.wheelDelta/120),c.detail&&(e=-c.detail/3),h=e,c.axis!==undefined&&c.axis===c.HORIZONTAL_AXIS&&(h=0,g=-1*e),c.wheelDeltaY!==undefined&&(h=c.wheelDeltaY/120),c.wheelDeltaX!==undefined&&(g=-1*c.wheelDeltaX/120),d.unshift(b,e,g,h),(a.event.dispatch||a.event.handle).apply(this,d)}var b=["DOMMouseScroll","mousewheel"];if(a.event.fixHooks)for(var c=b.length;c;)a.event.fixHooks[b[--c]]=a.event.mouseHooks;a.event.special.mousewheel={setup:function(){if(this.addEventListener)for(var a=b.length;a;)this.addEventListener(b[--a],d,!1);else this.onmousewheel=d},teardown:function(){if(this.removeEventListener)for(var a=b.length;a;)this.removeEventListener(b[--a],d,!1);else this.onmousewheel=null}},a.fn.extend({mousewheel:function(a){return a?this.bind("mousewheel",a):this.trigger("mousewheel")},unmousewheel:function(a){return this.unbind("mousewheel",a)}})})(jQuery);

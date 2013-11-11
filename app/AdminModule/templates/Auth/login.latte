@@ -1,35 +1,23 @@
-{block #title}Login :: {include #parent}{/block}
-
-{var robots = noindex}
-
 {block #content}
-
-
-
         {form loginForm}
         <?php $form->render('errors') ?>
-        
+
         <table border="0" >
             <tr >
                 <td>{label login /}</td>
                 <td>{input login class => input}</td>
             </tr>
-           
+
             <tr >
                 <td>{label password /}</td>
                 <td>{input password class => input}</td>
             </tr>
-            
-            <tr>
-                <td>{label remember /}</td>
-                <td>{input remember}</td>
-            </tr>
+
             <tr>
                 <th></th>
                 <td>{input send class => submit}</td>
             </tr>
         </table>
-       
+
         {/form loginForm}
-        
 {/block}

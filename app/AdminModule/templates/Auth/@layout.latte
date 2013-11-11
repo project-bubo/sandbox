@@ -1,31 +1,27 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
-  <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="cs" lang="cs">
-  <head>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-  <meta name="generator" content="PSPad editor, www.pspad.com" />
-  <meta http-equiv="content-language" content="cs" />
-  <meta name="robots" content="index,follow" />
-  <meta name="keywords" content="" />
-  <meta name="description" content="" />
-  
-  <link href="{$basePath}/css/pages.css" media="screen" rel="stylesheet" type="text/css" />
-  <link href="{$basePath}/css/login.css" media="screen" rel="stylesheet" type="text/css" />
-  <link href="favicon.ico" rel="shortcut icon" />  
-  <title>Clearway</title>
-  
-  
-  </head>
-  <body>
-  
-    <div class="login_box">
-      
-      <div class="log_title"></div>
-      {snippet}
-        {include #content}
-      {/snippet}
-    </div> 
-    <div n:foreach="$flashes as $flash" class="flash {$flash->type}">{$flash->message}</div>
-  
-    
-  </body>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="cs" lang="cs">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta http-equiv="content-language" content="cs" />
+        <meta name="robots" content="noindex,nofollow" />
+        <meta name="keywords" content="" />
+        <meta name="description" content="" />
+
+        <link href="{$basePath}/css/pages.css" media="screen" rel="stylesheet" type="text/css" />
+        <link href="{$basePath}/css/login.css" media="screen" rel="stylesheet" type="text/css" />
+        <link href="favicon.ico" rel="shortcut icon" />
+        <title>Bubo CMS</title>
+
+    </head>
+    <body>
+
+        <div class="login_box">
+
+            <div class="log_title"></div>
+            {snippet}
+                {include #content}
+            {/snippet}
+        </div>
+        <div n:foreach="$flashes as $flash" class="flash {$flash->type}">{$flash->message}</div>
+    </body>
 </html>
