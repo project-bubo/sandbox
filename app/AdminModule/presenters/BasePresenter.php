@@ -61,7 +61,7 @@ abstract class BasePresenter extends BuboApp\BasePresenter
             '~^[[:alnum:]]+Form$~'  =>  'AdminModule\\Forms',
             '~^[[:alnum:]]+DataGrid$~'  =>  'AdminModule\\DataGrids',
             '~^[[:alnum:]]+ConfirmDialog$~'  =>  'AdminModule\\Dialogs',
-            '~^[[:alnum:]]+Sorter$~' => 'AdminModule\\Sorters\\',
+            '~^[[:alnum:]]+Sorter$~' => 'AdminModule\\Sorters',
         );
 
         $this->nativeControlMap = Arrays::mergeTree($this->nativeControlMap, $adminModuleControlMap);
